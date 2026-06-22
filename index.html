@@ -1,93 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
-<head> 
-    <!-- El título que sale en los resultados de Google (Máximo 60 caracteres) -->
-<title>Daaazlandia | Comunidad Oficial de Fans de DAAZ</title>
-
-<!-- El resumen que aparece debajo del título en Google (Máximo 155 caracteres) -->
-<meta name="description" content="¡Únete a Daaazlandia! El club de fans oficial para los habitantes y arenosos de DAAZ. Entérate de chismes, conciertos, letras y el nuevo EP Sexy Arenoso.">
-
-<!-- Palabras clave para guiar tu temática -->
-<meta name="keywords" content="DAAZ, daazlandia, club de fans daaz, sexy arenoso, chismes de daaz, letras daaz">
+<head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Daaazlandia 🏡💛</title>
+<title>Daaazlandia | Comunidad de Fans de Daaz</title>
+
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Arial', sans-serif;
+:root{
+--primary:#ffd85c;
+--dark:#090912;
+--card:#191927;
+--text:#ffffff;
+--accent:#ff4f81;
 }
 
-body{
-    background:#0f0f14;
-    color:white;
-    overflow-x:hidden;
+
+/* EDITA SOLO ESTA PARTE PARA CAMBIAR TODOS LOS BOTONES */
+
+:root{
+--whatsapp:"https://wa.me/525571985641?text=Hola%20quiero%20entrar%20a%20Daaazlandia";
 }
+
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,Helvetica,sans-serif;
+scroll-behavior:smooth;
+}
+
+
+body{
+background:
+linear-gradient(130deg,#090912,#17172b,#090912);
+color:var(--text);
+}
+
+
+nav{
+
+position:sticky;
+top:0;
+z-index:10;
+
+background:#090912cc;
+backdrop-filter:blur(15px);
+
+padding:15px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+
+}
+
+
+nav a{
+
+color:white;
+text-decoration:none;
+padding:10px 18px;
+border-radius:30px;
+background:#ffffff12;
+
+}
+
+
+nav a:hover{
+background:var(--primary);
+color:black;
+}
+
 
 
 .hero{
 
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:40px;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:30px;
 
-    background:
-    radial-gradient(circle at top,#ffd85c55,transparent 40%),
-    linear-gradient(135deg,#15151f,#090910);
+background:
+radial-gradient(circle,var(--primary55),transparent);
 
 }
 
 
-.container{
-    max-width:1100px;
+.hero h1{
+
+font-size:clamp(40px,8vw,85px);
+line-height:.95;
+
 }
+
+
+.yellow{
+color:var(--primary);
+}
+
 
 
 .alert{
 
-    display:inline-block;
-    background:#ff3155;
-    padding:15px 25px;
-    border-radius:50px;
-    font-weight:bold;
-    font-size:22px;
-    animation:pulse 1.5s infinite;
-    margin-bottom:30px;
-
-}
-
-
-h1{
-
-font-size:70px;
-line-height:1;
-margin-bottom:25px;
-
-}
-
-
-.highlight{
-
-color:#ffd85c;
-
-}
-
-
-.hero p{
-
+background:#ff315c;
+padding:20px;
+border-radius:50px;
 font-size:25px;
-max-width:800px;
-margin:auto;
-line-height:1.5;
+font-weight:bold;
+display:inline-block;
+margin-bottom:30px;
+animation:pulse 1.5s infinite;
+
+}
+
+
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.08);
+}
+
+}
+
+
+
+p{
+
+font-size:18px;
+line-height:1.6;
 
 }
 
@@ -96,30 +144,33 @@ line-height:1.5;
 .btn{
 
 display:inline-block;
-margin-top:40px;
-padding:20px 45px;
-background:#ffd85c;
+margin:20px;
+padding:18px 35px;
+
+background:var(--primary);
 color:#111;
-border-radius:50px;
-font-size:22px;
+
 font-weight:bold;
+border-radius:50px;
+
 text-decoration:none;
+
 transition:.3s;
 
 }
 
 
+
 .btn:hover{
 
-transform:scale(1.05);
+transform:translateY(-5px);
 
 }
 
 
-
 section{
 
-padding:90px 10%;
+padding:80px 8%;
 
 }
 
@@ -127,8 +178,8 @@ padding:90px 10%;
 .title{
 
 font-size:45px;
-margin-bottom:30px;
 text-align:center;
+margin-bottom:40px;
 
 }
 
@@ -137,21 +188,26 @@ text-align:center;
 .cards{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
 
 }
 
 
+
 .card{
 
-background:#1d1d29;
+background:var(--card);
 padding:30px;
 border-radius:25px;
-border:1px solid #ffffff15;
+
+box-shadow:
+0 20px 40px #0005;
+
 transition:.3s;
 
 }
+
 
 
 .card:hover{
@@ -161,30 +217,85 @@ transform:translateY(-10px);
 }
 
 
-
 .card h3{
 
-color:#ffd85c;
+color:var(--primary);
 margin-bottom:15px;
 
 }
 
 
+
 .big{
 
 text-align:center;
-background:#ffd85c;
+
+background:
+linear-gradient(135deg,#ffd85c,#ff7a9c);
+
 color:#111;
-border-radius:30px;
-padding:60px;
+
+border-radius:40px;
+padding:50px;
 
 }
 
 
-.counter{
 
-font-size:70px;
+.number{
+
+font-size:90px;
 font-weight:bold;
+
+}
+
+
+
+.steps{
+
+counter-reset:step;
+
+}
+
+
+.step{
+
+margin:20px 0;
+
+}
+
+
+
+.step::before{
+
+counter-increment:step;
+content:counter(step);
+
+display:inline-flex;
+
+width:40px;
+height:40px;
+
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:var(--primary);
+color:black;
+
+margin-right:15px;
+
+}
+
+
+
+details{
+
+background:var(--card);
+margin:15px;
+padding:20px;
+border-radius:20px;
 
 }
 
@@ -192,32 +303,24 @@ font-weight:bold;
 
 footer{
 
+padding:40px;
 text-align:center;
-padding:30px;
-color:#aaa;
-
-}
-
-
-@keyframes pulse{
-
-0%{transform:scale(1)}
-50%{transform:scale(1.08)}
-100%{transform:scale(1)}
+opacity:.7;
 
 }
 
 
 
-@media(max-width:700px){
+@media(max-width:600px){
 
-h1{
-font-size:45px;
+section{
+padding:60px 20px;
 }
 
-.hero p{
-font-size:20px;
+.title{
+font-size:35px;
 }
+
 
 }
 
@@ -226,35 +329,59 @@ font-size:20px;
 </head>
 
 
+
 <body>
 
 
-<section class="hero">
 
-<div class="container">
+<nav>
+
+<a href="#inicio">Inicio</a>
+<a href="#incluye">Incluye</a>
+<a href="#funciona">Cómo funciona</a>
+<a href="#faq">Preguntas</a>
+
+</nav>
+
+
+
+
+<section class="hero" id="inicio">
+
+<div>
 
 
 <div class="alert">
-🚨 SOLO 50 CUPOS DISPONIBLES 🚨
+🚨 SOLO 50 LUGARES DISPONIBLES 🚨
 </div>
 
 
 <h1>
-El lugar donde los fans de <span class="highlight">Daaz</span> encuentran su comunidad 🏡💛
+
+La comunidad donde los fans de 
+<span class="yellow">Daaz</span>
+encuentran su lugar 🏡💛
+
 </h1>
 
 
 <p>
 
-Estamos creando algo diferente:
-una comunidad donde puedas conocer personas,
-compartir tus historias, hablar de música y crear recuerdos junto a otros habitantes.
+Daaazlandia es una comunidad para fans de Daaz en Latinoamérica.
+Un espacio donde puedes conocer personas con tus mismos gustos,
+hacer amigos, compartir historias y conectar con otros habitantes.
+
+Inspirada en uno de los artistas mexicanos con más de 2 millones
+de oyentes mensuales en Spotify.
 
 </p>
 
 
-<a class="btn" href="#">
-Quiero entrar a Daaazlandia ✨
+
+<a class="btn" href="https://wa.me/525571985641?text=Hola quiero entrar a Daaazlandia">
+
+💛 Unirme gratis
+
 </a>
 
 
@@ -262,62 +389,6 @@ Quiero entrar a Daaazlandia ✨
 
 </section>
 
-
-
-
-<section>
-
-
-<h2 class="title">
-¿Qué es Daaazlandia? 🏡
-</h2>
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>🎶 Más que música</h3>
-
-<p>
-Daaz es el punto que nos une, pero las personas son lo más importante.
-Aquí los fans encuentran amigos y conexiones reales.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>💬 Conversaciones reales</h3>
-
-<p>
-Un espacio para expresarte libremente,
-compartir pensamientos y conocer personas con gustos similares.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>✨ Dinámicas constantes</h3>
-
-<p>
-Retos, actividades, momentos especiales y experiencias para participar juntos.
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</section>
 
 
 
@@ -328,26 +399,20 @@ Retos, actividades, momentos especiales y experiencias para participar juntos.
 
 <div class="big">
 
-
 <h2>
-Una comunidad creciendo desde cero 🚀
+
+No esperes a que se llene 🏡
+
 </h2>
 
 
-<p style="font-size:22px;margin-top:20px">
-
-Los primeros habitantes tendrán la oportunidad de construir la historia de Daaazlandia.
-
-</p>
-
-
-<div class="counter">
+<div class="number">
 50
 </div>
 
 
 <p>
-Cupos iniciales disponibles
+Cupos iniciales para nuevos habitantes
 </p>
 
 
@@ -360,43 +425,12 @@ Cupos iniciales disponibles
 
 
 
-<section>
+
+<section id="incluye">
 
 
 <h2 class="title">
-¿Quién es Daaz? 🎤
-</h2>
-
-
-
-<div class="card">
-
-
-<p>
-
-Daaz es un artista mexicano que conecta con sus seguidores
-a través de su música y emociones.
-
-Sus canciones han creado una comunidad de personas que
-encuentran historias, sentimientos y momentos con los que identificarse.
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-<section>
-
-
-<h2 class="title">
-¿Por qué entrar ahora? 👀
+¿Qué encontrarás? ✨
 </h2>
 
 
@@ -404,61 +438,217 @@ encuentran historias, sentimientos y momentos con los que identificarse.
 
 
 <div class="card">
-
-<h3>🏡 Primeros habitantes</h3>
-
+<h3>🎶 Comunidad</h3>
 <p>
-Ser parte desde el inicio significa ayudar a construir la identidad de la comunidad.
+Acceso a espacios donde habitantes pueden conversar,
+presentarse y compartir momentos.
 </p>
-
 </div>
-
 
 
 <div class="card">
-
-<h3>🫶 Nuevas conexiones</h3>
-
+<h3>💬 Conversaciones</h3>
 <p>
-Encuentra personas que entienden tus gustos, emociones e historias.
+No hablamos solo de Daaz. También compartimos historias,
+opiniones y experiencias.
 </p>
-
 </div>
-
 
 
 <div class="card">
-
-<h3>🎁 Experiencias</h3>
-
+<h3>🎯 Dinámicas</h3>
 <p>
-Participa en dinámicas y actividades exclusivas dentro de la comunidad.
+Actividades diarias, semanales y eventos especiales.
 </p>
-
 </div>
 
 
+<div class="card">
+<h3>🎁 Beneficios</h3>
+<p>
+Playlists, experiencias y actividades exclusivas.
+</p>
+</div>
+
 
 </div>
+
 
 </section>
 
 
 
 
-<section class="hero">
 
 
-<div>
+<section id="funciona">
 
 
-<h2>
-Los primeros 50 habitantes serán quienes comiencen esta historia 💛
+<h2 class="title">
+¿Cómo funciona Daaazlandia?
 </h2>
 
 
-<a class="btn" href="#">
-Entrar antes de que se cierre ✨
+
+<div class="card steps">
+
+
+<div class="step">
+Entra desde el botón de acceso.
+</div>
+
+
+<div class="step">
+Sigue las indicaciones.
+</div>
+
+
+<div class="step">
+Preséntate ante los habitantes.
+</div>
+
+
+<div class="step">
+Empieza a participar.
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section>
+
+
+<h2 class="title">
+🏡 Más que un espacio de fans
+</h2>
+
+
+<div class="card">
+
+
+<p>
+
+Mientras otros espacios se enfocan únicamente en seguir a un artista,
+Daaazlandia está diseñada para conectar personas.
+
+La música inicia la conversación,
+pero la comunidad es lo que hace que los habitantes quieran volver.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2 class="title">
+¿Por qué existe Daaazlandia? 💛
+</h2>
+
+
+<div class="card">
+
+<p>
+
+Muchos fans buscan un lugar donde conocer personas con sus mismos gustos.
+Daaazlandia nace para crear ese espacio:
+un lugar donde cada habitante pueda sentirse escuchado,
+participar y crear recuerdos.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="faq">
+
+
+<h2 class="title">
+Preguntas frecuentes 👀
+</h2>
+
+
+
+<details>
+<summary>¿Tiene costo?</summary>
+<p>No. El acceso es completamente gratuito.</p>
+</details>
+
+
+<details>
+<summary>¿Tengo que saber mucho de Daaz?</summary>
+<p>No. Solo necesitas interés y respeto.</p>
+</details>
+
+
+<details>
+<summary>¿Es solo para hablar de Daaz?</summary>
+<p>No. Daaz es el punto de encuentro, la comunidad es lo importante.</p>
+</details>
+
+
+<details>
+<summary>¿Puedo entrar desde otro país?</summary>
+<p>Sí. Está pensada para Latinoamérica.</p>
+</details>
+
+
+<details>
+<summary>¿Tiene moderación?</summary>
+<p>Sí. Buscamos mantener un espacio seguro.</p>
+</details>
+
+
+</section>
+
+
+
+
+
+
+<section>
+
+
+<div class="big">
+
+<h2>
+¿Listo para ser habitante? 🏡💛
+</h2>
+
+
+<a class="btn" href="https://wa.me/525571985641?text=Hola quiero entrar a Daaazlandia">
+
+Entrar ahora
+
 </a>
 
 
@@ -469,12 +659,14 @@ Entrar antes de que se cierre ✨
 
 
 
+
 <footer>
 
-Daaazlandia 🏡💛  
-Una comunidad creada para conectar.
+Daaazlandia 💛  
+Comunidad independiente creada para conectar fans de Daaz.
 
 </footer>
+
 
 
 
