@@ -1,674 +1,1239 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Daaazlandia | Comunidad de Fans de Daaz</title>
-
-
-<style>
-
-:root{
---primary:#ffd85c;
---dark:#090912;
---card:#191927;
---text:#ffffff;
---accent:#ff4f81;
-}
-
-
-/* EDITA SOLO ESTA PARTE PARA CAMBIAR TODOS LOS BOTONES */
-
-:root{
---whatsapp:"https://wa.me/525571985641?text=Hola%20quiero%20entrar%20a%20Daaazlandia";
-}
-
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,Helvetica,sans-serif;
-scroll-behavior:smooth;
-}
-
-
-body{
-background:
-linear-gradient(130deg,#090912,#17172b,#090912);
-color:var(--text);
-}
-
-
-nav{
-
-position:sticky;
-top:0;
-z-index:10;
-
-background:#090912cc;
-backdrop-filter:blur(15px);
-
-padding:15px;
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
-
-}
-
-
-nav a{
-
-color:white;
-text-decoration:none;
-padding:10px 18px;
-border-radius:30px;
-background:#ffffff12;
-
-}
-
-
-nav a:hover{
-background:var(--primary);
-color:black;
-}
-
-
-
-.hero{
-
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:30px;
-
-background:
-radial-gradient(circle,var(--primary55),transparent);
-
-}
-
-
-.hero h1{
-
-font-size:clamp(40px,8vw,85px);
-line-height:.95;
-
-}
-
-
-.yellow{
-color:var(--primary);
-}
-
-
-
-.alert{
-
-background:#ff315c;
-padding:20px;
-border-radius:50px;
-font-size:25px;
-font-weight:bold;
-display:inline-block;
-margin-bottom:30px;
-animation:pulse 1.5s infinite;
-
-}
-
-
-
-@keyframes pulse{
-
-50%{
-transform:scale(1.08);
-}
-
-}
-
-
-
-p{
-
-font-size:18px;
-line-height:1.6;
-
-}
-
-
-
-.btn{
-
-display:inline-block;
-margin:20px;
-padding:18px 35px;
-
-background:var(--primary);
-color:#111;
-
-font-weight:bold;
-border-radius:50px;
-
-text-decoration:none;
-
-transition:.3s;
-
-}
-
-
-
-.btn:hover{
-
-transform:translateY(-5px);
-
-}
-
-
-section{
-
-padding:80px 8%;
-
-}
-
-
-.title{
-
-font-size:45px;
-text-align:center;
-margin-bottom:40px;
-
-}
-
-
-
-.cards{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-
-}
-
-
-
-.card{
-
-background:var(--card);
-padding:30px;
-border-radius:25px;
-
-box-shadow:
-0 20px 40px #0005;
-
-transition:.3s;
-
-}
-
-
-
-.card:hover{
-
-transform:translateY(-10px);
-
-}
-
-
-.card h3{
-
-color:var(--primary);
-margin-bottom:15px;
-
-}
-
-
-
-.big{
-
-text-align:center;
-
-background:
-linear-gradient(135deg,#ffd85c,#ff7a9c);
-
-color:#111;
-
-border-radius:40px;
-padding:50px;
-
-}
-
-
-
-.number{
-
-font-size:90px;
-font-weight:bold;
-
-}
-
-
-
-.steps{
-
-counter-reset:step;
-
-}
-
-
-.step{
-
-margin:20px 0;
-
-}
-
-
-
-.step::before{
-
-counter-increment:step;
-content:counter(step);
-
-display:inline-flex;
-
-width:40px;
-height:40px;
-
-align-items:center;
-justify-content:center;
-
-border-radius:50%;
-
-background:var(--primary);
-color:black;
-
-margin-right:15px;
-
-}
-
-
-
-details{
-
-background:var(--card);
-margin:15px;
-padding:20px;
-border-radius:20px;
-
-}
-
-
-
-footer{
-
-padding:40px;
-text-align:center;
-opacity:.7;
-
-}
-
-
-
-@media(max-width:600px){
-
-section{
-padding:60px 20px;
-}
-
-.title{
-font-size:35px;
-}
-
-
-}
-
-</style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daaazlandia · Comunidad de Fans de Daaz en Latinoamérica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Nunito:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── TOKENS: Identidad Visual Oficial Daaazlandia ──────── */
+    :root {
+      --amarillo:   #FFD21F;
+      --azul-prof:  #10233F;
+      --azul-brill: #009FE3;
+      --verde:      #00A651;
+      --rojo:       #ED1C24;
+      --blanco:     #FFFFFF;
+      --negro:      #111111;
+
+      /* Aliases útiles */
+      --bg-dark:    #10233F;
+      --bg-mid:     #0D1D33;
+      --card-azul:  rgba(0,159,227,0.08);
+      --card-bord:  rgba(0,159,227,0.18);
+      --text-main:  #FFFFFF;
+      --text-soft:  rgba(255,255,255,0.72);
+      --radius:     20px;
+      --radius-sm:  12px;
+      --tr:         0.36s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── TIPOGRAFÍAS ────────────────────────────────────────── */
+    h1, h2, h3, h4, .h-title { font-family: 'Poppins', sans-serif; font-weight: 800; line-height: 1.15; }
+    h1 { font-size: clamp(2.4rem, 6.5vw, 5rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.9rem, 4vw, 3rem); letter-spacing: -0.02em; }
+    h3 { font-size: clamp(1.05rem, 2.5vw, 1.25rem); font-weight: 600; }
+    p  { color: var(--text-soft); font-size: clamp(0.95rem, 1.8vw, 1.05rem); }
+    .label {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: 0.73rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--amarillo);
+    }
+    .center { text-align: center; }
+    .amarillo { color: var(--amarillo); }
+    .azul-brill { color: var(--azul-brill); }
+
+    /* ─── SCROLL ANIMATIONS ──────────────────────────────────── */
+    .fade-up {
+      opacity: 0; transform: translateY(48px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .fade-left {
+      opacity: 0; transform: translateX(-40px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+    .fade-left.visible { opacity: 1; transform: none; }
+    .fade-right {
+      opacity: 0; transform: translateX(40px);
+      transition: opacity 0.72s ease, transform 0.72s ease;
+    }
+    .fade-right.visible { opacity: 1; transform: none; }
+    .scale-in {
+      opacity: 0; transform: scale(0.88);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .scale-in.visible { opacity: 1; transform: scale(1); }
+
+    /* ─── FORMAS DECORATIVAS ─────────────────────────────────── */
+    .deco-sol {
+      position: absolute; pointer-events: none; z-index: 0;
+    }
+    .deco-sol svg { opacity: 0.13; }
+    .deco-onda {
+      position: absolute; pointer-events: none; z-index: 0; opacity: 0.07;
+    }
+
+    /* ─── NAVBAR ─────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 70px;
+      background: transparent;
+      transition: background var(--tr), backdrop-filter var(--tr);
+    }
+    nav.scrolled {
+      background: rgba(16,35,63,0.92);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,210,31,0.15);
+    }
+    .nav-logo {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: 1.25rem; color: var(--amarillo);
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+    .nav-logo span { color: var(--blanco); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-soft); text-decoration: none;
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: 0.88rem;
+      transition: color var(--tr);
+    }
+    .nav-links a:hover { color: var(--amarillo); }
+    .nav-cta {
+      background: var(--amarillo); color: var(--azul-prof);
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: 0.85rem; border: none; border-radius: 999px;
+      padding: 0.55rem 1.4rem; cursor: pointer; text-decoration: none;
+      transition: transform var(--tr), box-shadow var(--tr);
+    }
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255,210,31,0.5);
+    }
+    .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .ham span { display: block; width: 24px; height: 2.5px; background: var(--blanco); border-radius: 3px; transition: all 0.3s; }
+    .mobile-menu {
+      display: none; position: fixed; top: 70px; left: 0; right: 0;
+      background: rgba(16,35,63,0.97); backdrop-filter: blur(20px);
+      padding: 1.5rem 5vw 2rem;
+      border-bottom: 2px solid rgba(255,210,31,0.2);
+      flex-direction: column; gap: 1rem; z-index: 199;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text-soft); text-decoration: none;
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: 1.05rem; padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      transition: color var(--tr);
+    }
+    .mobile-menu a:hover { color: var(--amarillo); }
+
+    /* ─── BOTONES ────────────────────────────────────────────── */
+    .btn-primary {
+      background: var(--amarillo); color: var(--azul-prof);
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: 1rem; border: none; border-radius: 999px;
+      padding: 0.9rem 2.4rem; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: transform var(--tr), box-shadow var(--tr);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(255,210,31,0.5);
+    }
+    .btn-secondary {
+      background: transparent; color: var(--blanco);
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: 1rem; border: 2px solid rgba(255,255,255,0.25);
+      border-radius: 999px; padding: 0.9rem 2.4rem;
+      cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: border-color var(--tr), color var(--tr), transform var(--tr);
+    }
+    .btn-secondary:hover {
+      border-color: var(--amarillo); color: var(--amarillo);
+      transform: translateY(-2px);
+    }
+    .btn-dark {
+      background: var(--azul-prof); color: var(--amarillo);
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: 1rem; border: none; border-radius: 999px;
+      padding: 0.9rem 2.4rem; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: transform var(--tr), box-shadow var(--tr);
+    }
+    .btn-dark:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(0,0,0,0.35);
+    }
+    .btn-verde {
+      background: var(--verde); color: var(--blanco);
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: 1rem; border: none; border-radius: 999px;
+      padding: 0.9rem 2.4rem; cursor: pointer; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: transform var(--tr), box-shadow var(--tr);
+    }
+    .btn-verde:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 36px rgba(0,166,81,0.45);
+    }
+
+    /* ─── SECCIONES BASE ─────────────────────────────────────── */
+    section { padding: 100px 5vw; position: relative; overflow: hidden; }
+    .section-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+    .section-head { margin-bottom: 3.5rem; }
+    .section-head h2 { margin: 0.5rem 0 1rem; }
+    .section-head p { max-width: 580px; }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    #inicio {
+      min-height: 100svh;
+      background: linear-gradient(160deg, #10233F 0%, #0b1a30 60%, #10233F 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 130px 5vw 90px;
+    }
+    #canvas-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+    .hero-inner { position: relative; z-index: 2; max-width: 860px; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,210,31,0.12); border: 1.5px solid rgba(255,210,31,0.4);
+      border-radius: 999px; padding: 0.4rem 1.1rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--amarillo);
+      margin-bottom: 1.8rem;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--amarillo);
+      animation: pulse 2s ease infinite;
+    }
+
+    h1 em { font-style: normal; color: var(--amarillo); }
+    .hero-sub {
+      margin: 1.6rem auto; max-width: 580px;
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      color: var(--text-soft); line-height: 1.75;
+    }
+    .hero-sub strong { color: var(--blanco); }
+
+    .hero-btns {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      justify-content: center; margin-top: 2.5rem;
+    }
+
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 3rem;
+      justify-content: center; margin-top: 4.5rem;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.2rem; font-weight: 800; color: var(--amarillo);
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-soft); margin-top: 2px; }
+
+    .scroll-hint {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem; z-index: 2;
+    }
+    .scroll-hint span {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .scroll-hint .arrow {
+      width: 20px; height: 20px;
+      border-right: 2px solid var(--amarillo);
+      border-bottom: 2px solid var(--amarillo);
+      transform: rotate(45deg); animation: bob 1.8s ease infinite;
+    }
+
+    /* ─── CÓMO FUNCIONA (fondo: azul-brill oscuro) ───────────── */
+    #como-funciona {
+      background: linear-gradient(160deg, #0a2a40 0%, #08202f 100%);
+    }
+    #como-funciona::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(0,159,227,0.12) 0%, transparent 65%);
+    }
+
+    .steps { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+
+    .step-card {
+      background: rgba(0,159,227,0.07);
+      border: 1.5px solid rgba(0,159,227,0.18);
+      border-radius: var(--radius); padding: 2.2rem;
+      position: relative; overflow: hidden;
+      transition: border-color var(--tr), box-shadow var(--tr), transform var(--tr);
+      cursor: default;
+    }
+    .step-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--amarillo), var(--azul-brill));
+      opacity: 0; transition: opacity var(--tr);
+    }
+    .step-card:hover {
+      border-color: rgba(255,210,31,0.35);
+      box-shadow: 0 0 40px rgba(255,210,31,0.12);
+      transform: translateY(-6px);
+    }
+    .step-card:hover::before { opacity: 1; }
+
+    .step-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3.5rem; font-weight: 800; line-height: 1;
+      color: rgba(255,210,31,0.1); margin-bottom: 1rem;
+    }
+    .step-card h3 { color: var(--blanco); margin-bottom: 0.5rem; }
+    .step-emoji { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+
+    /* ─── BENEFICIOS (fondo: amarillo) ──────────────────────── */
+    #beneficios {
+      background: var(--amarillo);
+    }
+    #beneficios .label { color: var(--azul-prof); }
+    #beneficios h2 { color: var(--azul-prof); }
+    #beneficios .section-head p { color: rgba(16,35,63,0.7); }
+
+    .benefits-grid {
+      display: grid; gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+
+    .benefit-card {
+      background: rgba(16,35,63,0.08);
+      border: 1.5px solid rgba(16,35,63,0.15);
+      border-radius: var(--radius); padding: 1.8rem;
+      display: flex; align-items: flex-start; gap: 1.1rem;
+      transition: border-color var(--tr), box-shadow var(--tr), transform var(--tr);
+    }
+    .benefit-card:hover {
+      border-color: rgba(16,35,63,0.4);
+      box-shadow: 0 8px 32px rgba(16,35,63,0.2);
+      transform: translateY(-4px);
+    }
+    .benefit-icon {
+      flex-shrink: 0; width: 48px; height: 48px;
+      border-radius: 14px;
+      background: rgba(16,35,63,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .benefit-card h3 { font-size: 1rem; color: var(--azul-prof); margin-bottom: 0.3rem; }
+    .benefit-card p  { font-size: 0.88rem; color: rgba(16,35,63,0.65); line-height: 1.6; }
+
+    /* ─── HIGHLIGHT BAND (fondo: azul profundo + acento verde) ── */
+    .highlight-band {
+      background: linear-gradient(135deg, #0D1D33 0%, #10233F 100%);
+      padding: 90px 5vw; position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .highlight-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(0,166,81,0.15) 0%, transparent 70%);
+    }
+    .highlight-band .inner { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+    .highlight-band .label { color: var(--verde); }
+    .highlight-band h2 { color: var(--blanco); margin: 0.5rem 0 1rem; }
+    .highlight-band h2 em { font-style: normal; color: var(--amarillo); }
+    .highlight-band p { color: var(--text-soft); max-width: 560px; margin: 0 auto 2rem; }
+
+    /* ─── QUÉ INCLUYE (fondo: azul brillante oscuro) ─────────── */
+    #beneficios-completos {
+      background: linear-gradient(160deg, #003d5c 0%, #002840 100%);
+    }
+    #beneficios-completos::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 80%, rgba(0,159,227,0.15) 0%, transparent 60%);
+    }
+    #beneficios-completos .label { color: var(--azul-brill); }
+
+    .includes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+    .include-item {
+      display: flex; align-items: center; gap: 0.9rem;
+      background: rgba(0,159,227,0.08);
+      border: 1.5px solid rgba(0,159,227,0.2);
+      border-radius: var(--radius-sm); padding: 1rem 1.3rem;
+      transition: border-color var(--tr), transform var(--tr), box-shadow var(--tr);
+    }
+    .include-item:hover {
+      border-color: rgba(255,210,31,0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px rgba(255,210,31,0.1);
+    }
+    .include-check { font-size: 1.1rem; flex-shrink: 0; color: var(--amarillo); }
+    .include-item span { font-family: 'Poppins', sans-serif; font-size: 0.9rem; color: var(--blanco); font-weight: 600; }
+
+    /* ─── FAQ (fondo: negro / muy oscuro) ───────────────────── */
+    #faq {
+      background: #0a1828;
+    }
+    #faq::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 90% 50%, rgba(237,28,36,0.07) 0%, transparent 60%);
+    }
+    #faq .label { color: var(--rojo); }
+
+    .faq-list { display: flex; flex-direction: column; gap: 0.8rem; max-width: 780px; }
+
+    .faq-item {
+      background: rgba(255,255,255,0.04);
+      border: 1.5px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm); overflow: hidden;
+      transition: border-color var(--tr);
+    }
+    .faq-item.open, .faq-item:hover { border-color: rgba(255,210,31,0.3); }
+
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.3rem 1.6rem; gap: 1rem; text-align: left;
+    }
+    .faq-q-text {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: clamp(0.9rem, 2vw, 1rem); color: var(--blanco);
+    }
+    .faq-icon {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: rgba(255,210,31,0.1);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--amarillo); font-size: 1.1rem;
+      transition: transform var(--tr), background var(--tr);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--amarillo); color: var(--azul-prof); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.42s ease; padding: 0 1.6rem; }
+    .faq-a-inner { padding-bottom: 1.3rem; font-size: 0.93rem; color: var(--text-soft); line-height: 1.75; }
+    .faq-item.open .faq-a { max-height: 300px; }
+
+    /* ─── JOIN / CTA (fondo: amarillo) ──────────────────────── */
+    #unirme {
+      background: linear-gradient(160deg, var(--amarillo) 0%, #f5c300 100%);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    #unirme::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.25) 0%, transparent 60%);
+    }
+    #unirme .label { color: var(--azul-prof); opacity: 0.7; }
+    #unirme h2 { color: var(--azul-prof); margin: 0.5rem 0 1rem; }
+    #unirme p { color: rgba(16,35,63,0.7); max-width: 520px; margin: 0 auto 2.5rem; }
+
+    .join-steps {
+      display: flex; flex-wrap: wrap; gap: 1.5rem;
+      justify-content: center; margin: 3rem 0;
+    }
+    .join-step {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.75rem; width: 160px;
+    }
+    .join-step-icon {
+      width: 66px; height: 66px; border-radius: 50%;
+      background: rgba(16,35,63,0.12);
+      border: 2px solid rgba(16,35,63,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      transition: transform var(--tr), box-shadow var(--tr);
+    }
+    .join-step:hover .join-step-icon {
+      transform: scale(1.12);
+      box-shadow: 0 8px 28px rgba(16,35,63,0.2);
+    }
+    .join-step-label {
+      font-family: 'Poppins', sans-serif; font-size: 0.9rem;
+      font-weight: 600; color: var(--azul-prof); text-align: center;
+    }
+    .join-step-sub { font-size: 0.78rem; color: rgba(16,35,63,0.6); text-align: center; }
+    .join-connector { align-self: flex-start; margin-top: 32px; color: rgba(16,35,63,0.35); font-size: 1.4rem; }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--azul-prof);
+      border-top: 2px solid rgba(255,210,31,0.15);
+      padding: 2.5rem 5vw;
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      align-items: center; justify-content: space-between;
+    }
+    footer .f-logo {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      color: var(--amarillo); font-size: 1.15rem;
+    }
+    footer small { color: var(--text-soft); font-size: 0.78rem; }
+    footer .f-links { display: flex; gap: 1.5rem; }
+    footer .f-links a {
+      color: var(--text-soft); text-decoration: none;
+      font-family: 'Poppins', sans-serif; font-size: 0.82rem; font-weight: 600;
+      transition: color var(--tr);
+    }
+    footer .f-links a:hover { color: var(--amarillo); }
+
+    /* ─── FLOATING WHATSAPP ──────────────────────────────────── */
+    .wa-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 300;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.45);
+      transition: transform var(--tr), box-shadow var(--tr);
+    }
+    .wa-float:hover {
+      transform: scale(1.12) translateY(-3px);
+      box-shadow: 0 10px 36px rgba(37,211,102,0.6);
+    }
+    .wa-float svg { width: 32px; height: 32px; fill: white; }
+
+    /* ─── TARJETAS CON TILT 3D ───────────────────────────────── */
+    .tilt-card { transform-style: preserve-3d; }
+
+    /* ─── TICKER DE MÚSICA ───────────────────────────────────── */
+    .ticker-wrap {
+      background: var(--amarillo);
+      padding: 0.9rem 0; overflow: hidden;
+      position: relative; z-index: 10;
+    }
+    .ticker {
+      display: flex; gap: 0; white-space: nowrap;
+      animation: ticker-scroll 28s linear infinite;
+    }
+    .ticker-item {
+      font-family: 'Poppins', sans-serif; font-weight: 800;
+      font-size: 0.88rem; color: var(--azul-prof);
+      padding: 0 2.5rem; letter-spacing: 0.05em;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .ticker-dot { color: var(--rojo); font-size: 1.1rem; }
+
+    /* ─── ONDAS SVG entre secciones ─────────────────────────── */
+    .wave-divider {
+      display: block; width: 100%; overflow: hidden;
+      line-height: 0; margin-bottom: -2px;
+    }
+    .wave-divider svg { display: block; width: 100%; }
+
+    /* ─── FLOATING CARDS – sección extra ────────────────────── */
+    .float-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+    .float-card {
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius); padding: 1.8rem;
+      text-align: center;
+      transition: transform var(--tr), box-shadow var(--tr), border-color var(--tr);
+      animation: float-anim 4s ease-in-out infinite;
+    }
+    .float-card:nth-child(2) { animation-delay: 0.6s; }
+    .float-card:nth-child(3) { animation-delay: 1.2s; }
+    .float-card:nth-child(4) { animation-delay: 1.8s; }
+    .float-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      border-color: rgba(255,210,31,0.4);
+      box-shadow: 0 14px 40px rgba(255,210,31,0.15);
+    }
+    .float-card .fc-emoji { font-size: 2.5rem; margin-bottom: 0.8rem; display: block; }
+    .float-card h3 { color: var(--blanco); font-size: 1rem; margin-bottom: 0.4rem; }
+    .float-card p  { font-size: 0.85rem; }
+
+    /* ─── PULSE RINGS ────────────────────────────────────────── */
+    .pulse-ring {
+      position: absolute; border-radius: 50%;
+      animation: ring-expand 3s ease-out infinite;
+      pointer-events: none;
+    }
+
+    /* ─── KEYFRAMES ──────────────────────────────────────────── */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.6); }
+    }
+    @keyframes bob {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50%       { transform: rotate(45deg) translateY(6px); }
+    }
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes float-anim {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+    @keyframes ring-expand {
+      0%   { transform: scale(0.6); opacity: 0.7; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    @keyframes spin-slow {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50%       { transform: rotate(3deg); }
+    }
+    @keyframes slide-in-left {
+      from { opacity: 0; transform: translateX(-60px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .ham { display: flex; }
+      .join-connector { display: none; }
+      footer { flex-direction: column; align-items: flex-start; }
+      .hero-stats { gap: 1.5rem; }
+      section { padding: 80px 5vw; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .fade-up, .fade-left, .fade-right, .scale-in {
+        opacity: 1 !important; transform: none !important;
+      }
+    }
+  </style>
 </head>
-
-
-
 <body>
 
+<!-- CONFIG -->
+<script>
+  const CONFIG = {
+    whatsapp:  "525571985641",
+    comunidad: "https://wa.me/525571985641?text=Hola%2C%20quiero%20unirme%20a%20Daaazlandia%20%F0%9F%92%9B",
+    mensaje:   "Hola%2C%20quiero%20unirme%20a%20Daaazlandia%20%F0%9F%92%9B"
+  };
+  function waLink(t) {
+    return `https://wa.me/${CONFIG.whatsapp}?text=${t ? encodeURIComponent(t) : CONFIG.mensaje}`;
+  }
+</script>
 
-
-<nav>
-
-<a href="#inicio">Inicio</a>
-<a href="#incluye">Incluye</a>
-<a href="#funciona">Cómo funciona</a>
-<a href="#faq">Preguntas</a>
-
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav id="navbar">
+  <a class="nav-logo" href="#inicio">Daaaz<span>landia</span> 💛</a>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#como-funciona">Cómo funciona</a></li>
+    <li><a href="#beneficios">Beneficios</a></li>
+    <li><a href="#faq">Preguntas</a></li>
+    <li><a href="#unirme">Unirme</a></li>
+  </ul>
+  <a class="nav-cta" id="nav-cta-btn" href="#">Unirme gratis 💛</a>
+  <button class="ham" id="ham-btn" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-
-
-
-<section class="hero" id="inicio">
-
-<div>
-
-
-<div class="alert">
-🚨 SOLO 50 LUGARES DISPONIBLES 🚨
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#inicio">Inicio</a>
+  <a href="#como-funciona">Cómo funciona</a>
+  <a href="#beneficios">Beneficios</a>
+  <a href="#faq">Preguntas frecuentes</a>
+  <a href="#unirme">Unirme</a>
+  <a id="mob-join-btn" href="#" style="color:var(--amarillo);font-weight:700;">→ Unirme gratis 💛</a>
 </div>
 
+<!-- ═══════════ HERO ═══════════ -->
+<section id="inicio">
+  <canvas id="canvas-bg"></canvas>
 
-<h1>
+  <!-- Sol decorativo -->
+  <div class="deco-sol" style="top:-80px;right:-80px;">
+    <svg width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="210" cy="210" r="100" fill="#FFD21F"/>
+      <g stroke="#FFD21F" stroke-width="8" stroke-linecap="round">
+        <line x1="210" y1="20" x2="210" y2="70"/>
+        <line x1="210" y1="350" x2="210" y2="400"/>
+        <line x1="20" y1="210" x2="70" y2="210"/>
+        <line x1="350" y1="210" x2="400" y2="210"/>
+        <line x1="61" y1="61" x2="96" y2="96"/>
+        <line x1="324" y1="324" x2="359" y2="359"/>
+        <line x1="359" y1="61" x2="324" y2="96"/>
+        <line x1="96" y1="324" x2="61" y2="359"/>
+        <line x1="140" y1="30" x2="155" y2="78"/>
+        <line x1="280" y1="342" x2="265" y2="390"/>
+        <line x1="30" y1="140" x2="78" y2="155"/>
+        <line x1="342" y1="280" x2="390" y2="265"/>
+        <line x1="390" y1="140" x2="342" y2="155"/>
+        <line x1="78" y1="280" x2="30" y2="265"/>
+        <line x1="140" y1="390" x2="155" y2="342"/>
+        <line x1="280" y1="78" x2="265" y2="30"/>
+      </g>
+    </svg>
+  </div>
 
-La comunidad donde los fans de 
-<span class="yellow">Daaz</span>
-encuentran su lugar 🏡💛
+  <!-- Onda musical deco izquierda -->
+  <div class="deco-onda" style="bottom:80px;left:0;opacity:0.06;">
+    <svg width="300" height="120" viewBox="0 0 300 120" fill="none">
+      <path d="M0 60 Q37.5 0 75 60 Q112.5 120 150 60 Q187.5 0 225 60 Q262.5 120 300 60" stroke="#009FE3" stroke-width="4" fill="none"/>
+      <path d="M0 80 Q37.5 20 75 80 Q112.5 140 150 80 Q187.5 20 225 80 Q262.5 140 300 80" stroke="#FFD21F" stroke-width="3" fill="none"/>
+    </svg>
+  </div>
 
-</h1>
+  <div class="hero-inner fade-up">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Comunidad activa en Latinoamérica 🌎
+    </div>
+    <h1>El lugar de los fans de <em>Daaz</em> en LATAM 🎵</h1>
+    <p class="hero-sub">
+      Haz amigos, comparte experiencias y conecta con personas que sienten la música de Daaz
+      <strong>igual que tú</strong>. Acceso completamente gratuito. 💛
+    </p>
+    <div class="hero-btns">
+      <a class="btn-primary" id="hero-join-btn" href="#">
+        💬 Unirme gratis
+      </a>
+      <a class="btn-secondary" href="#como-funciona">Cómo funciona →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">+2M</div>
+        <div class="stat-label">oyentes de Daaz en Spotify</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">gratuito</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">LATAM</div>
+        <div class="stat-label">cobertura regional</div>
+      </div>
+    </div>
+  </div>
 
-
-<p>
-
-Daaazlandia es una comunidad para fans de Daaz en Latinoamérica.
-Un espacio donde puedes conocer personas con tus mismos gustos,
-hacer amigos, compartir historias y conectar con otros habitantes.
-
-Inspirada en uno de los artistas mexicanos con más de 2 millones
-de oyentes mensuales en Spotify.
-
-</p>
-
-
-
-<a class="btn" href="https://wa.me/525571985641?text=Hola quiero entrar a Daaazlandia">
-
-💛 Unirme gratis
-
-</a>
-
-
-</div>
-
+  <div class="scroll-hint">
+    <span>Explora</span>
+    <div class="arrow"></div>
+  </div>
 </section>
 
-
-
-
-
-
-<section>
-
-
-<div class="big">
-
-<h2>
-
-No esperes a que se llene 🏡
-
-</h2>
-
-
-<div class="number">
-50
+<!-- ═══════════ TICKER ═══════════ -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker-track">
+    <span class="ticker-item">🎵 Música</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Comunidad</span>
+    <span class="ticker-item">💛 Daaazlandia</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Amigos</span>
+    <span class="ticker-item">🌎 Latinoamérica</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Recuerdos</span>
+    <span class="ticker-item">🎧 Daaz</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Conexión</span>
+    <span class="ticker-item">🎵 Música</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Comunidad</span>
+    <span class="ticker-item">💛 Daaazlandia</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Amigos</span>
+    <span class="ticker-item">🌎 Latinoamérica</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Recuerdos</span>
+    <span class="ticker-item">🎧 Daaz</span>
+    <span class="ticker-item"><span class="ticker-dot">●</span> Conexión</span>
+  </div>
 </div>
 
+<!-- ═══════════ CÓMO FUNCIONA ═══════════ -->
+<section id="como-funciona">
+  <!-- Onda superior -->
+  <div style="position:absolute;top:0;left:0;right:0;z-index:1;pointer-events:none;">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" fill="#FFD21F" style="display:block;width:100%;height:60px;opacity:0.06">
+      <path d="M0,30 Q180,0 360,30 Q540,60 720,30 Q900,0 1080,30 Q1260,60 1440,30 L1440,0 L0,0 Z"/>
+    </svg>
+  </div>
 
-<p>
-Cupos iniciales para nuevos habitantes
-</p>
-
-
-</div>
-
-
+  <div class="section-inner">
+    <div class="section-head fade-up">
+      <div class="label">Cómo funciona</div>
+      <h2>Unirte es <span class="amarillo">muy sencillo</span> 🎉</h2>
+      <p>Desde el primer momento puedes conocer a otros habitantes, explorar la comunidad y participar en conversaciones y actividades.</p>
+    </div>
+    <div class="steps">
+      <div class="step-card tilt-card fade-up">
+        <span class="step-emoji">🔔</span>
+        <div class="step-num">01</div>
+        <h3>Solicita tu acceso</h3>
+        <p style="color:var(--text-soft)">Haz clic en el botón y te llegará el enlace de ingreso a la comunidad de WhatsApp.</p>
+      </div>
+      <div class="step-card tilt-card fade-up">
+        <span class="step-emoji">✅</span>
+        <div class="step-num">02</div>
+        <h3>Sigue las instrucciones</h3>
+        <p style="color:var(--text-soft)">Dentro encontrarás los pasos de bienvenida. Sin conocimientos previos ni experiencia requerida.</p>
+      </div>
+      <div class="step-card tilt-card fade-up">
+        <span class="step-emoji">👋</span>
+        <div class="step-num">03</div>
+        <h3>Preséntate</h3>
+        <p style="color:var(--text-soft)">Cuéntales a los demás habitantes quién eres y empieza a conectar con personas que comparten tus gustos.</p>
+      </div>
+      <div class="step-card tilt-card fade-up">
+        <span class="step-emoji">🎉</span>
+        <div class="step-num">04</div>
+        <h3>Participa y disfruta</h3>
+        <p style="color:var(--text-soft)">Explora los espacios, súmate a dinámicas, actividades semanales y eventos especiales.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-
-
-
-
-<section id="incluye">
-
-
-<h2 class="title">
-¿Qué encontrarás? ✨
-</h2>
-
-
-<div class="cards">
-
-
-<div class="card">
-<h3>🎶 Comunidad</h3>
-<p>
-Acceso a espacios donde habitantes pueden conversar,
-presentarse y compartir momentos.
-</p>
-</div>
-
-
-<div class="card">
-<h3>💬 Conversaciones</h3>
-<p>
-No hablamos solo de Daaz. También compartimos historias,
-opiniones y experiencias.
-</p>
-</div>
-
-
-<div class="card">
-<h3>🎯 Dinámicas</h3>
-<p>
-Actividades diarias, semanales y eventos especiales.
-</p>
-</div>
-
-
-<div class="card">
-<h3>🎁 Beneficios</h3>
-<p>
-Playlists, experiencias y actividades exclusivas.
-</p>
-</div>
-
-
-</div>
-
-
+<!-- ═══════════ FLOATING VIBE CARDS (sección extra) ═══════════ -->
+<section style="background:linear-gradient(160deg,#0a1828 0%,#10233F 100%);padding:70px 5vw;">
+  <div class="section-inner">
+    <div class="section-head fade-up center">
+      <div class="label" style="color:var(--azul-brill)">La vibra que te espera</div>
+      <h2>Encuentra tu <span class="amarillo">lugar</span> 🏠</h2>
+    </div>
+    <div class="float-cards">
+      <div class="float-card scale-in">
+        <span class="fc-emoji">🎵</span>
+        <h3>Música todos los días</h3>
+        <p>Comparte canciones, descubre nuevos ritmos y vive la música de Daaz en comunidad.</p>
+      </div>
+      <div class="float-card scale-in">
+        <span class="fc-emoji">🧑‍🤝‍🧑</span>
+        <h3>Amigos reales</h3>
+        <p>No solo seguidores. Personas que sienten lo mismo que tú y quieren conectar de verdad.</p>
+      </div>
+      <div class="float-card scale-in">
+        <span class="fc-emoji">🌎</span>
+        <h3>Toda Latinoamérica</h3>
+        <p>México, Colombia, Argentina, Chile... todos unidos por la misma pasión musical.</p>
+      </div>
+      <div class="float-card scale-in">
+        <span class="fc-emoji">🎤</span>
+        <h3>Momentos únicos</h3>
+        <p>Conciertos, lanzamientos, sorpresas. Todo lo vives primero dentro de Daaazlandia.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ═══════════ BENEFICIOS ═══════════ -->
+<section id="beneficios">
 
+  <!-- Sol deco -->
+  <div class="deco-sol" style="bottom:-100px;left:-100px;">
+    <svg width="380" height="380" viewBox="0 0 420 420" fill="none">
+      <circle cx="210" cy="210" r="90" fill="#10233F" opacity="0.15"/>
+      <g stroke="#10233F" stroke-width="6" stroke-linecap="round" opacity="0.15">
+        <line x1="210" y1="30" x2="210" y2="75"/>
+        <line x1="210" y1="345" x2="210" y2="390"/>
+        <line x1="30" y1="210" x2="75" y2="210"/>
+        <line x1="345" y1="210" x2="390" y2="210"/>
+        <line x1="70" y1="70" x2="103" y2="103"/>
+        <line x1="317" y1="317" x2="350" y2="350"/>
+        <line x1="350" y1="70" x2="317" y2="103"/>
+        <line x1="103" y1="317" x2="70" y2="350"/>
+      </g>
+    </svg>
+  </div>
 
-
-
-
-<section id="funciona">
-
-
-<h2 class="title">
-¿Cómo funciona Daaazlandia?
-</h2>
-
-
-
-<div class="card steps">
-
-
-<div class="step">
-Entra desde el botón de acceso.
-</div>
-
-
-<div class="step">
-Sigue las indicaciones.
-</div>
-
-
-<div class="step">
-Preséntate ante los habitantes.
-</div>
-
-
-<div class="step">
-Empieza a participar.
-</div>
-
-
-</div>
-
-
+  <div class="section-inner">
+    <div class="section-head fade-up">
+      <div class="label">Beneficios</div>
+      <h2 style="color:var(--azul-prof)">Por qué unirte a <span style="color:var(--azul-prof);text-decoration:underline;text-decoration-color:rgba(16,35,63,0.3)">Daaazlandia</span> 💛</h2>
+      <p style="color:rgba(16,35,63,0.65)">Un espacio diseñado para que las personas conecten de verdad, no solo para seguir a un artista.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card tilt-card fade-up">
+        <div class="benefit-icon">🧑‍🤝‍🧑</div>
+        <div>
+          <h3>Haz amigos con tus gustos</h3>
+          <p>Conoce personas de toda Latinoamérica que disfrutan la música de Daaz y comparten intereses similares.</p>
+        </div>
+      </div>
+      <div class="benefit-card tilt-card fade-up">
+        <div class="benefit-icon">💬</div>
+        <div>
+          <h3>Siempre habrá con quién hablar</h3>
+          <p>Conversaciones activas todos los días. Nunca más un chat silencioso.</p>
+        </div>
+      </div>
+      <div class="benefit-card tilt-card fade-up">
+        <div class="benefit-icon">🎵</div>
+        <div>
+          <h3>Más que solo Daaz</h3>
+          <p>Comparte experiencias, opiniones, recomendaciones y temas cotidianos con otros habitantes.</p>
+        </div>
+      </div>
+      <div class="benefit-card tilt-card fade-up">
+        <div class="benefit-icon">🌎</div>
+        <div>
+          <h3>Conoce personas de otros países</h3>
+          <p>Daaazlandia reúne habitantes de diferentes partes de Latinoamérica en un solo espacio.</p>
+        </div>
+      </div>
+      <div class="benefit-card tilt-card fade-up">
+        <div class="benefit-icon">🎉</div>
+        <div>
+          <h3>Actividades durante todo el año</h3>
+          <p>Dinámicas diarias, actividades semanales, eventos mensuales y experiencias especiales.</p>
+        </div>
+      </div>
+      <div class="benefit-card tilt-card fade-up">
+        <div class="benefit-icon">🛡️</div>
+        <div>
+          <h3>Espacio seguro y moderado</h3>
+          <p>Normas de convivencia y equipo de moderación para garantizar un ambiente agradable y respetuoso.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ═══════════ HIGHLIGHT BAND ═══════════ -->
+<div class="highlight-band">
+  <!-- Pulse rings deco -->
+  <div class="pulse-ring" style="width:300px;height:300px;border:2px solid rgba(0,166,81,0.3);top:50%;left:50%;margin:-150px 0 0 -150px;"></div>
+  <div class="pulse-ring" style="width:300px;height:300px;border:2px solid rgba(0,166,81,0.2);top:50%;left:50%;margin:-150px 0 0 -150px;animation-delay:1s;"></div>
+  <div class="pulse-ring" style="width:300px;height:300px;border:2px solid rgba(0,166,81,0.1);top:50%;left:50%;margin:-150px 0 0 -150px;animation-delay:2s;"></div>
 
-
-
-
-
-
-
-<section>
-
-
-<h2 class="title">
-🏡 Más que un espacio de fans
-</h2>
-
-
-<div class="card">
-
-
-<p>
-
-Mientras otros espacios se enfocan únicamente en seguir a un artista,
-Daaazlandia está diseñada para conectar personas.
-
-La música inicia la conversación,
-pero la comunidad es lo que hace que los habitantes quieran volver.
-
-</p>
-
-
+  <div class="inner fade-up">
+    <div class="label">Acceso gratuito ✨</div>
+    <h2>La música inicia la conversación.<br><em>La comunidad es lo que te hace volver.</em> 💛</h2>
+    <p>No necesitas ser un fan experto de Daaz. Solo ganas de conocer personas, compartir y disfrutar.</p>
+    <a class="btn-verde" id="band-join-btn" href="#">
+      🎵 Quiero unirme ahora
+    </a>
+  </div>
 </div>
 
+<!-- ═══════════ QUÉ INCLUYE ═══════════ -->
+<section id="beneficios-completos">
+  <!-- Sol deco derecha -->
+  <div class="deco-sol" style="top:-60px;right:-60px;opacity:0.06;">
+    <svg width="340" height="340" viewBox="0 0 420 420" fill="none">
+      <circle cx="210" cy="210" r="100" fill="#009FE3"/>
+      <g stroke="#009FE3" stroke-width="7" stroke-linecap="round">
+        <line x1="210" y1="20" x2="210" y2="70"/>
+        <line x1="210" y1="350" x2="210" y2="400"/>
+        <line x1="20" y1="210" x2="70" y2="210"/>
+        <line x1="350" y1="210" x2="400" y2="210"/>
+        <line x1="61" y1="61" x2="96" y2="96"/>
+        <line x1="324" y1="324" x2="359" y2="359"/>
+        <line x1="359" y1="61" x2="324" y2="96"/>
+        <line x1="96" y1="324" x2="61" y2="359"/>
+      </g>
+    </svg>
+  </div>
 
+  <div class="section-inner">
+    <div class="section-head fade-up center">
+      <div class="label">Lo que incluye</div>
+      <h2>Todo lo que encontrarás en <span class="amarillo">Daaazlandia</span> 🏡</h2>
+    </div>
+    <div class="includes-grid">
+      <div class="include-item fade-up"><span class="include-check">☀️</span><span>Acceso a la comunidad principal</span></div>
+      <div class="include-item fade-up"><span class="include-check">💬</span><span>Espacios de conversación entre habitantes</span></div>
+      <div class="include-item fade-up"><span class="include-check">🎯</span><span>Dinámicas e interacciones diarias</span></div>
+      <div class="include-item fade-up"><span class="include-check">⭐</span><span>Actividades especiales semanales</span></div>
+      <div class="include-item fade-up"><span class="include-check">🎉</span><span>Eventos y dinámicas mensuales</span></div>
+      <div class="include-item fade-up"><span class="include-check">🎤</span><span>Actividades relacionadas con conciertos de Daaz</span></div>
+      <div class="include-item fade-up"><span class="include-check">🎁</span><span>Participación en sorteos y beneficios ocasionales</span></div>
+      <div class="include-item fade-up"><span class="include-check">🎵</span><span>Listas de reproducción temáticas exclusivas</span></div>
+      <div class="include-item fade-up"><span class="include-check">📖</span><span>Espacios para compartir experiencias e historias</span></div>
+      <div class="include-item fade-up"><span class="include-check">🔓</span><span>Acceso a nuevos grupos según tu participación</span></div>
+      <div class="include-item fade-up"><span class="include-check">🛡️</span><span>Equipo de soporte de Daaazlandia</span></div>
+    </div>
+  </div>
 </section>
 
-
-
-
-
-
-
-<section>
-
-
-<h2 class="title">
-¿Por qué existe Daaazlandia? 💛
-</h2>
-
-
-<div class="card">
-
-<p>
-
-Muchos fans buscan un lugar donde conocer personas con sus mismos gustos.
-Daaazlandia nace para crear ese espacio:
-un lugar donde cada habitante pueda sentirse escuchado,
-participar y crear recuerdos.
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
+<!-- ═══════════ FAQ ═══════════ -->
 <section id="faq">
-
-
-<h2 class="title">
-Preguntas frecuentes 👀
-</h2>
-
-
-
-<details>
-<summary>¿Tiene costo?</summary>
-<p>No. El acceso es completamente gratuito.</p>
-</details>
-
-
-<details>
-<summary>¿Tengo que saber mucho de Daaz?</summary>
-<p>No. Solo necesitas interés y respeto.</p>
-</details>
-
-
-<details>
-<summary>¿Es solo para hablar de Daaz?</summary>
-<p>No. Daaz es el punto de encuentro, la comunidad es lo importante.</p>
-</details>
-
-
-<details>
-<summary>¿Puedo entrar desde otro país?</summary>
-<p>Sí. Está pensada para Latinoamérica.</p>
-</details>
-
-
-<details>
-<summary>¿Tiene moderación?</summary>
-<p>Sí. Buscamos mantener un espacio seguro.</p>
-</details>
-
-
+  <div class="section-inner">
+    <div class="section-head fade-up">
+      <div class="label">Preguntas frecuentes</div>
+      <h2>Lo que más nos <span class="amarillo">preguntan</span> 🤔</h2>
+    </div>
+    <div class="faq-list" id="faq-list">
+      <div class="faq-item fade-up">
+        <button class="faq-q"><span class="faq-q-text">¿Daaazlandia tiene algún costo?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. El acceso a Daaazlandia es completamente gratuito. Puedes participar en todas las conversaciones, actividades y espacios de la comunidad sin realizar ningún pago.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-q"><span class="faq-q-text">¿Necesito ser un fan experto de Daaz?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Puedes unirte sin importar cuánto conozcas sobre Daaz. Lo importante es tener interés en la música, participar con respeto y compartir momentos con otros habitantes.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-q"><span class="faq-q-text">¿La comunidad es solo para hablar de Daaz?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Aunque Daaz es el punto de encuentro, también existen conversaciones sobre experiencias, gustos, recomendaciones y temas cotidianos que mantienen la comunidad activa y cercana.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-q"><span class="faq-q-text">¿Debo participar todos los días?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Cada habitante decide cuánto tiempo dedicarle. Puedes participar diariamente o solo cuando tengas ganas de conversar o unirte a alguna actividad.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-q"><span class="faq-q-text">¿Puedo conocer personas de otros países?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sí. Daaazlandia reúne habitantes de diferentes partes de Latinoamérica, lo que te permite conectar con personas de muchos países que comparten tu gusto por la música de Daaz.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-q"><span class="faq-q-text">¿Existe moderación?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sí. La comunidad cuenta con normas de convivencia y un equipo de moderación para garantizar un ambiente seguro, respetuoso y agradable para todos los habitantes.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-q"><span class="faq-q-text">¿Daaazlandia está afiliada oficialmente a Daaz?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Daaazlandia es una comunidad independiente creada por fans para reunir personas interesadas en la música de Daaz. No representa ni tiene afiliación oficial con el artista.</div></div>
+      </div>
+      <div class="faq-item fade-up">
+        <button class="faq-q"><span class="faq-q-text">¿Puedo invitar a otras personas?</span><span class="faq-icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sí. Puedes invitar a cualquier persona que disfrute la música de Daaz o que quiera formar parte de la comunidad. Cuanta más gente, más viva se mantiene Daaazlandia.</div></div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ═══════════ JOIN CTA ═══════════ -->
+<section id="unirme">
+  <!-- Ondas decorativas -->
+  <div style="position:absolute;bottom:0;left:0;right:0;pointer-events:none;opacity:0.08;">
+    <svg viewBox="0 0 1440 120" fill="none" style="display:block;width:100%;">
+      <path d="M0,60 Q180,0 360,60 Q540,120 720,60 Q900,0 1080,60 Q1260,120 1440,60 L1440,120 L0,120Z" fill="#10233F"/>
+    </svg>
+  </div>
 
-
-
-
-
-<section>
-
-
-<div class="big">
-
-<h2>
-¿Listo para ser habitante? 🏡💛
-</h2>
-
-
-<a class="btn" href="https://wa.me/525571985641?text=Hola quiero entrar a Daaazlandia">
-
-Entrar ahora
-
-</a>
-
-
-</div>
-
-
+  <div class="section-inner" style="position:relative;z-index:2;">
+    <div class="fade-up">
+      <div class="label">Únete ahora</div>
+      <h2>¿Listo para ser parte de <span style="color:var(--azul-prof);text-decoration:underline;text-decoration-color:rgba(16,35,63,0.3)">Daaazlandia?</span> 🎉</h2>
+      <p>Haz amigos, comparte experiencias y conecta con personas que sienten la música de Daaz igual que tú. Es gratis y puedes empezar hoy mismo.</p>
+    </div>
+    <div class="join-steps fade-up">
+      <div class="join-step">
+        <div class="join-step-icon">🔔</div>
+        <div class="join-step-label">Solicita acceso</div>
+        <div class="join-step-sub">Haz clic en el botón</div>
+      </div>
+      <div class="join-connector">→</div>
+      <div class="join-step">
+        <div class="join-step-icon">✅</div>
+        <div class="join-step-label">Sigue las instrucciones</div>
+        <div class="join-step-sub">En menos de 1 minuto</div>
+      </div>
+      <div class="join-connector">→</div>
+      <div class="join-step">
+        <div class="join-step-icon">👋</div>
+        <div class="join-step-label">Preséntate</div>
+        <div class="join-step-sub">Di hola a los habitantes</div>
+      </div>
+      <div class="join-connector">→</div>
+      <div class="join-step">
+        <div class="join-step-icon">🎉</div>
+        <div class="join-step-label">Empieza a disfrutar</div>
+        <div class="join-step-sub">¡Bienvenido a Daaazlandia!</div>
+      </div>
+    </div>
+    <div class="fade-up" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+      <a class="btn-dark" id="final-join-btn" href="#">
+        💛 Unirme gratis a Daaazlandia
+      </a>
+      <a class="btn-dark" id="final-wa-btn" href="#" style="background:#25D366;color:#fff;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribir por WhatsApp
+      </a>
+    </div>
+  </div>
 </section>
 
-
-
-
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer>
-
-Daaazlandia 💛  
-Comunidad independiente creada para conectar fans de Daaz.
-
+  <span class="f-logo">Daaazlandia 💛</span>
+  <small>Comunidad independiente de fans de Daaz en Latinoamérica</small>
+  <div class="f-links">
+    <a id="footer-wa-link" href="#">WhatsApp</a>
+    <a href="#faq">FAQ</a>
+    <a href="#unirme">Unirme</a>
+  </div>
 </footer>
 
+<!-- ═══════════ FLOATING WA ═══════════ -->
+<a class="wa-float" id="wa-float-btn" href="#" title="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
 
+  /* ─── Links ─── */
+  const joinUrl = CONFIG.comunidad;
+  const waUrl   = waLink("Hola, quiero unirme a Daaazlandia 💛");
+  const ids = {
+    'nav-cta-btn':    joinUrl,
+    'hero-join-btn':  joinUrl,
+    'mob-join-btn':   joinUrl,
+    'band-join-btn':  joinUrl,
+    'final-join-btn': joinUrl,
+    'final-wa-btn':   waUrl,
+    'footer-wa-link': waUrl,
+    'wa-float-btn':   waUrl,
+  };
+  Object.entries(ids).forEach(([id, href]) => {
+    const el = document.getElementById(id);
+    if (el) el.href = href;
+  });
 
+  /* ─── Navbar scroll ─── */
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  /* ─── Hamburger ─── */
+  const hamBtn     = document.getElementById('ham-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  /* ─── Intersection Observer (scroll animations) ─── */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-in').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 5) * 70}ms`;
+    io.observe(el);
+  });
+
+  /* ─── FAQ accordion ─── */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* ─── 3D Tilt cards ─── */
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width  - 0.5;
+      const y = (e.clientY - rect.top)  / rect.height - 0.5;
+      card.style.transform = `perspective(600px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  /* ─── Hero canvas (partículas + ondas musicales) ─── */
+  const canvas = document.getElementById('canvas-bg');
+  const ctx    = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  /* Partículas de notas / puntos */
+  const COLORS = ['rgba(255,210,31,', 'rgba(0,159,227,', 'rgba(0,166,81,'];
+
+  class Particle {
+    constructor() { this.reset(true); }
+    reset(init) {
+      this.x     = Math.random() * W;
+      this.y     = init ? Math.random() * H : H + 20;
+      this.r     = Math.random() * 2.5 + 0.6;
+      this.vy    = -(Math.random() * 0.5 + 0.12);
+      this.vx    = (Math.random() - 0.5) * 0.3;
+      this.alpha = Math.random() * 0.55 + 0.1;
+      this.life  = 0;
+      this.maxLife = Math.random() * 350 + 180;
+      this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.life++;
+      if (this.life > this.maxLife || this.y < -10) this.reset(false);
+    }
+    draw() {
+      const a = this.alpha * Math.sin((this.life / this.maxLife) * Math.PI);
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = this.color + a + ')';
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < 110; i++) particles.push(new Particle());
+
+  /* Ondas musicales horizontales */
+  function drawWaves(t) {
+    const waves = [
+      { y: 0.25, color: 'rgba(255,210,31,', amp: 14, freq: 3, a: 0.04 },
+      { y: 0.45, color: 'rgba(0,159,227,',  amp: 18, freq: 2.5, a: 0.035 },
+      { y: 0.65, color: 'rgba(0,166,81,',   amp: 10, freq: 4,   a: 0.03 },
+      { y: 0.80, color: 'rgba(255,210,31,', amp: 8,  freq: 5,   a: 0.025 },
+    ];
+    waves.forEach(w => {
+      ctx.beginPath();
+      ctx.moveTo(0, H * w.y);
+      for (let x = 0; x <= W; x += 3) {
+        const y = H * w.y
+          + Math.sin((x / W) * Math.PI * w.freq + t * 0.7) * w.amp
+          + Math.cos((x / W) * Math.PI * 2       + t * 0.45) * (w.amp * 0.5);
+        ctx.lineTo(x, y);
+      }
+      ctx.strokeStyle = w.color + w.a + ')';
+      ctx.lineWidth   = 1.8;
+      ctx.stroke();
+    });
+  }
+
+  let t = 0;
+  (function animate() {
+    ctx.clearRect(0, 0, W, H);
+    drawWaves(t);
+    particles.forEach(p => { p.update(); p.draw(); });
+    t += 0.013;
+    requestAnimationFrame(animate);
+  })();
+
+  /* ─── Ticker duplicate for infinite scroll ─── */
+  const track = document.getElementById('ticker-track');
+  if (track) {
+    const clone = track.cloneNode(true);
+    track.parentNode.appendChild(clone);
+  }
+
+});
+</script>
 </body>
 </html>
