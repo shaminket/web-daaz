@@ -1,695 +1,892 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Nueva dinámica · Daaazlandia 💛</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
---amarillo:#FFD21F;
---azul:#10233F;
---azul2:#009FE3;
---verde:#00A651;
-}
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:'Nunito',sans-serif;
-background:var(--azul);
-color:white;
-overflow-x:hidden;
-}
-
-
-h1,h2,h3{
-font-family:'Poppins',sans-serif;
-font-weight:800;
-}
-
-
-h1{
-font-size:clamp(2rem,7vw,4.5rem);
-line-height:1.1;
-}
-
-
-h2{
-font-size:clamp(1.8rem,5vw,3rem);
-}
-
-
-p{
-color:#ffffffc9;
-line-height:1.7;
-}
-
-
-
-section{
-
-min-height:90vh;
-padding:80px 6vw;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-overflow:hidden;
-
-}
-
-
-
-#hero{
-
-background:
-linear-gradient(150deg,#08172b,#10233F);
-
-}
-
-
-
-section:nth-of-type(2){
-
-background:
-linear-gradient(150deg,#10233F,#006fa6);
-
-}
-
-
-
-section:nth-of-type(3){
-
-background:
-linear-gradient(150deg,#006b43,#00A651);
-
-}
-
-
-
-.wrap{
-
-width:100%;
-max-width:950px;
-text-align:center;
-z-index:2;
-
-}
-
-
-
-.amarillo{
-color:var(--amarillo);
-}
-
-
-
-.circle{
-
-position:absolute;
-width:450px;
-height:450px;
-max-width:90vw;
-max-height:90vw;
-border-radius:50%;
-background:#ffd21f22;
-animation:pulse 5s infinite;
-
-}
-
-
-
-@keyframes pulse{
-
-50%{
-transform:scale(1.2);
-}
-
-}
-
-
-
-.reveal{
-
-opacity:0;
-transform:translateY(50px);
-transition:.8s ease;
-
-}
-
-
-.reveal.visible{
-
-opacity:1;
-transform:none;
-
-}
-
-
-
-.floating{
-
-animation:float 4s infinite ease-in-out;
-
-}
-
-
-@keyframes float{
-
-50%{
-transform:translateY(-8px);
-}
-
-}
-
-
-
-.badge{
-
-display:inline-block;
-padding:10px 18px;
-border-radius:999px;
-border:1px solid #ffd21f66;
-background:#ffd21f18;
-color:var(--amarillo);
-margin-bottom:20px;
-
-}
-
-
-
-.buttons{
-
-display:flex;
-gap:15px;
-justify-content:center;
-flex-wrap:wrap;
-margin-top:30px;
-
-}
-
-
-
-.btn{
-
-padding:14px 25px;
-border-radius:999px;
-font-family:Poppins;
-font-weight:800;
-cursor:pointer;
-text-decoration:none;
-border:none;
-transition:.3s;
-
-}
-
-
-
-.btn-yellow{
-
-background:var(--amarillo);
-color:var(--azul);
-
-}
-
-
-
-.btn-yellow:hover{
-
-transform:translateY(-5px);
-
-}
-
-
-
-.btn-outline{
-
-background:none;
-border:2px solid #ffffff66;
-color:white;
-
-}
-
-
-
-.grid{
-
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-margin-top:35px;
-
-}
-
-
-
-.item{
-
-background:#ffffff12;
-padding:25px;
-border-radius:22px;
-backdrop-filter:blur(10px);
-transition:.3s;
-
-}
-
-
-
-.item:hover{
-
-transform:translateY(-10px);
-
-}
-
-
-
-.item span{
-
-font-size:40px;
-
-}
-
-
-
-.card{
-
-background:#ffffff15;
-padding:30px;
-border-radius:25px;
-backdrop-filter:blur(10px);
-
-}
-
-
-
-
-footer{
-
-background:#08111f;
-padding:25px;
-text-align:center;
-
-}
-
-
-
-/* WHATSAPP */
-
-.wa{
-
-position:fixed;
-right:18px;
-bottom:18px;
-width:58px;
-height:58px;
-border-radius:50%;
-background:#25D366;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:28px;
-z-index:20;
-
-}
-
-
-
-
-/* MODAL */
-
-
-.modal{
-
-position:fixed;
-inset:0;
-background:#000b;
-display:none;
-align-items:center;
-justify-content:center;
-z-index:50;
-padding:20px;
-
-}
-
-
-
-.modal.open{
-
-display:flex;
-
-}
-
-
-
-.modal-box{
-
-background:#10233F;
-padding:30px;
-border-radius:25px;
-max-width:400px;
-text-align:center;
-
-}
-
-
-
-@media(max-width:700px){
-
-
-section{
-
-padding:65px 5vw;
-min-height:auto;
-
-}
-
-
-
-.buttons{
-
-flex-direction:column;
-
-}
-
-
-.btn{
-
-width:100%;
-
-}
-
-
-}
-
-
-
-</style>
-
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Próximamente algo especial 💛 · Daaazlandia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Nunito:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* ══════════════════════════════
+       TOKENS — Identidad Daaazlandia
+    ══════════════════════════════ */
+    :root{
+      --amarillo:#FFD21F;
+      --azul:#10233F;
+      --azul-b:#009FE3;
+      --verde:#00A651;
+      --rojo:#ED1C24;
+      --blanco:#FFFFFF;
+      --negro:#111111;
+      --tr:.34s cubic-bezier(.4,0,.2,1);
+      --r:18px;
+      --r-sm:12px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:'Nunito',sans-serif;
+      font-size:16px; line-height:1.72;
+      background:var(--azul); color:var(--blanco);
+      overflow-x:hidden;
+    }
+
+    /* ── TIPOS ── */
+    h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:800;line-height:1.15;}
+    h1{font-size:clamp(2.2rem,7vw,4.8rem);letter-spacing:-.02em;}
+    h2{font-size:clamp(1.7rem,4vw,2.8rem);letter-spacing:-.02em;}
+    h3{font-size:clamp(1rem,2.5vw,1.15rem);font-weight:600;}
+    p{color:rgba(255,255,255,.75);font-size:clamp(.95rem,1.8vw,1.05rem);}
+    .label{
+      font-family:'Poppins',sans-serif;font-weight:600;
+      font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+    }
+    .center{text-align:center;}
+    .amarillo{color:var(--amarillo);}
+
+    /* ── SCROLL REVEAL ── */
+    .rv{opacity:0;transform:translateY(44px);transition:opacity .72s ease,transform .72s ease;}
+    .rv.vis{opacity:1;transform:none;}
+    .rv-s{opacity:0;transform:scale(.88);transition:opacity .65s ease,transform .65s ease;}
+    .rv-s.vis{opacity:1;transform:scale(1);}
+    .rv-l{opacity:0;transform:translateX(-44px);transition:opacity .7s ease,transform .7s ease;}
+    .rv-l.vis{opacity:1;transform:none;}
+    .rv-r{opacity:0;transform:translateX(44px);transition:opacity .7s ease,transform .7s ease;}
+    .rv-r.vis{opacity:1;transform:none;}
+
+    /* ── NAVBAR ── */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:200;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 5vw;height:66px;
+      transition:background var(--tr),backdrop-filter var(--tr);
+    }
+    nav.scrolled{
+      background:rgba(16,35,63,.93);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,210,31,.15);
+    }
+    .nav-logo{
+      font-family:'Poppins',sans-serif;font-weight:800;
+      font-size:1.15rem;color:var(--amarillo);text-decoration:none;
+    }
+    .nav-logo span{color:var(--blanco);}
+    .nav-back{
+      font-family:'Poppins',sans-serif;font-weight:600;
+      font-size:.84rem;color:rgba(255,255,255,.7);
+      text-decoration:none;display:flex;align-items:center;gap:.4rem;
+      transition:color var(--tr);
+    }
+    .nav-back:hover{color:var(--amarillo);}
+
+    /* ── BOTONES ── */
+    .btn{
+      font-family:'Poppins',sans-serif;font-weight:800;
+      font-size:1rem;border:none;border-radius:999px;
+      padding:.9rem 2.2rem;cursor:pointer;text-decoration:none;
+      display:inline-flex;align-items:center;gap:.5rem;
+      transition:transform var(--tr),box-shadow var(--tr);
+    }
+    .btn-am{background:var(--amarillo);color:var(--azul);}
+    .btn-am:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(255,210,31,.5);}
+    .btn-out{background:transparent;color:var(--blanco);border:2px solid rgba(255,255,255,.25);}
+    .btn-out:hover{border-color:var(--amarillo);color:var(--amarillo);transform:translateY(-2px);}
+    .btn-wa{background:#25D366;color:#fff;}
+    .btn-wa:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(37,211,102,.5);}
+    .btn-sm{font-size:.88rem;padding:.65rem 1.6rem;}
+    .btn-azul{background:var(--azul);color:var(--amarillo);}
+    .btn-azul:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(0,0,0,.4);}
+
+    /* ── SECTIONS ── */
+    section{padding:100px 5vw;position:relative;overflow:hidden;}
+    .wrap{max-width:1060px;margin:0 auto;position:relative;z-index:2;}
+    .sec-head{margin-bottom:3rem;}
+    .sec-head h2{margin:.5rem 0 1rem;}
+    .sec-head.center p{margin:0 auto;}
+    .deco{position:absolute;pointer-events:none;z-index:0;}
+
+    /* ══════════
+       HERO
+    ══════════ */
+    #hero{
+      min-height:100svh;
+      background:linear-gradient(155deg,#0b1a2e 0%,#10233F 50%,#0a2033 100%);
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      text-align:center;padding:110px 5vw 90px;
+    }
+    #hero-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;}
+
+    .pill{
+      display:inline-flex;align-items:center;gap:.5rem;
+      background:rgba(255,210,31,.12);border:1.5px solid rgba(255,210,31,.35);
+      border-radius:999px;padding:.4rem 1.2rem;
+      font-family:'Poppins',sans-serif;font-weight:600;
+      font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+      color:var(--amarillo);margin-bottom:1.8rem;
+    }
+    .pill .dot{
+      width:7px;height:7px;border-radius:50%;
+      background:var(--amarillo);animation:pulse 2s ease infinite;
+    }
+
+    #hero h1 em{font-style:normal;color:var(--amarillo);}
+    .hero-sub{
+      max-width:580px;margin:1.4rem auto 2.5rem;
+      font-size:clamp(1rem,2.2vw,1.12rem);
+      color:rgba(255,255,255,.75);line-height:1.82;
+    }
+    .hero-sub strong{color:var(--blanco);}
+    .hero-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;}
+
+    /* Countdown */
+    .countdown-wrap{
+      display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;
+      margin:3rem auto 0;
+    }
+    .cd-box{
+      display:flex;flex-direction:column;align-items:center;gap:.35rem;
+      background:rgba(255,210,31,.1);
+      border:1.5px solid rgba(255,210,31,.22);
+      border-radius:var(--r);padding:1.1rem 1.4rem;min-width:72px;
+    }
+    .cd-num{
+      font-family:'Poppins',sans-serif;font-weight:800;
+      font-size:2.2rem;color:var(--amarillo);line-height:1;
+    }
+    .cd-lbl{
+      font-family:'Poppins',sans-serif;font-weight:600;
+      font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+      color:rgba(255,255,255,.45);
+    }
+
+    .scroll-hint{
+      position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+      display:flex;flex-direction:column;align-items:center;gap:.5rem;z-index:2;
+    }
+    .scroll-hint span{
+      font-family:'Poppins',sans-serif;font-size:.65rem;
+      letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);
+    }
+    .arr{
+      width:18px;height:18px;
+      border-right:2px solid var(--amarillo);border-bottom:2px solid var(--amarillo);
+      transform:rotate(45deg);animation:bob 1.8s ease infinite;
+    }
+
+    /* ══════════
+       TICKER
+    ══════════ */
+    .ticker-wrap{
+      background:var(--amarillo);
+      padding:.85rem 0;overflow:hidden;
+      position:relative;z-index:10;
+    }
+    .ticker-track{display:flex;gap:0;white-space:nowrap;animation:ticker 26s linear infinite;}
+    .ti{
+      font-family:'Poppins',sans-serif;font-weight:800;
+      font-size:.86rem;color:var(--azul);
+      padding:0 2.2rem;
+      display:flex;align-items:center;gap:.7rem;
+    }
+    .ti .dot2{color:var(--rojo);font-size:1rem;}
+
+    /* ══════════
+       ¿QUÉ VIENE?
+    ══════════ */
+    #que-viene{
+      background:linear-gradient(160deg,#0a2033 0%,#0d2a44 100%);
+    }
+    #que-viene::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse at 80% 20%,rgba(0,159,227,.12) 0%,transparent 65%);
+    }
+    #que-viene .label{color:var(--azul-b);}
+
+    .pistas-grid{
+      display:grid;gap:1.2rem;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    }
+    .pista{
+      background:rgba(0,159,227,.07);
+      border:1.5px solid rgba(0,159,227,.18);
+      border-radius:var(--r);padding:1.8rem;
+      transition:border-color var(--tr),transform var(--tr),box-shadow var(--tr);
+    }
+    .pista:hover{
+      border-color:rgba(255,210,31,.35);
+      transform:translateY(-6px);
+      box-shadow:0 14px 40px rgba(255,210,31,.1);
+    }
+    .pista-emoji{font-size:2rem;display:block;margin-bottom:.8rem;}
+    .pista h3{color:var(--blanco);margin-bottom:.4rem;}
+    .pista p{font-size:.9rem;}
+
+    /* ══════════
+       MIENTRAS TANTO (amarillo)
+    ══════════ */
+    #mientras{
+      background:var(--amarillo);
+      text-align:center;
+    }
+    #mientras::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.28) 0%,transparent 60%);
+    }
+    #mientras .label{color:rgba(16,35,63,.55);}
+    #mientras h2{color:var(--azul);margin:.5rem 0 1rem;}
+    #mientras>div>p{color:rgba(16,35,63,.65);max-width:520px;margin:0 auto 2.5rem;}
+
+    .mientras-cards{
+      display:grid;gap:1.2rem;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      margin-bottom:2.5rem;
+    }
+    .mc{
+      background:rgba(16,35,63,.08);
+      border:1.5px solid rgba(16,35,63,.14);
+      border-radius:var(--r);padding:1.8rem;
+      transition:transform var(--tr),box-shadow var(--tr);
+      animation:flotar 4s ease-in-out infinite;
+    }
+    .mc:nth-child(2){animation-delay:.6s;}
+    .mc:nth-child(3){animation-delay:1.2s;}
+    .mc:nth-child(4){animation-delay:1.8s;}
+    .mc:hover{transform:translateY(-8px);box-shadow:0 16px 44px rgba(16,35,63,.2);}
+    .mc-emoji{font-size:2.2rem;display:block;margin-bottom:.8rem;}
+    .mc h3{color:var(--azul);margin-bottom:.4rem;}
+    .mc p{color:rgba(16,35,63,.65);font-size:.88rem;}
+
+    /* ══════════
+       POR QUÉ ESTAR EN EL GRUPO
+    ══════════ */
+    #por-que{
+      background:linear-gradient(160deg,#003d5c 0%,#002840 100%);
+    }
+    #por-que::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse at 20% 70%,rgba(0,166,81,.13) 0%,transparent 60%);
+    }
+    #por-que .label{color:var(--verde);}
+
+    .razones{
+      display:grid;gap:1rem;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    }
+    .razon{
+      background:rgba(255,255,255,.04);
+      border:1.5px solid rgba(255,255,255,.08);
+      border-radius:var(--r);padding:1.5rem;
+      display:flex;align-items:center;gap:.9rem;
+      transition:border-color var(--tr),transform var(--tr);
+    }
+    .razon:hover{border-color:rgba(255,210,31,.35);transform:translateX(6px);}
+    .razon-emoji{font-size:1.5rem;flex-shrink:0;}
+    .razon-text{font-family:'Poppins',sans-serif;font-weight:600;font-size:.92rem;}
+
+    /* ══════════
+       NOTIFICACIÓN CTA BAND (azul-b oscuro)
+    ══════════ */
+    #notif-band{
+      background:linear-gradient(135deg,#0D1D33 0%,#10233F 100%);
+      text-align:center;
+    }
+    #notif-band::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse at 50% 50%,rgba(0,159,227,.14) 0%,transparent 70%);
+    }
+    #notif-band .label{color:var(--azul-b);}
+    #notif-band h2{margin:.5rem 0 1rem;}
+    #notif-band h2 em{font-style:normal;color:var(--amarillo);}
+    #notif-band>div>p{color:rgba(255,255,255,.65);max-width:520px;margin:0 auto 2rem;}
+
+    /* Pulse rings */
+    .ring{
+      position:absolute;border-radius:50%;
+      animation:ring-out 3s ease-out infinite;
+      pointer-events:none;
+    }
+
+    /* ══════════
+       FAQ
+    ══════════ */
+    #faq{background:#0a1828;}
+    #faq::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse at 85% 30%,rgba(237,28,36,.06) 0%,transparent 60%);
+    }
+    #faq .label{color:var(--rojo);}
+
+    .faq-list{max-width:760px;display:flex;flex-direction:column;gap:.8rem;}
+    .faq-item{
+      background:rgba(255,255,255,.04);
+      border:1.5px solid rgba(255,255,255,.08);
+      border-radius:var(--r-sm);overflow:hidden;
+      transition:border-color var(--tr);
+    }
+    .faq-item.open,.faq-item:hover{border-color:rgba(255,210,31,.28);}
+    .faq-q{
+      width:100%;background:none;border:none;cursor:pointer;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:1.25rem 1.6rem;gap:1rem;text-align:left;
+    }
+    .faq-q-text{
+      font-family:'Poppins',sans-serif;font-weight:600;
+      font-size:clamp(.9rem,2vw,1rem);color:var(--blanco);
+    }
+    .faq-icon{
+      flex-shrink:0;width:28px;height:28px;border-radius:50%;
+      background:rgba(255,210,31,.1);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--amarillo);font-size:1.1rem;
+      transition:transform var(--tr),background var(--tr);
+    }
+    .faq-item.open .faq-icon{transform:rotate(45deg);background:var(--amarillo);color:var(--azul);}
+    .faq-body{max-height:0;overflow:hidden;transition:max-height .42s ease;padding:0 1.6rem;}
+    .faq-body-inner{padding-bottom:1.3rem;font-size:.93rem;color:rgba(255,255,255,.65);line-height:1.8;}
+    .faq-item.open .faq-body{max-height:300px;}
+
+    /* ══════════
+       VOLVER
+    ══════════ */
+    #volver-bloque{
+      background:var(--amarillo);
+      padding:48px 5vw;text-align:center;
+    }
+    .volver-link{
+      font-family:'Poppins',sans-serif;font-weight:700;
+      font-size:1rem;color:var(--azul);text-decoration:none;
+      display:inline-flex;align-items:center;gap:.5rem;
+      padding:.8rem 2rem;border-radius:999px;
+      background:rgba(16,35,63,.1);
+      border:2px solid rgba(16,35,63,.2);
+      transition:background var(--tr),border-color var(--tr),transform var(--tr);
+    }
+    .volver-link:hover{background:rgba(16,35,63,.18);border-color:rgba(16,35,63,.4);transform:translateY(-2px);}
+
+    /* ══════════
+       FOOTER
+    ══════════ */
+    footer{
+      background:var(--azul);
+      border-top:2px solid rgba(255,210,31,.12);
+      padding:1.8rem 5vw;
+      display:flex;flex-wrap:wrap;gap:1rem;
+      align-items:center;justify-content:space-between;
+    }
+    .f-logo{font-family:'Poppins',sans-serif;font-weight:800;color:var(--amarillo);font-size:1.1rem;}
+    footer small{color:rgba(255,255,255,.4);font-size:.76rem;}
+
+    /* ══════════
+       BOTÓN FLOTANTE WA
+    ══════════ */
+    .wa-float{
+      position:fixed;bottom:2rem;right:2rem;z-index:300;
+      width:62px;height:62px;border-radius:50%;
+      background:#25D366;
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;border:none;
+      box-shadow:0 4px 24px rgba(37,211,102,.5);
+      transition:transform var(--tr),box-shadow var(--tr);
+    }
+    .wa-float:hover{transform:scale(1.12) translateY(-3px);box-shadow:0 10px 40px rgba(37,211,102,.65);}
+    .wa-float svg{width:34px;height:34px;fill:#fff;}
+
+    /* ══════════
+       MODAL WA (2 pasos)
+    ══════════ */
+    .modal-overlay{
+      display:none;position:fixed;inset:0;z-index:500;
+      background:rgba(10,20,40,.88);backdrop-filter:blur(10px);
+      align-items:center;justify-content:center;padding:1.5rem;
+    }
+    .modal-overlay.open{display:flex;}
+    .modal-box{
+      background:linear-gradient(145deg,#10233F,#0d2a44);
+      border:1.5px solid rgba(255,210,31,.25);
+      border-radius:var(--r);padding:2.5rem 2rem;
+      max-width:420px;width:100%;text-align:center;
+      animation:modal-in .38s ease;position:relative;
+    }
+    .modal-emoji{font-size:3rem;display:block;margin-bottom:.8rem;}
+    .modal-title{
+      font-family:'Poppins',sans-serif;font-weight:800;
+      font-size:1.4rem;color:var(--blanco);margin-bottom:.8rem;
+    }
+    .modal-desc{font-size:.95rem;color:rgba(255,255,255,.7);margin-bottom:1.8rem;}
+    .modal-btns{display:flex;flex-wrap:wrap;gap:.8rem;justify-content:center;}
+    .modal-close{
+      position:absolute;top:1rem;right:1.2rem;
+      background:none;border:none;cursor:pointer;
+      font-size:1.4rem;color:rgba(255,255,255,.4);
+      transition:color var(--tr);
+    }
+    .modal-close:hover{color:var(--blanco);}
+
+    /* ══════════
+       KEYFRAMES
+    ══════════ */
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+    @keyframes bob{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+    @keyframes flotar{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes ring-out{0%{transform:scale(.6);opacity:.7}100%{transform:scale(2.5);opacity:0}}
+    @keyframes modal-in{from{opacity:0;transform:scale(.9) translateY(20px)}to{opacity:1;transform:none}}
+
+    /* ══════════
+       RESPONSIVE
+    ══════════ */
+    @media(max-width:768px){
+      section{padding:80px 5vw;}
+      .hero-btns{flex-direction:column;align-items:center;}
+      #volver-bloque{padding:36px 5vw;}
+      footer{flex-direction:column;align-items:flex-start;}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none !important;transition:none !important;}
+      .rv,.rv-s,.rv-l,.rv-r{opacity:1 !important;transform:none !important;}
+    }
+  </style>
 </head>
-
-
 <body>
 
-
-
-<section id="hero">
-
-<div class="circle"></div>
-
-
-<div class="wrap">
-
-<div class="badge reveal">
-✨ Nueva experiencia en camino
-</div>
-
-
-<h1 class="reveal">
-
-Estamos preparando una nueva
-
-<span class="amarillo">
-dinámica
-</span>
-
-💛
-
-</h1>
-
-
-<p class="reveal">
-
-La dinámica anterior terminó su etapa, pero estamos creando algo nuevo para todos los habitantes de Daaazlandia.
-
-</p>
-
-
-
-<div class="buttons reveal">
-
-
-<a href="index.html" class="btn btn-yellow">
-Volver a Daaazlandia
-</a>
-
-
-<button onclick="openModal()" class="btn btn-outline">
-Soporte 💬
-</button>
-
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-
-
-<section>
-
-<div class="wrap">
-
-
-<h2 class="reveal">
-¿Qué estamos preparando?
-</h2>
-
-
-
-<div class="grid">
-
-
-<div class="item reveal floating">
-
-<span>🎲</span>
-
-<h3>
-Nuevas dinámicas
-</h3>
-
-<p>
-Actividades nuevas para participar con la comunidad.
-</p>
-
-</div>
-
-
-
-<div class="item reveal floating">
-
-<span>💛</span>
-
-<h3>
-Más momentos
-</h3>
-
-<p>
-Experiencias nuevas para compartir.
-</p>
-
-</div>
-
-
-
-
-<div class="item reveal floating">
-
-<span>🚀</span>
-
-<h3>
-Algo especial
-</h3>
-
-<p>
-Estamos preparando sorpresas.
-</p>
-
-</div>
-
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-
-
-<section>
-
-<div class="wrap">
-
-
-<div class="card reveal">
-
-<h2>
-Vuelve pronto 👀
-</h2>
-
-
-<p>
-
-Estamos construyendo la próxima dinámica para Daaazlandia.
-
-</p>
-
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-
-
-<footer>
-
-Daaazlandia 💛
-<br>
-Organizado con ❤️ por Shaminket
-
-</footer>
-
-
-
-
-<button class="wa" onclick="openModal()">
-💬
-</button>
-
-
-
-
-
-<div class="modal" id="modal">
-
-
-<div class="modal-box">
-
-
-<h2>
-¿Hablar con soporte?
-</h2>
-
-
-<p>
-Serás enviado a WhatsApp.
-</p>
-
-
-<br>
-
-
-<button class="btn btn-yellow" onclick="goWhats()">
-Continuar 📲
-</button>
-
-
-<br><br>
-
-
-<button class="btn btn-outline" onclick="closeModal()">
-Cancelar
-</button>
-
-
-
-</div>
-
-</div>
-
-
-
-
+<!-- ══ CONFIG ══ -->
 <script>
+  const WA_NUM = "525571985641";
+  const WA_MSG = encodeURIComponent("Hola Daaazlandia 💛 vi la página de la próxima dinámica y quiero que me avisen cuando esté disponible.");
+  const WA_URL = "https://wa.me/" + WA_NUM + "?text=" + WA_MSG;
 
-
-const WA="525571985641";
-
-
-const MSG=encodeURIComponent(
-"Hola Daaazlandia 💛 tengo dudas sobre la nueva dinámica."
-);
-
-
-
-function openModal(){
-
-modal.classList.add("open");
-
-}
-
-
-
-function closeModal(){
-
-modal.classList.remove("open");
-
-}
-
-
-
-function goWhats(){
-
-window.open(
-"https://wa.me/"+WA+"?text="+MSG,
-"_blank"
-);
-
-}
-
-
-
-const modal=document.getElementById("modal");
-
-
-const observer=new IntersectionObserver(entries=>{
-
-entries.forEach(e=>{
-
-if(e.isIntersecting){
-
-e.target.classList.add("visible");
-
-}
-
-});
-
-});
-
-
-document.querySelectorAll(".reveal")
-.forEach(x=>observer.observe(x));
-
-
-
+  function openModal(){
+    document.getElementById('wa-modal').classList.add('open');
+  }
+  function closeModal(){
+    document.getElementById('wa-modal').classList.remove('open');
+  }
+  function goWA(){
+    window.open(WA_URL,'_blank','noopener,noreferrer');
+    closeModal();
+  }
 </script>
 
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">Daaaz<span>landia</span> 💛</a>
+  <a class="nav-back" href="index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Volver al inicio
+  </a>
+</nav>
 
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+
+  <!-- Sol deco -->
+  <div class="deco" style="top:-90px;right:-90px;opacity:.1;">
+    <svg width="440" height="440" viewBox="0 0 460 460" fill="none">
+      <circle cx="230" cy="230" r="110" fill="#FFD21F"/>
+      <g stroke="#FFD21F" stroke-width="9" stroke-linecap="round">
+        <line x1="230" y1="20" x2="230" y2="80"/><line x1="230" y1="380" x2="230" y2="440"/>
+        <line x1="20" y1="230" x2="80" y2="230"/><line x1="380" y1="230" x2="440" y2="230"/>
+        <line x1="67" y1="67" x2="107" y2="107"/><line x1="353" y1="353" x2="393" y2="393"/>
+        <line x1="393" y1="67" x2="353" y2="107"/><line x1="107" y1="353" x2="67" y2="393"/>
+        <line x1="150" y1="30" x2="168" y2="84"/><line x1="310" y1="376" x2="292" y2="430"/>
+        <line x1="30" y1="150" x2="84" y2="168"/><line x1="376" y1="310" x2="430" y2="292"/>
+        <line x1="430" y1="150" x2="376" y2="168"/><line x1="84" y1="310" x2="30" y2="292"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Ondas musicales deco -->
+  <div class="deco" style="bottom:70px;left:0;opacity:.06;">
+    <svg width="320" height="130" viewBox="0 0 320 130">
+      <path d="M0 65 Q40 10 80 65 Q120 120 160 65 Q200 10 240 65 Q280 120 320 65" stroke="#FFD21F" stroke-width="4" fill="none"/>
+      <path d="M0 90 Q40 35 80 90 Q120 145 160 90 Q200 35 240 90 Q280 145 320 90" stroke="#009FE3" stroke-width="3" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="wrap center rv">
+    <div class="pill"><span class="dot"></span>Algo especial está en camino</div>
+    <h1>Espera un momento,<br><em>hay algo nuevo</em> 🌟</h1>
+    <p class="hero-sub">
+      El equipo de Daaazlandia está preparando una dinámica especial para la comunidad.<br/>
+      <strong>Regresa muy pronto y serás de los primeros en vivirla.</strong>
+    </p>
+    <div class="hero-btns">
+      <button class="btn btn-am" onclick="openModal()">
+        💬 Quiero que me avisen
+      </button>
+      <a class="btn btn-out" href="index.html">← Volver al inicio</a>
+    </div>
+
+    <!-- Countdown -->
+    <div class="countdown-wrap">
+      <div class="cd-box">
+        <div class="cd-num" id="cd-h">00</div>
+        <div class="cd-lbl">horas</div>
+      </div>
+      <div class="cd-box">
+        <div class="cd-num" id="cd-m">00</div>
+        <div class="cd-lbl">minutos</div>
+      </div>
+      <div class="cd-box">
+        <div class="cd-num" id="cd-s">00</div>
+        <div class="cd-lbl">segundos</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Sigue explorando</span>
+    <div class="arr"></div>
+  </div>
+</section>
+
+<!-- ══ TICKER ══ -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker-track">
+    <span class="ti">✨ Próximamente</span>
+    <span class="ti"><span class="dot2">●</span> Daaazlandia</span>
+    <span class="ti">💛 Nueva dinámica</span>
+    <span class="ti"><span class="dot2">●</span> Comunidad</span>
+    <span class="ti">🎵 Música y recuerdos</span>
+    <span class="ti"><span class="dot2">●</span> Muy pronto</span>
+    <span class="ti">🌟 Algo especial</span>
+    <span class="ti"><span class="dot2">●</span> Estate atento</span>
+    <span class="ti">✨ Próximamente</span>
+    <span class="ti"><span class="dot2">●</span> Daaazlandia</span>
+    <span class="ti">💛 Nueva dinámica</span>
+    <span class="ti"><span class="dot2">●</span> Comunidad</span>
+    <span class="ti">🎵 Música y recuerdos</span>
+    <span class="ti"><span class="dot2">●</span> Muy pronto</span>
+    <span class="ti">🌟 Algo especial</span>
+    <span class="ti"><span class="dot2">●</span> Estate atento</span>
+  </div>
+</div>
+
+<!-- ══ ¿QUÉ VIENE? ══ -->
+<section id="que-viene">
+  <div class="wrap">
+    <div class="sec-head rv center">
+      <div class="label">Pistas de lo que viene</div>
+      <h2>No podemos decirte todo... <span class="amarillo">todavía</span> 👀</h2>
+      <p style="margin:0 auto;max-width:560px;">
+        Pero sí podemos darte algunas pistas de lo que el equipo está cocinando para la comunidad.
+      </p>
+    </div>
+    <div class="pistas-grid">
+      <div class="pista rv-s">
+        <span class="pista-emoji">💌</span>
+        <h3>Hay emociones involucradas</h3>
+        <p>La próxima dinámica tocará algo que todos hemos sentido alguna vez. Prepara tus recuerdos.</p>
+      </div>
+      <div class="pista rv-s">
+        <span class="pista-emoji">🧑‍🤝‍🧑</span>
+        <h3>La comunidad decide</h3>
+        <p>Los habitantes van a participar juntos. No solo mirar. Todos dentro, todos conectando.</p>
+      </div>
+      <div class="pista rv-s">
+        <span class="pista-emoji">🏆</span>
+        <h3>Hay recompensa real</h3>
+        <p>Quien participe tiene la oportunidad de ganar algo que vale la pena. No te lo pierdas.</p>
+      </div>
+      <div class="pista rv-s">
+        <span class="pista-emoji">🎵</span>
+        <h3>Música, historias y sorpresas</h3>
+        <p>Daaazlandia no hace dinámicas a medias. Esta viene con todo. Espera que sea diferente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MIENTRAS TANTO ══ -->
+<section id="mientras">
+  <div class="deco" style="bottom:-70px;left:-70px;">
+    <svg width="300" height="300" viewBox="0 0 420 420" fill="none">
+      <circle cx="210" cy="210" r="90" fill="#10233F" opacity=".12"/>
+      <g stroke="#10233F" stroke-width="6" stroke-linecap="round" opacity=".12">
+        <line x1="210" y1="30" x2="210" y2="75"/><line x1="210" y1="345" x2="210" y2="390"/>
+        <line x1="30" y1="210" x2="75" y2="210"/><line x1="345" y1="210" x2="390" y2="210"/>
+        <line x1="70" y1="70" x2="103" y2="103"/><line x1="317" y1="317" x2="350" y2="350"/>
+        <line x1="350" y1="70" x2="317" y2="103"/><line x1="103" y1="317" x2="70" y2="350"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="label">Mientras esperas</div>
+      <h2 style="color:var(--azul)">¿Qué puedes hacer <span style="text-decoration:underline;text-decoration-color:rgba(16,35,63,.3)">ahorita</span>? 💛</h2>
+      <p>No hace falta esperar con las manos cruzadas. Ya hay mucho pasando dentro de Daaazlandia.</p>
+    </div>
+    <div class="mientras-cards">
+      <div class="mc rv-s">
+        <span class="mc-emoji">🏡</span>
+        <h3 style="color:var(--azul)">Únete a la comunidad</h3>
+        <p>Si todavía no eres habitante de Daaazlandia, este es el momento. Entra al grupo y empieza a conectar.</p>
+      </div>
+      <div class="mc rv-s">
+        <span class="mc-emoji">🧑‍🤝‍🧑</span>
+        <h3 style="color:var(--azul)">Conoce habitantes</h3>
+        <p>Hay personas de toda Latinoamérica esperando conocerte. La comunidad está activa todos los días.</p>
+      </div>
+      <div class="mc rv-s">
+        <span class="mc-emoji">💬</span>
+        <h3 style="color:var(--azul)">Participa en conversaciones</h3>
+        <p>El grupo no descansa. Encuentra gente que comparte tus gustos y empieza a interactuar hoy.</p>
+      </div>
+      <div class="mc rv-s">
+        <span class="mc-emoji">🔔</span>
+        <h3 style="color:var(--azul)">Activa notificaciones</h3>
+        <p>Para que no te pierdas el lanzamiento de la dinámica, estate atento al grupo. Avisamos ahí primero.</p>
+      </div>
+    </div>
+    <div style="text-align:center;" class="rv">
+      <a class="btn btn-azul" href="index.html">🏡 Ir al inicio de Daaazlandia</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ POR QUÉ ESTAR EN EL GRUPO ══ -->
+<section id="por-que">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <div class="label">El grupo te necesita</div>
+      <h2>¿Por qué estar en <span class="amarillo">Daaazlandia</span>? 🎵</h2>
+      <p style="margin:0 auto;max-width:560px;">
+        No es solo esperar la próxima dinámica. Estar dentro tiene sus razones todos los días.
+      </p>
+    </div>
+    <div class="razones">
+      <div class="razon rv"><span class="razon-emoji">💛</span><span class="razon-text">Personas reales que comparten tus gustos musicales</span></div>
+      <div class="razon rv"><span class="razon-emoji">🌎</span><span class="razon-text">Comunidad activa de toda Latinoamérica</span></div>
+      <div class="razon rv"><span class="razon-emoji">🎉</span><span class="razon-text">Dinámicas y actividades durante todo el año</span></div>
+      <div class="razon rv"><span class="razon-emoji">🏆</span><span class="razon-text">Recompensas reales para los más participativos</span></div>
+      <div class="razon rv"><span class="razon-emoji">💬</span><span class="razon-text">Siempre habrá con quién hablar, sin importar la hora</span></div>
+      <div class="razon rv"><span class="razon-emoji">🛡️</span><span class="razon-text">Espacio seguro y moderado con reglas claras</span></div>
+      <div class="razon rv"><span class="razon-emoji">🎵</span><span class="razon-text">Contenido, playlists y momentos exclusivos de Daaz</span></div>
+      <div class="razon rv"><span class="razon-emoji">🔔</span><span class="razon-text">Tú te enteras primero de todo lo que pasa</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NOTIFICACIÓN / CTA BAND ══ -->
+<section id="notif-band" style="padding:90px 5vw;">
+  <!-- Rings decorativos -->
+  <div class="ring" style="width:320px;height:320px;border:2px solid rgba(0,159,227,.25);top:50%;left:50%;margin:-160px 0 0 -160px;"></div>
+  <div class="ring" style="width:320px;height:320px;border:2px solid rgba(0,159,227,.15);top:50%;left:50%;margin:-160px 0 0 -160px;animation-delay:1s;"></div>
+  <div class="ring" style="width:320px;height:320px;border:2px solid rgba(0,159,227,.08);top:50%;left:50%;margin:-160px 0 0 -160px;animation-delay:2s;"></div>
+
+  <div class="wrap center rv">
+    <div class="label" style="color:var(--azul-b);">Avísame cuando llegue</div>
+    <h2>No te quedes fuera<br>cuando <em>llegue el momento</em> 🔔</h2>
+    <p>Escríbenos por WhatsApp y te mandamos aviso en cuanto la dinámica esté lista. Así eres de los primeros en participar.</p>
+    <br/><br/>
+    <button class="btn btn-am" onclick="openModal()">
+      📲 Quiero que me avisen
+    </button>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="label">Preguntas frecuentes</div>
+      <h2>Lo que nos <span class="amarillo">preguntan</span> 🤔</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item rv">
+        <button class="faq-q"><span class="faq-q-text">¿Por qué no hay dinámica disponible hoy?</span><span class="faq-icon">+</span></button>
+        <div class="faq-body"><div class="faq-body-inner">El equipo de Daaazlandia está en proceso de preparar la dinámica para asegurarse de que sea una experiencia especial. Las actividades requieren organización, revisión y un lanzamiento en el momento correcto para que todos los habitantes puedan disfrutarlas al máximo.</div></div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-q"><span class="faq-q-text">¿Cuándo se lanzará la dinámica?</span><span class="faq-icon">+</span></button>
+        <div class="faq-body"><div class="faq-body-inner">El lanzamiento se anuncia directamente dentro del grupo de Daaazlandia. Si ya eres habitante, estate atento a las notificaciones. Si todavía no estás dentro, únete para ser de los primeros en enterarte cuando llegue el aviso.</div></div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-q"><span class="faq-q-text">¿Con qué frecuencia se hacen dinámicas?</span><span class="faq-icon">+</span></button>
+        <div class="faq-body"><div class="faq-body-inner">Las dinámicas varían dependiendo del momento y del equipo. Algunas son semanales, otras mensuales y hay actividades especiales que dependen del contexto de la comunidad. La mejor forma de no perderte ninguna es estar activo dentro del grupo.</div></div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-q"><span class="faq-q-text">¿Cómo me entero cuando esté disponible?</span><span class="faq-icon">+</span></button>
+        <div class="faq-body"><div class="faq-body-inner">Todo se anuncia primero dentro del grupo de WhatsApp de Daaazlandia. Si quieres recibir un aviso personalizado, puedes escribirnos por WhatsApp y te contactamos cuando la dinámica esté lista.</div></div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-q"><span class="faq-q-text">¿Puedo participar aunque no sea fan experto de Daaz?</span><span class="faq-icon">+</span></button>
+        <div class="faq-body"><div class="faq-body-inner">Sí. Las dinámicas de Daaazlandia están diseñadas para que cualquier habitante pueda participar, sin importar cuánto conozca sobre Daaz. Lo importante es querer conectar y ser parte de la comunidad.</div></div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-q"><span class="faq-q-text">¿Tendré que pagar algo para participar?</span><span class="faq-icon">+</span></button>
+        <div class="faq-body"><div class="faq-body-inner">No. Todas las dinámicas de Daaazlandia son completamente gratuitas. Solo necesitas ser parte de la comunidad y tener ganas de participar.</div></div>
+      </div>
+
+      <div class="faq-item rv">
+        <button class="faq-q"><span class="faq-q-text">¿Puedo invitar a alguien a esperar la dinámica también?</span><span class="faq-icon">+</span></button>
+        <div class="faq-body"><div class="faq-body-inner">Claro. Cuanta más gente dentro, más divertida será la dinámica. Comparte esta página con quien creas que va a querer participar. Todos son bienvenidos.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ VOLVER AL INICIO ══ -->
+<div id="volver-bloque" class="rv">
+  <a class="volver-link" href="index.html">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Volver al inicio de Daaazlandia
+  </a>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <span class="f-logo">Daaazlandia 💛</span>
+  <small>Comunidad independiente de fans de Daaz · Organizado con ❤️ por Shaminket</small>
+</footer>
+
+<!-- ══ BOTÓN FLOTANTE WA ══ -->
+<button class="wa-float" onclick="openModal()" title="Soporte WhatsApp" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</button>
+
+<!-- ══ MODAL 2 PASOS ══ -->
+<div class="modal-overlay" id="wa-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title-txt">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">✕</button>
+    <span class="modal-emoji">🔔</span>
+    <div class="modal-title" id="modal-title-txt">¿Quieres que te avisemos?</div>
+    <p class="modal-desc">
+      Te vamos a llevar a WhatsApp para que dejes tu mensaje.<br/>
+      <strong style="color:var(--amarillo)">Abriremos una ventana nueva para que no pierdas esta página.</strong>
+    </p>
+    <div class="modal-btns">
+      <button class="btn btn-am" onclick="goWA()">
+        📲 Sí, ir a WhatsApp
+      </button>
+      <button class="btn btn-out" onclick="closeModal()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ JS ══ -->
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+
+  /* ─ Navbar scroll ─ */
+  const nav=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled',window.scrollY>40);
+  },{passive:true});
+
+  /* ─ Scroll reveal ─ */
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('vis');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.09});
+  document.querySelectorAll('.rv,.rv-s,.rv-l,.rv-r').forEach((el,i)=>{
+    el.style.transitionDelay=`${(i%5)*75}ms`;
+    io.observe(el);
+  });
+
+  /* ─ FAQ accordion ─ */
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    item.querySelector('.faq-q').addEventListener('click',()=>{
+      const open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(!open) item.classList.add('open');
+    });
+  });
+
+  /* ─ Modal cerrar ESC / fondo ─ */
+  const modal=document.getElementById('wa-modal');
+  modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+  /* ─ Ticker infinito ─ */
+  const track=document.getElementById('ticker-track');
+  if(track){const clone=track.cloneNode(true);track.parentNode.appendChild(clone);}
+
+  /* ─ Countdown (72 horas desde carga de página como ejemplo visual) ─ */
+  const target=new Date("2026-07-01T03:00:00Z"); // Martes 30 junio 2026 9pm Ciudad de México (UTC-6)
+  function tick(){
+    const now=new Date();
+    const diff=Math.max(0,target-now);
+    const h=Math.floor(diff/3600000);
+    const m=Math.floor((diff%3600000)/60000);
+    const s=Math.floor((diff%60000)/1000);
+    const pad=n=>String(n).padStart(2,'0');
+    document.getElementById('cd-h').textContent=pad(h);
+    document.getElementById('cd-m').textContent=pad(m);
+    document.getElementById('cd-s').textContent=pad(s);
+  }
+  tick();
+  setInterval(tick,1000);
+
+  /* ─ Hero canvas: partículas + ondas ─ */
+  const canvas=document.getElementById('hero-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H;
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
+  resize();
+  window.addEventListener('resize',resize,{passive:true});
+
+  const COLS=['rgba(255,210,31,','rgba(0,159,227,','rgba(0,166,81,'];
+  class Dot{
+    constructor(){this.reset(true);}
+    reset(init){
+      this.x=Math.random()*W;
+      this.y=init?Math.random()*H:H+10;
+      this.r=Math.random()*2.2+.5;
+      this.vy=-(Math.random()*.45+.1);
+      this.vx=(Math.random()-.5)*.25;
+      this.a=Math.random()*.55+.1;
+      this.l=0;
+      this.max=Math.random()*320+160;
+      this.c=COLS[Math.floor(Math.random()*COLS.length)];
+    }
+    tick(){this.x+=this.vx;this.y+=this.vy;this.l++;if(this.l>this.max||this.y<-8)this.reset(false);}
+    draw(){
+      const a=this.a*Math.sin((this.l/this.max)*Math.PI);
+      ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+      ctx.fillStyle=this.c+a+')';ctx.fill();
+    }
+  }
+  const dots=Array.from({length:100},()=>new Dot());
+
+  function drawWaves(t){
+    [[.25,'rgba(255,210,31,',16,3,.045],[.45,'rgba(0,159,227,',20,2.5,.04],[.65,'rgba(0,166,81,',10,4,.03],[.82,'rgba(255,210,31,',7,5,.025]]
+    .forEach(([yf,c,amp,freq,a])=>{
+      ctx.beginPath();ctx.moveTo(0,H*yf);
+      for(let x=0;x<=W;x+=3){
+        const y=H*yf+Math.sin((x/W)*Math.PI*freq+t*.7)*amp+Math.cos((x/W)*Math.PI*2+t*.45)*(amp*.5);
+        ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle=c+a+')';ctx.lineWidth=1.6;ctx.stroke();
+    });
+  }
+
+  let t=0;
+  (function loop(){
+    ctx.clearRect(0,0,W,H);
+    drawWaves(t);
+    dots.forEach(d=>{d.tick();d.draw();});
+    t+=.013;
+    requestAnimationFrame(loop);
+  })();
+
+});
+</script>
 </body>
 </html>
