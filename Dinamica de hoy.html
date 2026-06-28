@@ -1,1163 +1,695 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>La carta que nunca enviaste 💛 · Daaazlandia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Nunito:wght@400;600&display=swap" rel="stylesheet"/>
 
-  <style>
-    /* ════════════════════════════════════════
-       TOKENS — Identidad Visual Oficial
-    ════════════════════════════════════════ */
-    :root {
-      --amarillo:  #FFD21F;
-      --azul:      #10233F;
-      --azul-b:    #009FE3;
-      --verde:     #00A651;
-      --rojo:      #ED1C24;
-      --blanco:    #FFFFFF;
-      --negro:     #111111;
-      --tr: 0.34s cubic-bezier(.4,0,.2,1);
-      --r:  18px;
-      --r-sm: 12px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+<title>Nueva dinámica · Daaazlandia 💛</title>
 
-    body {
-      font-family: 'Nunito', sans-serif;
-      font-size: 16px;
-      line-height: 1.72;
-      background: var(--azul);
-      color: var(--blanco);
-      overflow-x: hidden;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
 
-    /* ── TIPOGRAFÍA ─────────────────────── */
-    h1,h2,h3,h4,.h-poppins { font-family:'Poppins',sans-serif; font-weight:800; line-height:1.15; }
-    h1 { font-size:clamp(2.4rem,7vw,5rem); letter-spacing:-0.02em; }
-    h2 { font-size:clamp(1.8rem,4.5vw,3rem); letter-spacing:-0.02em; }
-    h3 { font-size:clamp(1rem,2.5vw,1.2rem); font-weight:600; }
-    p  { color:rgba(255,255,255,.75); font-size:clamp(.95rem,1.8vw,1.05rem); }
-    .label {
-      font-family:'Poppins',sans-serif; font-weight:600;
-      font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
-    }
-    .center { text-align:center; }
-    .amarillo { color:var(--amarillo); }
+<style>
 
-    /* ── SCROLL ANIMS ───────────────────── */
-    .reveal {
-      opacity:0; transform:translateY(44px);
-      transition:opacity .72s ease, transform .72s ease;
-    }
-    .reveal.visible { opacity:1; transform:none; }
-    .reveal-scale {
-      opacity:0; transform:scale(.88);
-      transition:opacity .65s ease, transform .65s ease;
-    }
-    .reveal-scale.visible { opacity:1; transform:scale(1); }
-    .reveal-left {
-      opacity:0; transform:translateX(-44px);
-      transition:opacity .7s ease, transform .7s ease;
-    }
-    .reveal-left.visible { opacity:1; transform:none; }
-    .reveal-right {
-      opacity:0; transform:translateX(44px);
-      transition:opacity .7s ease, transform .7s ease;
-    }
-    .reveal-right.visible { opacity:1; transform:none; }
+:root{
+--amarillo:#FFD21F;
+--azul:#10233F;
+--azul2:#009FE3;
+--verde:#00A651;
+}
 
-    /* ── NAVBAR ─────────────────────────── */
-    nav {
-      position:fixed; top:0; left:0; right:0; z-index:200;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:0 5vw; height:66px;
-      transition:background var(--tr), backdrop-filter var(--tr);
-    }
-    nav.scrolled {
-      background:rgba(16,35,63,.93);
-      backdrop-filter:blur(18px);
-      border-bottom:1px solid rgba(255,210,31,.15);
-    }
-    .nav-logo {
-      font-family:'Poppins',sans-serif; font-weight:800;
-      font-size:1.15rem; color:var(--amarillo); text-decoration:none;
-    }
-    .nav-logo span { color:var(--blanco); }
-    .nav-back {
-      font-family:'Poppins',sans-serif; font-weight:600;
-      font-size:.84rem; color:rgba(255,255,255,.7);
-      text-decoration:none; display:flex; align-items:center; gap:.4rem;
-      transition:color var(--tr);
-    }
-    .nav-back:hover { color:var(--amarillo); }
-    .nav-back svg { flex-shrink:0; }
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
-    /* ── BOTONES ────────────────────────── */
-    .btn {
-      font-family:'Poppins',sans-serif; font-weight:800;
-      font-size:1rem; border:none; border-radius:999px;
-      padding:.9rem 2.2rem; cursor:pointer; text-decoration:none;
-      display:inline-flex; align-items:center; gap:.5rem;
-      transition:transform var(--tr), box-shadow var(--tr);
-    }
-    .btn-amarillo { background:var(--amarillo); color:var(--azul); }
-    .btn-amarillo:hover { transform:translateY(-3px); box-shadow:0 10px 36px rgba(255,210,31,.5); }
-    .btn-outline {
-      background:transparent; color:var(--blanco);
-      border:2px solid rgba(255,255,255,.25);
-    }
-    .btn-outline:hover { border-color:var(--amarillo); color:var(--amarillo); transform:translateY(-2px); }
-    .btn-verde { background:var(--verde); color:var(--blanco); }
-    .btn-verde:hover { transform:translateY(-3px); box-shadow:0 10px 36px rgba(0,166,81,.45); }
-    .btn-wa { background:#25D366; color:#fff; }
-    .btn-wa:hover { transform:translateY(-3px); box-shadow:0 10px 36px rgba(37,211,102,.5); }
-    .btn-sm { font-size:.88rem; padding:.7rem 1.6rem; }
+html{
+scroll-behavior:smooth;
+}
 
-    /* ── SECCIONES BASE ─────────────────── */
-    section { padding:100px 5vw; position:relative; overflow:hidden; }
-    .wrap { max-width:1080px; margin:0 auto; position:relative; z-index:2; }
-    .sec-head { margin-bottom:3rem; }
-    .sec-head h2 { margin:.5rem 0 1rem; }
-    .sec-head p { max-width:580px; }
-    .sec-head.center p { margin:0 auto; }
+body{
+font-family:'Nunito',sans-serif;
+background:var(--azul);
+color:white;
+overflow-x:hidden;
+}
 
-    /* ── DECORACIONES ───────────────────── */
-    .deco { position:absolute; pointer-events:none; z-index:0; }
 
-    /* ════════════════════════════════════════
-       SECCIÓN 1 — PORTADA / HERO
-    ════════════════════════════════════════ */
-    #hero {
-      min-height:100svh;
-      background:linear-gradient(155deg,#0b1a2e 0%,#10233F 50%,#0a2033 100%);
-      display:flex; flex-direction:column;
-      align-items:center; justify-content:center;
-      text-align:center; padding:110px 5vw 90px;
-    }
-    #hero-canvas { position:absolute; inset:0; z-index:0; pointer-events:none; }
+h1,h2,h3{
+font-family:'Poppins',sans-serif;
+font-weight:800;
+}
 
-    .hero-pill {
-      display:inline-flex; align-items:center; gap:.5rem;
-      background:rgba(255,210,31,.12); border:1.5px solid rgba(255,210,31,.35);
-      border-radius:999px; padding:.4rem 1.2rem;
-      font-family:'Poppins',sans-serif; font-weight:600;
-      font-size:.76rem; letter-spacing:.1em; text-transform:uppercase;
-      color:var(--amarillo); margin-bottom:1.8rem;
-    }
-    .hero-pill .dot {
-      width:7px; height:7px; border-radius:50%;
-      background:var(--amarillo); animation:pulse 2s ease infinite;
-    }
 
-    #hero h1 em { font-style:normal; color:var(--amarillo); }
-    .hero-sub {
-      max-width:600px; margin:1.5rem auto 2.5rem;
-      font-size:clamp(1rem,2.2vw,1.15rem);
-      color:rgba(255,255,255,.75); line-height:1.8;
-    }
-    .hero-sub strong { color:var(--blanco); }
-    .hero-btns { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; }
+h1{
+font-size:clamp(2rem,7vw,4.5rem);
+line-height:1.1;
+}
 
-    .hero-scroll {
-      position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
-      display:flex; flex-direction:column; align-items:center; gap:.5rem; z-index:2;
-    }
-    .hero-scroll span {
-      font-family:'Poppins',sans-serif; font-size:.65rem;
-      letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.3);
-    }
-    .hero-scroll .arr {
-      width:18px; height:18px;
-      border-right:2px solid var(--amarillo); border-bottom:2px solid var(--amarillo);
-      transform:rotate(45deg); animation:bob 1.8s ease infinite;
-    }
 
-    /* ════════════════════════════════════════
-       SECCIÓN 2 — ¿EN QUÉ CONSISTE?
-    ════════════════════════════════════════ */
-    #consiste {
-      background:linear-gradient(160deg,#0a2033 0%,#0d2a44 100%);
-    }
-    #consiste::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse at 80% 20%,rgba(0,159,227,.12) 0%,transparent 65%);
-    }
+h2{
+font-size:clamp(1.8rem,5vw,3rem);
+}
 
-    .carta-tipos {
-      display:grid; gap:1.2rem;
-      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    }
-    .carta-tipo {
-      background:rgba(255,255,255,.05);
-      border:1.5px solid rgba(255,255,255,.09);
-      border-radius:var(--r); padding:1.6rem;
-      display:flex; align-items:center; gap:1rem;
-      transition:border-color var(--tr), transform var(--tr), box-shadow var(--tr);
-    }
-    .carta-tipo:hover {
-      border-color:rgba(255,210,31,.35);
-      transform:translateY(-5px);
-      box-shadow:0 12px 36px rgba(255,210,31,.1);
-    }
-    .ct-emoji { font-size:1.8rem; flex-shrink:0; }
-    .ct-text { font-family:'Poppins',sans-serif; font-weight:600; font-size:.95rem; }
 
-    /* ════════════════════════════════════════
-       SECCIÓN 3 — OBJETIVOS
-    ════════════════════════════════════════ */
-    #objetivos { background:var(--amarillo); }
-    #objetivos .label { color:rgba(16,35,63,.6); }
-    #objetivos h2 { color:var(--azul); }
-    #objetivos .sec-head p { color:rgba(16,35,63,.65); }
+p{
+color:#ffffffc9;
+line-height:1.7;
+}
 
-    .obj-grid {
-      display:grid; gap:1.5rem;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    }
-    .obj-card {
-      background:rgba(16,35,63,.08);
-      border:1.5px solid rgba(16,35,63,.15);
-      border-radius:var(--r); padding:2rem;
-      transition:transform var(--tr), box-shadow var(--tr), border-color var(--tr);
-    }
-    .obj-card:hover {
-      transform:translateY(-6px);
-      box-shadow:0 16px 48px rgba(16,35,63,.2);
-      border-color:rgba(16,35,63,.35);
-    }
-    .obj-num {
-      font-family:'Poppins',sans-serif; font-weight:800;
-      font-size:3rem; color:rgba(16,35,63,.1); line-height:1; margin-bottom:.8rem;
-    }
-    .obj-card h3 { color:var(--azul); margin-bottom:.5rem; }
-    .obj-card p  { color:rgba(16,35,63,.65); font-size:.92rem; }
 
-    /* ════════════════════════════════════════
-       SECCIÓN 4 — CÓMO PARTICIPAR
-    ════════════════════════════════════════ */
-    #como {
-      background:linear-gradient(160deg,#003d5c 0%,#002840 100%);
-    }
-    #como::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse at 20% 80%,rgba(0,159,227,.15) 0%,transparent 60%);
-    }
-    #como .label { color:var(--azul-b); }
 
-    .pasos {
-      display:grid; gap:1.2rem;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-      counter-reset:paso;
-    }
-    .paso {
-      background:rgba(0,159,227,.07);
-      border:1.5px solid rgba(0,159,227,.18);
-      border-radius:var(--r); padding:2rem 1.8rem;
-      position:relative; overflow:hidden;
-      transition:transform var(--tr), border-color var(--tr), box-shadow var(--tr);
-      counter-increment:paso;
-    }
-    .paso::before {
-      content:counter(paso,'0');
-      counter-increment:none;
-      font-family:'Poppins',sans-serif; font-weight:800;
-      font-size:3.2rem; line-height:1;
-      color:rgba(0,159,227,.12);
-      position:absolute; top:.8rem; left:1.2rem;
-    }
-    .paso::after {
-      content:'0' counter(paso);
-      font-family:'Poppins',sans-serif; font-weight:800;
-      font-size:3.2rem; line-height:1;
-      color:rgba(0,159,227,.12);
-      position:absolute; top:.8rem; left:1.2rem;
-    }
-    /* Simplify — use a deco div instead of counter pseudo */
-    .paso-num {
-      font-family:'Poppins',sans-serif; font-weight:800;
-      font-size:3rem; line-height:1; color:rgba(0,159,227,.15);
-      margin-bottom:.8rem;
-    }
-    .paso:hover {
-      transform:translateY(-5px);
-      border-color:rgba(255,210,31,.3);
-      box-shadow:0 12px 40px rgba(0,0,0,.25);
-    }
-    .paso h3 { color:var(--blanco); margin-bottom:.5rem; font-size:1rem; }
-    .paso p { font-size:.9rem; }
+section{
 
-    /* ════════════════════════════════════════
-       SECCIÓN 5 — ¿POR QUÉ PARTICIPAR?
-    ════════════════════════════════════════ */
-    #porque {
-      background:linear-gradient(135deg,#0D1D33 0%,#10233F 100%);
-    }
-    #porque::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse at 50% 50%,rgba(0,166,81,.12) 0%,transparent 70%);
-    }
-    #porque .label { color:var(--verde); }
+min-height:90vh;
+padding:80px 6vw;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+overflow:hidden;
 
-    .razon-grid {
-      display:grid; gap:1rem;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    }
-    .razon {
-      background:rgba(255,255,255,.04);
-      border:1.5px solid rgba(255,255,255,.08);
-      border-radius:var(--r); padding:1.6rem;
-      text-align:center;
-      transition:transform var(--tr), border-color var(--tr);
-      animation:flotar 4s ease-in-out infinite;
-    }
-    .razon:nth-child(2) { animation-delay:.5s; }
-    .razon:nth-child(3) { animation-delay:1s; }
-    .razon:nth-child(4) { animation-delay:1.5s; }
-    .razon:nth-child(5) { animation-delay:2s; }
-    .razon:hover {
-      transform:translateY(-8px) scale(1.03);
-      border-color:rgba(255,210,31,.35);
-    }
-    .razon-emoji { font-size:2.2rem; display:block; margin-bottom:.8rem; }
-    .razon h3 { font-size:.95rem; color:var(--blanco); margin-bottom:.4rem; }
-    .razon p  { font-size:.85rem; }
+}
 
-    /* ════════════════════════════════════════
-       SECCIÓN 6 — RECOMPENSA (banda amarilla)
-    ════════════════════════════════════════ */
-    #recompensa {
-      background:var(--amarillo);
-      text-align:center; position:relative; overflow:hidden;
-    }
-    #recompensa::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.3) 0%,transparent 60%);
-    }
-    #recompensa .label { color:rgba(16,35,63,.55); }
-    #recompensa h2 { color:var(--azul); margin:.5rem 0 1rem; }
-    #recompensa > .wrap > p { color:rgba(16,35,63,.65); margin:0 auto 2.5rem; max-width:520px; }
 
-    .premios {
-      display:grid; gap:1.5rem;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      margin-bottom:2.5rem;
-    }
-    .premio {
-      background:rgba(16,35,63,.08);
-      border:2px solid rgba(16,35,63,.12);
-      border-radius:var(--r); padding:2rem;
-      transition:transform var(--tr), box-shadow var(--tr);
-    }
-    .premio:hover {
-      transform:translateY(-6px);
-      box-shadow:0 16px 44px rgba(16,35,63,.2);
-    }
-    .premio-emoji { font-size:2.8rem; display:block; margin-bottom:.8rem; }
-    .premio h3 { color:var(--azul); margin-bottom:.5rem; }
-    .premio p  { color:rgba(16,35,63,.65); font-size:.9rem; }
 
-    /* ════════════════════════════════════════
-       SECCIÓN 7 — PROMPT IA
-    ════════════════════════════════════════ */
-    #prompt-ia {
-      background:linear-gradient(155deg,#0a1828 0%,#10233F 100%);
-    }
-    #prompt-ia::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse at 90% 50%,rgba(237,28,36,.06) 0%,transparent 60%);
-    }
-    #prompt-ia .label { color:var(--azul-b); }
+#hero{
 
-    .prompt-box {
-      background:rgba(0,159,227,.07);
-      border:2px solid rgba(0,159,227,.2);
-      border-radius:var(--r); padding:2rem 2.2rem;
-      position:relative; margin-top:1.5rem;
-    }
-    .prompt-text {
-      font-family:'Nunito',sans-serif; font-size:.95rem;
-      color:rgba(255,255,255,.8); line-height:1.9;
-      white-space:pre-wrap; margin-bottom:1.5rem;
-    }
-    .prompt-text em {
-      color:var(--amarillo); font-style:normal; font-weight:600;
-    }
-    .copy-btn {
-      background:var(--azul-b); color:var(--blanco);
-      font-family:'Poppins',sans-serif; font-weight:600;
-      font-size:.88rem; border:none; border-radius:999px;
-      padding:.65rem 1.6rem; cursor:pointer;
-      display:inline-flex; align-items:center; gap:.45rem;
-      transition:transform var(--tr), box-shadow var(--tr), background var(--tr);
-    }
-    .copy-btn:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(0,159,227,.45); }
-    .copy-btn.copied { background:var(--verde); }
+background:
+linear-gradient(150deg,#08172b,#10233F);
 
-    /* ════════════════════════════════════════
-       SECCIÓN 8 — PARA QUIÉN
-    ════════════════════════════════════════ */
-    #para-quien {
-      background:linear-gradient(160deg,#003d5c 0%,#002840 100%);
-    }
-    #para-quien::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse at 30% 70%,rgba(255,210,31,.08) 0%,transparent 60%);
-    }
-    #para-quien .label { color:var(--amarillo); }
+}
 
-    .quien-grid {
-      display:grid; gap:1rem;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    }
-    .quien-item {
-      background:rgba(255,255,255,.05);
-      border:1.5px solid rgba(255,255,255,.09);
-      border-radius:var(--r); padding:1.5rem;
-      display:flex; align-items:center; gap:.9rem;
-      transition:border-color var(--tr), transform var(--tr);
-    }
-    .quien-item:hover {
-      border-color:rgba(255,210,31,.35);
-      transform:translateX(6px);
-    }
-    .qi-emoji { font-size:1.5rem; flex-shrink:0; }
-    .qi-text { font-family:'Poppins',sans-serif; font-weight:600; font-size:.92rem; }
 
-    /* ════════════════════════════════════════
-       SECCIÓN 9 — FAQ
-    ════════════════════════════════════════ */
-    #faq {
-      background:#0a1828;
-    }
-    #faq::before {
-      content:''; position:absolute; inset:0;
-      background:radial-gradient(ellipse at 80% 30%,rgba(237,28,36,.06) 0%,transparent 60%);
-    }
-    #faq .label { color:var(--rojo); }
 
-    .faq-list { max-width:760px; display:flex; flex-direction:column; gap:.8rem; }
-    .faq-item {
-      background:rgba(255,255,255,.04);
-      border:1.5px solid rgba(255,255,255,.08);
-      border-radius:var(--r-sm); overflow:hidden;
-      transition:border-color var(--tr);
-    }
-    .faq-item.open,.faq-item:hover { border-color:rgba(255,210,31,.28); }
-    .faq-q {
-      width:100%; background:none; border:none; cursor:pointer;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:1.25rem 1.6rem; gap:1rem; text-align:left;
-    }
-    .faq-q-text {
-      font-family:'Poppins',sans-serif; font-weight:600;
-      font-size:clamp(.9rem,2vw,1rem); color:var(--blanco);
-    }
-    .faq-icon {
-      flex-shrink:0; width:28px; height:28px; border-radius:50%;
-      background:rgba(255,210,31,.1);
-      display:flex; align-items:center; justify-content:center;
-      color:var(--amarillo); font-size:1.1rem;
-      transition:transform var(--tr), background var(--tr);
-    }
-    .faq-item.open .faq-icon { transform:rotate(45deg); background:var(--amarillo); color:var(--azul); }
-    .faq-body { max-height:0; overflow:hidden; transition:max-height .42s ease; padding:0 1.6rem; }
-    .faq-body-inner { padding-bottom:1.3rem; font-size:.93rem; color:rgba(255,255,255,.65); line-height:1.75; }
-    .faq-item.open .faq-body { max-height:300px; }
+section:nth-of-type(2){
 
-    /* ════════════════════════════════════════
-       SECCIÓN VOLVER AL INICIO (link)
-    ════════════════════════════════════════ */
-    #volver-bloque {
-      background:var(--amarillo);
-      padding:48px 5vw; text-align:center;
-    }
-    .volver-link {
-      font-family:'Poppins',sans-serif; font-weight:700;
-      font-size:1rem; color:var(--azul); text-decoration:none;
-      display:inline-flex; align-items:center; gap:.5rem;
-      padding:.8rem 2rem; border-radius:999px;
-      background:rgba(16,35,63,.1);
-      border:2px solid rgba(16,35,63,.2);
-      transition:background var(--tr), border-color var(--tr), transform var(--tr);
-    }
-    .volver-link:hover { background:rgba(16,35,63,.18); border-color:rgba(16,35,63,.4); transform:translateY(-2px); }
+background:
+linear-gradient(150deg,#10233F,#006fa6);
 
-    /* ════════════════════════════════════════
-       TÉRMINOS LEGALES
-    ════════════════════════════════════════ */
-    #terminos {
-      background:var(--negro);
-      padding:60px 5vw;
-      border-top:1px solid rgba(255,255,255,.06);
-    }
-    .terminos-titulo {
-      font-family:'Poppins',sans-serif; font-weight:600;
-      font-size:.9rem; color:rgba(255,255,255,.4);
-      letter-spacing:.08em; text-transform:uppercase;
-      margin-bottom:1.2rem;
-    }
-    .terminos-texto {
-      font-size:.78rem; color:rgba(255,255,255,.3);
-      line-height:1.8; max-width:860px;
-    }
-    .terminos-texto h4 {
-      font-family:'Poppins',sans-serif; font-weight:600;
-      font-size:.82rem; color:rgba(255,255,255,.4);
-      margin-top:1.2rem; margin-bottom:.3rem;
-    }
+}
 
-    /* ════════════════════════════════════════
-       FOOTER
-    ════════════════════════════════════════ */
-    footer {
-      background:var(--azul);
-      border-top:2px solid rgba(255,210,31,.12);
-      padding:1.8rem 5vw;
-      display:flex; flex-wrap:wrap; gap:1rem;
-      align-items:center; justify-content:space-between;
-    }
-    .f-logo { font-family:'Poppins',sans-serif; font-weight:800; color:var(--amarillo); font-size:1.1rem; }
-    footer small { color:rgba(255,255,255,.4); font-size:.76rem; }
 
-    /* ════════════════════════════════════════
-       BOTÓN FLOTANTE WA
-    ════════════════════════════════════════ */
-    .wa-float {
-      position:fixed; bottom:2rem; right:2rem; z-index:300;
-      width:62px; height:62px; border-radius:50%;
-      background:#25D366;
-      display:flex; align-items:center; justify-content:center;
-      text-decoration:none;
-      box-shadow:0 4px 24px rgba(37,211,102,.5);
-      transition:transform var(--tr), box-shadow var(--tr);
-    }
-    .wa-float:hover {
-      transform:scale(1.12) translateY(-3px);
-      box-shadow:0 10px 40px rgba(37,211,102,.65);
-    }
-    .wa-float svg { width:34px; height:34px; fill:#fff; }
 
-    /* ════════════════════════════════════════
-       MODAL WA (2 pasos)
-    ════════════════════════════════════════ */
-    .modal-overlay {
-      display:none; position:fixed; inset:0; z-index:500;
-      background:rgba(10,20,40,.88); backdrop-filter:blur(10px);
-      align-items:center; justify-content:center; padding:1.5rem;
-    }
-    .modal-overlay.open { display:flex; }
-    .modal-box {
-      background:linear-gradient(145deg,#10233F,#0d2a44);
-      border:1.5px solid rgba(255,210,31,.25);
-      border-radius:var(--r); padding:2.5rem 2rem;
-      max-width:420px; width:100%; text-align:center;
-      animation:modal-in .38s ease;
-      position:relative;
-    }
-    .modal-emoji { font-size:3rem; display:block; margin-bottom:.8rem; }
-    .modal-title {
-      font-family:'Poppins',sans-serif; font-weight:800;
-      font-size:1.4rem; color:var(--blanco); margin-bottom:.8rem;
-    }
-    .modal-desc { font-size:.95rem; color:rgba(255,255,255,.7); margin-bottom:1.8rem; }
-    .modal-btns { display:flex; flex-wrap:wrap; gap:.8rem; justify-content:center; }
-    .modal-close {
-      position:absolute; top:1rem; right:1.2rem;
-      background:none; border:none; cursor:pointer;
-      font-size:1.4rem; color:rgba(255,255,255,.4);
-      transition:color var(--tr);
-    }
-    .modal-close:hover { color:var(--blanco); }
+section:nth-of-type(3){
 
-    /* ════════════════════════════════════════
-       KEYFRAMES
-    ════════════════════════════════════════ */
-    @keyframes pulse  { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.6)} }
-    @keyframes bob    { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(6px)} }
-    @keyframes flotar { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-    @keyframes modal-in { from{opacity:0;transform:scale(.9) translateY(20px)} to{opacity:1;transform:none} }
-    @keyframes ring   { 0%{transform:scale(.6);opacity:.7} 100%{transform:scale(2.4);opacity:0} }
+background:
+linear-gradient(150deg,#006b43,#00A651);
 
-    /* ── RESPONSIVE ─────────────────────── */
-    @media(max-width:768px){
-      section { padding:80px 5vw; }
-      .hero-btns { flex-direction:column; align-items:center; }
-      #volver-bloque { padding:40px 5vw; }
-    }
-    @media(prefers-reduced-motion:reduce){
-      *,*::before,*::after{ animation:none !important; transition:none !important; }
-      .reveal,.reveal-scale,.reveal-left,.reveal-right{ opacity:1 !important; transform:none !important; }
-    }
-  </style>
+}
+
+
+
+.wrap{
+
+width:100%;
+max-width:950px;
+text-align:center;
+z-index:2;
+
+}
+
+
+
+.amarillo{
+color:var(--amarillo);
+}
+
+
+
+.circle{
+
+position:absolute;
+width:450px;
+height:450px;
+max-width:90vw;
+max-height:90vw;
+border-radius:50%;
+background:#ffd21f22;
+animation:pulse 5s infinite;
+
+}
+
+
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.2);
+}
+
+}
+
+
+
+.reveal{
+
+opacity:0;
+transform:translateY(50px);
+transition:.8s ease;
+
+}
+
+
+.reveal.visible{
+
+opacity:1;
+transform:none;
+
+}
+
+
+
+.floating{
+
+animation:float 4s infinite ease-in-out;
+
+}
+
+
+@keyframes float{
+
+50%{
+transform:translateY(-8px);
+}
+
+}
+
+
+
+.badge{
+
+display:inline-block;
+padding:10px 18px;
+border-radius:999px;
+border:1px solid #ffd21f66;
+background:#ffd21f18;
+color:var(--amarillo);
+margin-bottom:20px;
+
+}
+
+
+
+.buttons{
+
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+margin-top:30px;
+
+}
+
+
+
+.btn{
+
+padding:14px 25px;
+border-radius:999px;
+font-family:Poppins;
+font-weight:800;
+cursor:pointer;
+text-decoration:none;
+border:none;
+transition:.3s;
+
+}
+
+
+
+.btn-yellow{
+
+background:var(--amarillo);
+color:var(--azul);
+
+}
+
+
+
+.btn-yellow:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+
+.btn-outline{
+
+background:none;
+border:2px solid #ffffff66;
+color:white;
+
+}
+
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+margin-top:35px;
+
+}
+
+
+
+.item{
+
+background:#ffffff12;
+padding:25px;
+border-radius:22px;
+backdrop-filter:blur(10px);
+transition:.3s;
+
+}
+
+
+
+.item:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+
+.item span{
+
+font-size:40px;
+
+}
+
+
+
+.card{
+
+background:#ffffff15;
+padding:30px;
+border-radius:25px;
+backdrop-filter:blur(10px);
+
+}
+
+
+
+
+footer{
+
+background:#08111f;
+padding:25px;
+text-align:center;
+
+}
+
+
+
+/* WHATSAPP */
+
+.wa{
+
+position:fixed;
+right:18px;
+bottom:18px;
+width:58px;
+height:58px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+z-index:20;
+
+}
+
+
+
+
+/* MODAL */
+
+
+.modal{
+
+position:fixed;
+inset:0;
+background:#000b;
+display:none;
+align-items:center;
+justify-content:center;
+z-index:50;
+padding:20px;
+
+}
+
+
+
+.modal.open{
+
+display:flex;
+
+}
+
+
+
+.modal-box{
+
+background:#10233F;
+padding:30px;
+border-radius:25px;
+max-width:400px;
+text-align:center;
+
+}
+
+
+
+@media(max-width:700px){
+
+
+section{
+
+padding:65px 5vw;
+min-height:auto;
+
+}
+
+
+
+.buttons{
+
+flex-direction:column;
+
+}
+
+
+.btn{
+
+width:100%;
+
+}
+
+
+}
+
+
+
+</style>
+
 </head>
+
+
 <body>
 
-<!-- CONFIG -->
-<script>
-  const WA_NUM = "525571985641";
-  const WA_MSG = encodeURIComponent("Hola Daaazlandia 💛 quiero participar en la dinámica de la carta que nunca envié.");
-  const WA_URL = `https://wa.me/${WA_NUM}?text=${WA_MSG}`;
 
-  function openWaModal(trigger) {
-    document.getElementById('wa-modal').classList.add('open');
-    document.getElementById('wa-modal-continue').onclick = () => {
-      window.open(WA_URL, '_blank');
-      closeWaModal();
-    };
-  }
-  function closeWaModal() {
-    document.getElementById('wa-modal').classList.remove('open');
-  }
-</script>
 
-<!-- ═════════════ NAVBAR ═════════════ -->
-<nav id="navbar">
-  <a class="nav-logo" href="index.html">Daaaz<span>landia</span> 💛</a>
-  <a class="nav-back" href="index.html">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-    Volver al inicio
-  </a>
-</nav>
-
-<!-- ═════════════ HERO ═════════════ -->
 <section id="hero">
-  <canvas id="hero-canvas"></canvas>
 
-  <!-- Sol deco -->
-  <div class="deco" style="top:-100px;right:-100px;opacity:.1;">
-    <svg width="460" height="460" viewBox="0 0 460 460" fill="none">
-      <circle cx="230" cy="230" r="110" fill="#FFD21F"/>
-      <g stroke="#FFD21F" stroke-width="9" stroke-linecap="round">
-        <line x1="230" y1="20" x2="230" y2="80"/>
-        <line x1="230" y1="380" x2="230" y2="440"/>
-        <line x1="20" y1="230" x2="80" y2="230"/>
-        <line x1="380" y1="230" x2="440" y2="230"/>
-        <line x1="67" y1="67" x2="107" y2="107"/>
-        <line x1="353" y1="353" x2="393" y2="393"/>
-        <line x1="393" y1="67" x2="353" y2="107"/>
-        <line x1="107" y1="353" x2="67" y2="393"/>
-        <line x1="150" y1="30" x2="168" y2="84"/>
-        <line x1="310" y1="376" x2="292" y2="430"/>
-        <line x1="30" y1="150" x2="84" y2="168"/>
-        <line x1="376" y1="310" x2="430" y2="292"/>
-        <line x1="430" y1="150" x2="376" y2="168"/>
-        <line x1="84" y1="310" x2="30" y2="292"/>
-      </g>
-    </svg>
-  </div>
+<div class="circle"></div>
 
-  <!-- Ondas deco izq -->
-  <div class="deco" style="bottom:60px;left:0;opacity:.06;">
-    <svg width="320" height="130" viewBox="0 0 320 130">
-      <path d="M0 65 Q40 10 80 65 Q120 120 160 65 Q200 10 240 65 Q280 120 320 65" stroke="#FFD21F" stroke-width="4" fill="none"/>
-      <path d="M0 90 Q40 35 80 90 Q120 145 160 90 Q200 35 240 90 Q280 145 320 90" stroke="#009FE3" stroke-width="3" fill="none"/>
-    </svg>
-  </div>
 
-  <div class="wrap center reveal">
-    <div class="hero-pill"><span class="dot"></span>Dinámica especial de Daaazlandia</div>
-    <h1>La carta que<br>nunca <em>enviaste</em> 💛</h1>
-    <p class="hero-sub">
-      Una dinámica para escribir eso que nunca dijiste y descubrir si la comunidad puede <strong>encontrar tu historia</strong>.
-    </p>
-    <div class="hero-btns">
-      <button class="btn btn-amarillo" onclick="openWaModal(this)">
-        💌 Quiero participar
-      </button>
-      <a class="btn btn-outline" href="#consiste">¿Cómo funciona? →</a>
-    </div>
-  </div>
+<div class="wrap">
 
-  <div class="hero-scroll">
-    <span>Explora</span>
-    <div class="arr"></div>
-  </div>
-</section>
-
-<!-- ═════════════ ¿EN QUÉ CONSISTE? ═════════════ -->
-<section id="consiste">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="label" style="color:var(--azul-b)">La dinámica</div>
-      <h2>¿En qué <span class="amarillo">consiste?</span> 💌</h2>
-      <p>
-        Hay personas que extrañamos. Palabras que nunca dijimos. Mensajes que nunca enviamos.
-        Esta dinámica es un espacio para escribir esa carta que se quedó guardada y compartir una parte de tu historia con la comunidad.
-      </p>
-      <br/>
-      <p>
-        Durante el <strong style="color:var(--blanco)">día viernes</strong> tendrás tiempo para crear una carta dirigida a una persona que extrañas.
-        No buscamos cartas perfectas. <strong style="color:var(--blanco)">Buscamos historias reales.</strong>
-      </p>
-    </div>
-
-    <div class="carta-tipos">
-      <div class="carta-tipo reveal">
-        <span class="ct-emoji">💔</span>
-        <span class="ct-text">Una ex pareja</span>
-      </div>
-      <div class="carta-tipo reveal">
-        <span class="ct-emoji">🌙</span>
-        <span class="ct-text">Un amigo que se alejó</span>
-      </div>
-      <div class="carta-tipo reveal">
-        <span class="ct-emoji">🫂</span>
-        <span class="ct-text">Alguien importante de tu pasado</span>
-      </div>
-      <div class="carta-tipo reveal">
-        <span class="ct-emoji">✨</span>
-        <span class="ct-text">Cualquier persona que todavía recuerdes</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════ OBJETIVOS ═════════════ -->
-<section id="objetivos">
-  <!-- Sol deco -->
-  <div class="deco" style="bottom:-80px;left:-80px;">
-    <svg width="320" height="320" viewBox="0 0 420 420" fill="none">
-      <circle cx="210" cy="210" r="90" fill="#10233F" opacity=".12"/>
-      <g stroke="#10233F" stroke-width="6" stroke-linecap="round" opacity=".12">
-        <line x1="210" y1="30" x2="210" y2="75"/><line x1="210" y1="345" x2="210" y2="390"/>
-        <line x1="30" y1="210" x2="75" y2="210"/><line x1="345" y1="210" x2="390" y2="210"/>
-        <line x1="70" y1="70" x2="103" y2="103"/><line x1="317" y1="317" x2="350" y2="350"/>
-        <line x1="350" y1="70" x2="317" y2="103"/><line x1="103" y1="317" x2="70" y2="350"/>
-      </g>
-    </svg>
-  </div>
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <div class="label">Objetivos</div>
-      <h2 style="color:var(--azul)">El corazón de <span style="text-decoration:underline;text-decoration-color:rgba(16,35,63,.3)">la dinámica</span> 💛</h2>
-    </div>
-    <div class="obj-grid">
-      <div class="obj-card reveal-left">
-        <div class="obj-num">🎯</div>
-        <h3>Objetivo principal</h3>
-        <p>Con lo poco que conocemos de cada habitante, <strong style="color:var(--azul)">intentaremos descubrir quién escribió cada carta</strong>. Cada carta será compartida dentro de la comunidad y los participantes podrán intentar adivinar quién está detrás de cada historia.</p>
-      </div>
-      <div class="obj-card reveal-right">
-        <div class="obj-num">❤️</div>
-        <h3>Objetivo secundario</h3>
-        <p>También queremos crear un espacio donde puedas decir eso que quizá nunca pudiste decir: <strong style="color:var(--azul)">"Te extraño, pero tal vez ya es demasiado tarde."</strong> No necesitas enviar la carta. Solo necesitas escribirla.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════ CÓMO PARTICIPAR ═════════════ -->
-<section id="como">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <div class="label">Pasos</div>
-      <h2>¿Cómo <span class="amarillo">participar?</span> 📩</h2>
-      <p style="margin:0 auto">Es más fácil de lo que parece. Solo sigue estos pasos y formarás parte de algo especial.</p>
-    </div>
-    <div class="pasos">
-      <div class="paso reveal">
-        <div class="paso-num">01</div>
-        <h3>Escribe tu carta</h3>
-        <p>Desde el corazón, a tu manera. No importa el largo ni el estilo. Solo que sea tuya y real.</p>
-      </div>
-      <div class="paso reveal">
-        <div class="paso-num">02</div>
-        <h3>Envíala a soporte</h3>
-        <p>Envía tu carta al número de soporte de Daaazlandia. <strong style="color:var(--blanco)">No al grupo principal</strong>, sino al equipo organizador.</p>
-        <br/>
-        <button class="btn btn-amarillo btn-sm" onclick="openWaModal(this)" style="margin-top:.5rem">
-          💬 Enviar por WhatsApp
-        </button>
-      </div>
-      <div class="paso reveal">
-        <div class="paso-num">03</div>
-        <h3>El equipo la organiza</h3>
-        <p>El equipo de Daaazlandia y Shaminket organizará las cartas para compartirlas de forma anónima dentro de la dinámica.</p>
-      </div>
-      <div class="paso reveal">
-        <div class="paso-num">04</div>
-        <h3>¡Adivina y gana!</h3>
-        <p>Participa intentando descubrir quién escribió cada carta. Quien más acierte gana la recompensa. 🏆</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════ ¿POR QUÉ PARTICIPAR? ═════════════ -->
-<section id="porque">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <div class="label">La razón de ser</div>
-      <h2>¿Por qué <span class="amarillo">participar?</span> ✨</h2>
-      <p style="margin:0 auto">Porque algunas historias merecen salir de tu cabeza. Porque todos tenemos recuerdos que todavía pesan.</p>
-    </div>
-    <div class="razon-grid">
-      <div class="razon reveal-scale">
-        <span class="razon-emoji">💛</span>
-        <h3>Quieres expresarte</h3>
-        <p>Tienes algo guardado que merece salir.</p>
-      </div>
-      <div class="razon reveal-scale">
-        <span class="razon-emoji">🎶</span>
-        <h3>Conectas con las emociones</h3>
-        <p>La música y los recuerdos van de la mano.</p>
-      </div>
-      <div class="razon reveal-scale">
-        <span class="razon-emoji">💬</span>
-        <h3>Disfrutas compartir historias</h3>
-        <p>Tu historia puede resonar con otros habitantes.</p>
-      </div>
-      <div class="razon reveal-scale">
-        <span class="razon-emoji">🫂</span>
-        <h3>Quieres ser parte</h3>
-        <p>En Daaazlandia construimos momentos juntos.</p>
-      </div>
-      <div class="razon reveal-scale">
-        <span class="razon-emoji">🎧</span>
-        <h3>Música o libros gratis</h3>
-        <p>El ganador se lleva una recompensa real.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════ RECOMPENSA ═════════════ -->
-<section id="recompensa">
-  <!-- Pulse rings -->
-  <div class="deco" style="top:50%;left:50%;transform:translate(-50%,-50%);">
-    <div style="width:360px;height:360px;border-radius:50%;border:2px solid rgba(16,35,63,.15);animation:ring 3s ease-out infinite;"></div>
-  </div>
-  <div class="deco" style="top:50%;left:50%;transform:translate(-50%,-50%);">
-    <div style="width:360px;height:360px;border-radius:50%;border:2px solid rgba(16,35,63,.1);animation:ring 3s ease-out 1s infinite;"></div>
-  </div>
-
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <div class="label">Recompensa</div>
-      <h2 style="color:var(--azul)">El ganador se lleva todo 🏆</h2>
-      <p>La persona que logre adivinar correctamente la mayor cantidad de cartas recibirá una de estas recompensas a elección:</p>
-    </div>
-    <div class="premios">
-      <div class="premio reveal-left">
-        <span class="premio-emoji">🎧</span>
-        <h3>YouTube Music Premium</h3>
-        <p>Un mes completo gratis de YouTube Music Premium para disfrutar toda la música sin límites.*</p>
-      </div>
-      <div class="premio reveal-right">
-        <span class="premio-emoji">📚</span>
-        <h3>10 libros digitales</h3>
-        <p>10 libros digitales gratis a tu elección dentro del catálogo disponible.**</p>
-      </div>
-    </div>
-    <div style="text-align:center;" class="reveal">
-      <button class="btn btn-dark" onclick="openWaModal(this)" style="background:var(--azul);color:var(--amarillo);">
-        💛 ¡Quiero ganar! Participar ahora
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════ PROMPT IA ═════════════ -->
-<section id="prompt-ia">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="label">Herramienta extra 🎨</div>
-      <h2>Convierte tu carta en <span class="amarillo">una imagen</span></h2>
-      <p>Si quieres darle una presentación más especial a tu carta, usa este prompt en ChatGPT, Midjourney o cualquier IA generativa de imágenes.</p>
-    </div>
-    <div class="prompt-box reveal">
-      <pre class="prompt-text">Crea una imagen emocional basada en la siguiente carta:
-
-<em>"CARTA:
-[PEGA AQUÍ TU CARTA]
-
-El estilo visual debe usar estos colores:
-[ESCRIBE AQUÍ EL COLOR O PALETA DE COLORES]
-
-Genera una imagen que represente los sentimientos de la carta.
-
-Debe transmitir nostalgia, recuerdos, emoción y una sensación
-de despedida o cariño.
-
-No agregues texto adicional excepto la carta proporcionada.
-
-La imagen debe verse estética, profunda y lista para compartir
-en una comunidad juvenil."</em></pre>
-      <button class="copy-btn" id="copy-prompt-btn" onclick="copyPrompt()">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        <span id="copy-label">Copiar prompt</span>
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════ ¿PARA QUIÉN? ═════════════ -->
-<section id="para-quien">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <div class="label">¿Para quién es?</div>
-      <h2>Esta dinámica es <span class="amarillo">para ti</span> 👀</h2>
-    </div>
-    <div class="quien-grid">
-      <div class="quien-item reveal"><span class="qi-emoji">💛</span><span class="qi-text">Quieres expresarte y decir lo que guardas</span></div>
-      <div class="quien-item reveal"><span class="qi-emoji">🎶</span><span class="qi-text">Conectas con la música y las emociones</span></div>
-      <div class="quien-item reveal"><span class="qi-emoji">💬</span><span class="qi-text">Disfrutas compartir historias con otros</span></div>
-      <div class="quien-item reveal"><span class="qi-emoji">🫂</span><span class="qi-text">Quieres participar en actividades de la comunidad</span></div>
-      <div class="quien-item reveal"><span class="qi-emoji">🎧</span><span class="qi-text">Quieres música o libros digitales gratis</span></div>
-      <div class="quien-item reveal"><span class="qi-emoji">🏡</span><span class="qi-text">Quieres seguir siendo parte de Daaazlandia</span></div>
-    </div>
-    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
-      <button class="btn btn-amarillo" onclick="openWaModal(this)">
-        💌 Participar en la dinámica
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════ FAQ ═════════════ -->
-<section id="faq">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div class="label">Preguntas frecuentes</div>
-      <h2>Lo que más nos <span class="amarillo">preguntan</span> 🤔</h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-q-text">¿Tengo que revelar a quién va dirigida mi carta?</span><span class="faq-icon">+</span></button>
-        <div class="faq-body"><div class="faq-body-inner">No. La idea es que la comunidad intente descubrirlo mediante la historia. La identidad del destinatario es parte del misterio de la dinámica.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-q-text">¿Puedo escribir sobre cualquier persona?</span><span class="faq-icon">+</span></button>
-        <div class="faq-body"><div class="faq-body-inner">Sí, siempre respetando las reglas de convivencia de Daaazlandia. No se permite contenido que incluya amenazas, acoso, discriminación ni información privada de terceros.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-q-text">¿La carta será publicada con mi nombre?</span><span class="faq-icon">+</span></button>
-        <div class="faq-body"><div class="faq-body-inner">No. La dinámica busca precisamente que las personas adivinen quién escribió cada carta. Tu identidad no será revelada por el equipo organizador.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-q-text">¿Puedo participar aunque no quiera ganar?</span><span class="faq-icon">+</span></button>
-        <div class="faq-body"><div class="faq-body-inner">Sí. La finalidad principal es compartir un momento y participar con la comunidad. Ganar es el bonus, pero la experiencia es el premio real.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-q-text">¿A dónde envío mi carta?</span><span class="faq-icon">+</span></button>
-        <div class="faq-body"><div class="faq-body-inner">Al número de soporte de Daaazlandia por WhatsApp. NO al grupo principal. El equipo organizador recibirá tu carta y la preparará para la dinámica de forma anónima.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <button class="faq-q"><span class="faq-q-text">¿Hay costo para participar?</span><span class="faq-icon">+</span></button>
-        <div class="faq-body"><div class="faq-body-inner">No. La participación es completamente gratuita y no requiere ningún pago.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═════════════ VOLVER AL INICIO ═════════════ -->
-<div id="volver-bloque" class="reveal">
-  <a class="volver-link" href="index.html">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-    Volver al inicio de Daaazlandia
-  </a>
+<div class="badge reveal">
+✨ Nueva experiencia en camino
 </div>
 
-<!-- ═════════════ TÉRMINOS ═════════════ -->
-<section id="terminos">
-  <div class="wrap">
-    <div class="terminos-titulo">Términos y condiciones de la dinámica</div>
-    <div class="terminos-texto">
-      <p>Al participar en esta dinámica, el usuario acepta voluntariamente enviar una carta para formar parte de la actividad comunitaria organizada por Daaazlandia. La participación es gratuita y no requiere ningún pago.</p>
-      <p>El contenido enviado deberá respetar las normas de convivencia de la comunidad. No se permitirá contenido que incluya amenazas, acoso, discriminación, información privada de terceros, contenido ilegal o cualquier material que pueda afectar la seguridad de otros habitantes.</p>
-      <p>Daaazlandia podrá modificar, pausar o cancelar la dinámica si existen circunstancias que afecten su correcto desarrollo. Las cartas podrán ser compartidas dentro del espacio privado de la comunidad con fines exclusivos de participación en la dinámica. La identidad del participante no será revelada directamente por el equipo organizador, salvo que el propio participante decida hacerlo. La selección del ganador se realizará tomando como criterio la cantidad de respuestas correctas obtenidas durante la actividad.</p>
 
-      <h4>*Recompensa YouTube Music Premium</h4>
-      <p>La recompensa consiste en facilitar acceso a una cuenta nueva o existente de Google con acceso al servicio de YouTube Music Premium durante un periodo de un mes. El participante únicamente proporcionará los datos necesarios para recibir acceso según las instrucciones indicadas por la organización. Daaazlandia y Shaminket no garantizan la disponibilidad permanente del servicio fuera del periodo indicado. El beneficio podrá perderse si el ganador abandona la comunidad, deja de participar activamente, elimina el acceso recibido o incumple las normas internas. La organización se reserva el derecho de retirar el beneficio antes de finalizar el periodo indicado en caso de situaciones relacionadas con seguridad, abuso o incumplimiento de reglas.</p>
+<h1 class="reveal">
 
-      <h4>**Recompensa libros digitales</h4>
-      <p>Los libros digitales entregados estarán sujetos a disponibilidad. El ganador podrá elegir opciones disponibles dentro del catálogo permitido. Si el ganador abandona la comunidad antes de recibir la recompensa, pierde el derecho a reclamarla. La solicitud de libros deberá realizarse dentro de las 24 horas posteriores al aviso de ganador. Daaazlandia y Shaminket no estarán obligados a entregar libros fuera de ese periodo o aquellos que no estén disponibles. La organización podrá permitir cambios de selección siempre que sean solicitados antes de finalizar el plazo establecido.</p>
+Estamos preparando una nueva
 
-      <p style="margin-top:1rem">Al participar, el usuario confirma haber leído y aceptado estos términos.</p>
-    </div>
-  </div>
-</section>
+<span class="amarillo">
+dinámica
+</span>
 
-<!-- ═════════════ FOOTER ═════════════ -->
-<footer>
-  <span class="f-logo">Daaazlandia 💛</span>
-  <small>Comunidad independiente de fans de Daaz · Organizado con ❤️ por Shaminket</small>
-</footer>
+💛
 
-<!-- ═════════════ BOTÓN FLOTANTE WA ═════════════ -->
-<button class="wa-float" onclick="openWaModal(this)" title="Soporte por WhatsApp" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</h1>
+
+
+<p class="reveal">
+
+La dinámica anterior terminó su etapa, pero estamos creando algo nuevo para todos los habitantes de Daaazlandia.
+
+</p>
+
+
+
+<div class="buttons reveal">
+
+
+<a href="index.html" class="btn btn-yellow">
+Volver a Daaazlandia
+</a>
+
+
+<button onclick="openModal()" class="btn btn-outline">
+Soporte 💬
 </button>
 
-<!-- ═════════════ MODAL WA (2 pasos) ═════════════ -->
-<div class="modal-overlay" id="wa-modal" role="dialog" aria-modal="true">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeWaModal()" aria-label="Cerrar">✕</button>
-    <span class="modal-emoji">💛</span>
-    <div class="modal-title">¿Listo para enviar tu carta?</div>
-    <p class="modal-desc">
-      Te llevaremos a WhatsApp para que puedas enviar tu carta al equipo de Daaazlandia.<br/>
-      <strong style="color:var(--amarillo)">Recuerda: envíala a soporte, no al grupo.</strong>
-    </p>
-    <div class="modal-btns">
-      <button class="btn btn-amarillo" id="wa-modal-continue">
-        Continuar a WhatsApp 📲
-      </button>
-      <button class="btn btn-outline" onclick="closeWaModal()">
-        Cancelar
-      </button>
-    </div>
-  </div>
+
 </div>
 
-<!-- ═════════════ JS ═════════════ -->
+
+</div>
+
+</section>
+
+
+
+
+
+<section>
+
+<div class="wrap">
+
+
+<h2 class="reveal">
+¿Qué estamos preparando?
+</h2>
+
+
+
+<div class="grid">
+
+
+<div class="item reveal floating">
+
+<span>🎲</span>
+
+<h3>
+Nuevas dinámicas
+</h3>
+
+<p>
+Actividades nuevas para participar con la comunidad.
+</p>
+
+</div>
+
+
+
+<div class="item reveal floating">
+
+<span>💛</span>
+
+<h3>
+Más momentos
+</h3>
+
+<p>
+Experiencias nuevas para compartir.
+</p>
+
+</div>
+
+
+
+
+<div class="item reveal floating">
+
+<span>🚀</span>
+
+<h3>
+Algo especial
+</h3>
+
+<p>
+Estamos preparando sorpresas.
+</p>
+
+</div>
+
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<section>
+
+<div class="wrap">
+
+
+<div class="card reveal">
+
+<h2>
+Vuelve pronto 👀
+</h2>
+
+
+<p>
+
+Estamos construyendo la próxima dinámica para Daaazlandia.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<footer>
+
+Daaazlandia 💛
+<br>
+Organizado con ❤️ por Shaminket
+
+</footer>
+
+
+
+
+<button class="wa" onclick="openModal()">
+💬
+</button>
+
+
+
+
+
+<div class="modal" id="modal">
+
+
+<div class="modal-box">
+
+
+<h2>
+¿Hablar con soporte?
+</h2>
+
+
+<p>
+Serás enviado a WhatsApp.
+</p>
+
+
+<br>
+
+
+<button class="btn btn-yellow" onclick="goWhats()">
+Continuar 📲
+</button>
+
+
+<br><br>
+
+
+<button class="btn btn-outline" onclick="closeModal()">
+Cancelar
+</button>
+
+
+
+</div>
+
+</div>
+
+
+
+
 <script>
-document.addEventListener('DOMContentLoaded', () => {
 
-  /* ─── Navbar scroll ─── */
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
 
-  /* ─── Scroll reveal ─── */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.09 });
+const WA="525571985641";
 
-  document.querySelectorAll('.reveal,.reveal-scale,.reveal-left,.reveal-right').forEach((el, i) => {
-    el.style.transitionDelay = `${(i % 5) * 75}ms`;
-    io.observe(el);
-  });
 
-  /* ─── FAQ accordion ─── */
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.querySelector('.faq-q').addEventListener('click', () => {
-      const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
-    });
-  });
+const MSG=encodeURIComponent(
+"Hola Daaazlandia 💛 tengo dudas sobre la nueva dinámica."
+);
 
-  /* ─── Modal — cerrar con ESC o click fuera ─── */
-  const modal = document.getElementById('wa-modal');
-  modal.addEventListener('click', e => {
-    if (e.target === modal) closeWaModal();
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeWaModal();
-  });
 
-  /* ─── Hero canvas — partículas + ondas musicales ─── */
-  const canvas = document.getElementById('hero-canvas');
-  const ctx    = canvas.getContext('2d');
-  let W, H;
 
-  function resize() {
-    W = canvas.width  = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize, { passive: true });
+function openModal(){
 
-  const COLS = ['rgba(255,210,31,','rgba(0,159,227,','rgba(0,166,81,'];
-  class Dot {
-    constructor() { this.reset(true); }
-    reset(init) {
-      this.x   = Math.random() * W;
-      this.y   = init ? Math.random() * H : H + 10;
-      this.r   = Math.random() * 2.2 + .5;
-      this.vy  = -(Math.random() * .45 + .1);
-      this.vx  = (Math.random() - .5) * .25;
-      this.a   = Math.random() * .55 + .1;
-      this.l   = 0;
-      this.max = Math.random() * 320 + 160;
-      this.c   = COLS[Math.floor(Math.random() * COLS.length)];
-    }
-    tick() {
-      this.x += this.vx; this.y += this.vy; this.l++;
-      if (this.l > this.max || this.y < -8) this.reset(false);
-    }
-    draw() {
-      const a = this.a * Math.sin((this.l / this.max) * Math.PI);
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = this.c + a + ')';
-      ctx.fill();
-    }
-  }
+modal.classList.add("open");
 
-  const dots = Array.from({length: 100}, () => new Dot());
+}
 
-  function waves(t) {
-    [[.25,'rgba(255,210,31,',16,3,.045],[.45,'rgba(0,159,227,',20,2.5,.04],[.65,'rgba(0,166,81,',10,4,.03],[.82,'rgba(255,210,31,',7,5,.025]]
-    .forEach(([yf, c, amp, freq, a]) => {
-      ctx.beginPath();
-      ctx.moveTo(0, H * yf);
-      for (let x = 0; x <= W; x += 3) {
-        const y = H * yf
-          + Math.sin((x / W) * Math.PI * freq + t * .7) * amp
-          + Math.cos((x / W) * Math.PI * 2 + t * .45) * (amp * .5);
-        ctx.lineTo(x, y);
-      }
-      ctx.strokeStyle = c + a + ')';
-      ctx.lineWidth = 1.6; ctx.stroke();
-    });
-  }
 
-  let t = 0;
-  (function loop() {
-    ctx.clearRect(0, 0, W, H);
-    waves(t);
-    dots.forEach(d => { d.tick(); d.draw(); });
-    t += .013;
-    requestAnimationFrame(loop);
-  })();
+
+function closeModal(){
+
+modal.classList.remove("open");
+
+}
+
+
+
+function goWhats(){
+
+window.open(
+"https://wa.me/"+WA+"?text="+MSG,
+"_blank"
+);
+
+}
+
+
+
+const modal=document.getElementById("modal");
+
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(e=>{
+
+if(e.isIntersecting){
+
+e.target.classList.add("visible");
+
+}
 
 });
 
-/* ─── Copiar prompt ─── */
-function copyPrompt() {
-  const txt = `Crea una imagen emocional basada en la siguiente carta:
+});
 
-"CARTA:
-[PEGA AQUÍ TU CARTA]
 
-El estilo visual debe usar estos colores:
-[ESCRIBE AQUÍ EL COLOR O PALETA DE COLORES]
+document.querySelectorAll(".reveal")
+.forEach(x=>observer.observe(x));
 
-Genera una imagen que represente los sentimientos de la carta.
 
-Debe transmitir nostalgia, recuerdos, emoción y una sensación de despedida o cariño.
 
-No agregues texto adicional excepto la carta proporcionada.
-
-La imagen debe verse estética, profunda y lista para compartir en una comunidad juvenil."`;
-
-  navigator.clipboard.writeText(txt).then(() => {
-    const btn   = document.getElementById('copy-prompt-btn');
-    const label = document.getElementById('copy-label');
-    btn.classList.add('copied');
-    label.textContent = '¡Copiado! ✓';
-    setTimeout(() => {
-      btn.classList.remove('copied');
-      label.textContent = 'Copiar prompt';
-    }, 2500);
-  }).catch(() => {
-    alert('No se pudo copiar automáticamente. Selecciona el texto manualmente.');
-  });
-}
 </script>
+
+
 </body>
 </html>
