@@ -819,20 +819,38 @@ document.addEventListener('DOMContentLoaded',()=>{
   if(track){const clone=track.cloneNode(true);track.parentNode.appendChild(clone);}
 
   /* ─ Countdown (72 horas desde carga de página como ejemplo visual) ─ */
-  const target=new Date("2026-07-01T03:00:00Z"); // Martes 30 junio 2026 9pm Ciudad de México (UTC-6)
+  // Cancún = UTC-5 fijo (sin horario de verano)
+  // 1 julio 2026 00:00:00 Cancún = 1 julio 2026 05:00:00 UTC
+  const TARGET_UTC = new Date("2026-07-01T05:00:00Z");
+  let serverOffset = 0;
+
+  async function syncServerTime() {
+    try {
+      const res = await fetch("https://worldtimeapi.org/api/timezone/America/Cancun");
+      const data = await res.json();
+      const serverNow = new Date(data.unixtime * 1000);
+      serverOffset = serverNow - new Date();
+    } catch(e) { serverOffset = 0; }
+  }
+
+  function getRealNow() { return new Date(Date.now() + serverOffset); }
+
   function tick(){
-    const now=new Date();
-    const diff=Math.max(0,target-now);
+    const diff=Math.max(0,TARGET_UTC - getRealNow());
     const h=Math.floor(diff/3600000);
     const m=Math.floor((diff%3600000)/60000);
     const s=Math.floor((diff%60000)/1000);
-    const pad=n=>String(n).padStart(2,'0');
-    document.getElementById('cd-h').textContent=pad(h);
-    document.getElementById('cd-m').textContent=pad(m);
-    document.getElementById('cd-s').textContent=pad(s);
+    const pad=n=>String(n).padStart(2,"0");
+    document.getElementById("cd-h").textContent=pad(h);
+    document.getElementById("cd-m").textContent=pad(m);
+    document.getElementById("cd-s").textContent=pad(s);
   }
-  tick();
-  setInterval(tick,1000);
+
+  syncServerTime().then(()=>{
+    tick();
+    setInterval(tick,1000);
+    setInterval(syncServerTime, 5*60*1000);
+  });
 
   /* ─ Hero canvas: partículas + ondas ─ */
   const canvas=document.getElementById('hero-canvas');
