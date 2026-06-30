@@ -447,14 +447,20 @@ footer small{color:rgba(255,255,255,.4);font-size:.74rem;}
     <div class="form-box rv" id="form-container">
       <h3 style="color:var(--blanco);font-size:1.1rem;margin-bottom:1.2rem;">📝 Envía tu aportación al regalo</h3>
 
-      <form id="regalo-form">
+      <form id="regalo-form" action="https://formsubmit.co/daaazlandia@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nueva aportación para Daaazlandia 🎁"/>
+        <input type="hidden" name="_captcha" value="false"/>
         <div class="form-row">
           <label>Tu nombre o como te conocen en la comunidad</label>
-          <input type="text" id="f-nombre" placeholder="Ej. Karla, Dieguito, FanDeDaaz23..." required maxlength="60"/>
+          <input type="text" id="f-nombre" name="nombre" placeholder="Ej. Karla, Dieguito, FanDeDaaz23..." required maxlength="60"/>
+        </div>
+        <div class="form-row">
+          <label>Tu correo electrónico</label>
+          <input type="email" id="f-email" name="email" placeholder="ejemplo@correo.com" required maxlength="120"/>
         </div>
         <div class="form-row">
           <label>¿Qué quieres aportar?</label>
-          <select id="f-tipo" required>
+          <select id="f-tipo" name="tipo" required>
             <option value="" disabled selected>Selecciona una opción</option>
             <option value="💛 Frase para Daaz">💛 Una frase para Daaz</option>
             <option value="🎶 Canción favorita">🎶 La canción que más significa para mí</option>
@@ -464,7 +470,7 @@ footer small{color:rgba(255,255,255,.4);font-size:.74rem;}
         </div>
         <div class="form-row">
           <label>Escribe tu aportación aquí</label>
-          <textarea id="f-mensaje" placeholder="Escribe desde el corazón, así de simple..." required maxlength="500"></textarea>
+          <textarea id="f-mensaje" name="mensaje" placeholder="Escribe desde el corazón, así de simple..." required maxlength="500"></textarea>
         </div>
         <button type="submit" class="btn btn-am" style="width:100%;justify-content:center;">
           🎁 Agregar mi parte al regalo
@@ -927,10 +933,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     e.preventDefault();
     const nombre=document.getElementById('f-nombre').value.trim();
     const tipo=document.getElementById('f-tipo').value;
+    const email=document.getElementById('f-email').value.trim();
     const mensaje=document.getElementById('f-mensaje').value.trim();
-    if(!nombre||!tipo||!mensaje) return;
+    if(!nombre||!email||!tipo||!mensaje) return;
 
-    const entry={ nombre, tipo, mensaje, fecha:new Date().toISOString() };
+    const entry={ nombre, email, tipo, mensaje, fecha:new Date().toISOString() };
     const key='aportacion:'+Date.now()+':'+Math.random().toString(36).slice(2,8);
 
     try{
