@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Ganadores anteriores 🏆 · Daaazlandia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Nunito:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --amarillo:#FFD21F; --azul:#10233F; --azul-b:#009FE3;
+  --verde:#00A651; --rojo:#ED1C24; --blanco:#FFFFFF; --negro:#111111;
+  --tr:.34s cubic-bezier(.4,0,.2,1); --r:18px; --r-sm:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;font-size:16px;line-height:1.72;background:var(--azul);color:var(--blanco);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;font-weight:800;line-height:1.15;}
+h1{font-size:clamp(2.1rem,7vw,4.4rem);letter-spacing:-.02em;}
+h2{font-size:clamp(1.7rem,4vw,2.6rem);letter-spacing:-.02em;}
+h3{font-size:clamp(1rem,2.5vw,1.15rem);font-weight:600;}
+p{color:rgba(255,255,255,.75);font-size:clamp(.95rem,1.8vw,1.05rem);}
+.label{font-family:'Poppins',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;}
+.center{text-align:center;}
+.amarillo{color:var(--amarillo);}
+
+/* Scroll reveal */
+.rv{opacity:0;transform:translateY(44px);transition:opacity .72s ease,transform .72s ease;}
+.rv.vis{opacity:1;transform:none;}
+.rv-s{opacity:0;transform:scale(.85);transition:opacity .65s ease,transform .65s ease;}
+.rv-s.vis{opacity:1;transform:scale(1);}
+.rv-l{opacity:0;transform:translateX(-44px);transition:opacity .7s ease,transform .7s ease;}
+.rv-l.vis{opacity:1;transform:none;}
+.rv-r{opacity:0;transform:translateX(44px);transition:opacity .7s ease,transform .7s ease;}
+.rv-r.vis{opacity:1;transform:none;}
+
+/* Navbar */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:64px;transition:background var(--tr),backdrop-filter var(--tr);}
+nav.scrolled{background:rgba(16,35,63,.93);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,210,31,.15);}
+.nav-logo{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.1rem;color:var(--amarillo);text-decoration:none;}
+.nav-logo span{color:var(--blanco);}
+.nav-back{font-family:'Poppins',sans-serif;font-weight:600;font-size:.8rem;color:rgba(255,255,255,.7);text-decoration:none;display:flex;align-items:center;gap:.4rem;transition:color var(--tr);}
+.nav-back:hover{color:var(--amarillo);}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.ham span{display:block;width:22px;height:2.5px;background:var(--blanco);border-radius:3px;}
+.mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(16,35,63,.97);backdrop-filter:blur(20px);padding:1.3rem 5vw 1.8rem;border-bottom:2px solid rgba(255,210,31,.2);flex-direction:column;gap:.9rem;z-index:199;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:rgba(255,255,255,.75);text-decoration:none;font-family:'Poppins',sans-serif;font-weight:600;font-size:1rem;padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);}
+
+/* Buttons */
+.btn{font-family:'Poppins',sans-serif;font-weight:800;font-size:1rem;border:none;border-radius:999px;padding:.9rem 2.1rem;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:transform var(--tr),box-shadow var(--tr);}
+.btn-am{background:var(--amarillo);color:var(--azul);}
+.btn-am:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(255,210,31,.5);}
+.btn-out{background:transparent;color:var(--blanco);border:2px solid rgba(255,255,255,.25);}
+.btn-out:hover{border-color:var(--amarillo);color:var(--amarillo);transform:translateY(-2px);}
+.btn-azul{background:var(--azul);color:var(--amarillo);}
+.btn-azul:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(0,0,0,.4);}
+
+/* Sections base */
+section{padding:90px 5vw;position:relative;overflow:hidden;}
+.wrap{max-width:1080px;margin:0 auto;position:relative;z-index:2;}
+.sec-head{margin-bottom:2.8rem;}
+.sec-head h2{margin:.5rem 0 1rem;}
+.sec-head.center p{margin:0 auto;}
+.deco{position:absolute;pointer-events:none;z-index:0;}
+
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+@keyframes bob{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+@keyframes flotar{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes glow-pulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.9;transform:scale(1.08)}}
+@keyframes trophy-in{0%{opacity:0;transform:scale(.4) rotate(-15deg)}60%{opacity:1;transform:scale(1.15) rotate(5deg)}100%{opacity:1;transform:scale(1) rotate(0deg)}}
+@keyframes sparkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:1;transform:scale(1.2)}}
+@keyframes confetti-fall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(420px) rotate(540deg);opacity:0}}
+@keyframes podium-rise{0%{transform:translateY(60px) scale(.8);opacity:0}100%{transform:translateY(0) scale(1);opacity:1}}
+@keyframes crown-float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+
+@media(max-width:768px){
+  section{padding:64px 5vw;}
+  .nav-back-desktop{display:none;}
+  .ham{display:flex;}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important;}
+  .rv,.rv-s,.rv-l,.rv-r{opacity:1 !important;transform:none !important;}
+}
+
+/* ══════════ HERO ══════════ */
+#hero{min-height:88svh;background:linear-gradient(155deg,#0b1a2e 0%,#10233F 50%,#0a2033 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:110px 5vw 70px;}
+#hero-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;}
+#confetti-wrap{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.confetti-piece{position:absolute;top:-20px;border-radius:3px;animation:confetti-fall linear infinite;}
+.pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,210,31,.12);border:1.5px solid rgba(255,210,31,.35);border-radius:999px;padding:.4rem 1.2rem;font-family:'Poppins',sans-serif;font-weight:600;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--amarillo);margin-bottom:1.4rem;}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:var(--amarillo);animation:pulse 2s ease infinite;}
+.trophy-hero{font-size:4.2rem;display:block;margin-bottom:1rem;animation:trophy-in 1s ease;position:relative;z-index:2;}
+.hero-sub{max-width:580px;margin:1.1rem auto 2.2rem;font-size:clamp(1rem,2.2vw,1.1rem);color:rgba(255,255,255,.75);line-height:1.8;}
+.hero-btns{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;}
+
+/* ══════════ TICKER ══════════ */
+.ticker-wrap{background:var(--amarillo);padding:.8rem 0;overflow:hidden;position:relative;z-index:10;}
+.ticker-track{display:flex;gap:0;white-space:nowrap;animation:ticker 26s linear infinite;}
+.ti{font-family:'Poppins',sans-serif;font-weight:800;font-size:.84rem;color:var(--azul);padding:0 2.1rem;display:flex;align-items:center;gap:.7rem;}
+.ti .dot2{color:var(--rojo);font-size:1rem;}
+
+/* ══════════ EXPLICACIÓN ══════════ */
+#explicacion{background:linear-gradient(160deg,#0a2033 0%,#0d2a44 100%);}
+#explicacion::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(0,159,227,.12) 0%,transparent 65%);}
+#explicacion .label{color:var(--azul-b);}
+.aclaracion{background:rgba(0,159,227,.07);border:1.5px solid rgba(0,159,227,.2);border-radius:var(--r);padding:1.6rem 1.8rem;margin-top:1.6rem;display:flex;align-items:flex-start;gap:1rem;}
+.aclaracion .ic{font-size:1.6rem;flex-shrink:0;}
+.aclaracion p{font-size:.92rem;margin:0;}
+
+/* ══════════ DINÁMICA HISTÓRICA — TARJETA CONTENEDORA ══════════ */
+.dinamica-block{background:rgba(255,255,255,.035);border:1.5px solid rgba(255,255,255,.09);border-radius:24px;padding:2.2rem 1.6rem;margin-bottom:2.5rem;position:relative;overflow:hidden;}
+.dinamica-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--amarillo),var(--azul-b),var(--verde));}
+.dinamica-head{text-align:center;margin-bottom:2rem;}
+.dinamica-head h3{font-size:clamp(1.2rem,3vw,1.6rem);color:var(--blanco);margin-bottom:.5rem;}
+.dinamica-head p{font-size:.92rem;max-width:520px;margin:0 auto;}
+
+/* ══════════ PODIO ADAPTABLE (3 o 5 lugares) ══════════ */
+.podio-wrap{display:flex;align-items:flex-end;justify-content:center;gap:.8rem;flex-wrap:nowrap;max-width:640px;margin:0 auto;padding-top:1rem;}
+.podio-spot{display:flex;flex-direction:column;align-items:center;flex:1;min-width:0;animation:podium-rise .6s ease backwards;}
+.podio-medal{font-size:2.2rem;margin-bottom:.5rem;position:relative;}
+.podio-medal.gold{animation:crown-float 2.6s ease-in-out infinite;}
+.podio-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--azul-b),var(--azul));display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:.6rem;border:3px solid rgba(255,255,255,.15);position:relative;z-index:2;}
+.podio-name{font-family:'Poppins',sans-serif;font-weight:700;font-size:.88rem;color:var(--blanco);text-align:center;margin-bottom:.2rem;word-break:break-word;}
+.podio-place-label{font-family:'Poppins',sans-serif;font-weight:600;font-size:.66rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem;}
+.podio-step{width:100%;border-radius:14px 14px 0 0;display:flex;align-items:flex-start;justify-content:center;padding-top:.5rem;position:relative;}
+.podio-step .glow{position:absolute;inset:-20% -20% 0 -20%;background:radial-gradient(ellipse at 50% 0%,rgba(255,210,31,.35) 0%,transparent 70%);z-index:0;pointer-events:none;animation:glow-pulse 2.4s ease-in-out infinite;}
+
+/* Alturas por lugar */
+.podio-spot.place-1{order:3;}
+.podio-spot.place-2{order:2;}
+.podio-spot.place-3{order:4;}
+.podio-spot.place-4{order:1;}
+.podio-spot.place-5{order:5;}
+
+.podio-spot.place-1 .podio-step{height:110px;background:linear-gradient(160deg,var(--amarillo),#e3ba00);}
+.podio-spot.place-1 .podio-avatar{width:70px;height:70px;font-size:1.9rem;border-color:rgba(255,210,31,.5);box-shadow:0 0 30px rgba(255,210,31,.4);}
+.podio-spot.place-1 .podio-medal{font-size:2.8rem;}
+.podio-spot.place-1 .podio-name{font-size:1rem;color:var(--amarillo);}
+
+.podio-spot.place-2 .podio-step{height:80px;background:linear-gradient(160deg,#9fb3c8,#6e7f91);}
+.podio-spot.place-3 .podio-step{height:60px;background:linear-gradient(160deg,#d99a5b,#a9703a);}
+.podio-spot.place-4 .podio-step{height:46px;background:linear-gradient(160deg,#4d6478,#384a59);}
+.podio-spot.place-5 .podio-step{height:46px;background:linear-gradient(160deg,#4d6478,#384a59);}
+
+.podio-step .step-num{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.3rem;color:rgba(16,35,63,.4);position:relative;z-index:1;}
+.podio-spot.place-1 .step-num{font-size:1.7rem;color:rgba(16,35,63,.55);}
+
+.sparkle{position:absolute;color:var(--amarillo);font-size:1rem;animation:sparkle 1.8s ease-in-out infinite;pointer-events:none;}
+
+/* ══════════ SIN GANADORES — placeholder ══════════ */
+.sin-ganadores{text-align:center;padding:2.5rem 1.5rem;background:rgba(255,255,255,.03);border-radius:var(--r);border:1.5px dashed rgba(255,255,255,.15);}
+.sin-ganadores .sg-emoji{font-size:2.6rem;display:block;margin-bottom:.8rem;}
+.sin-ganadores h4{color:var(--blanco);font-size:1.05rem;margin-bottom:.6rem;}
+.sin-ganadores p{font-size:.88rem;max-width:440px;margin:0 auto;}
+
+/* ══════════ MUSEO / TIMELINE ══════════ */
+#museo{background:linear-gradient(160deg,#003d5c 0%,#002840 100%);}
+#museo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(0,159,227,.15) 0%,transparent 60%);}
+#museo .label{color:var(--azul-b);}
+
+/* ══════════ STATS COMUNIDAD (amarillo) ══════════ */
+#stats{background:var(--amarillo);text-align:center;}
+#stats::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.3) 0%,transparent 60%);}
+#stats .label{color:rgba(16,35,63,.55);}
+#stats h2{color:var(--azul);margin:.5rem 0 2rem;}
+.stats-grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));max-width:760px;margin:0 auto;}
+.stat-card{background:rgba(16,35,63,.08);border:1.5px solid rgba(16,35,63,.14);border-radius:var(--r);padding:1.6rem 1rem;transition:transform var(--tr);}
+.stat-card:hover{transform:translateY(-6px);}
+.stat-num{font-family:'Poppins',sans-serif;font-weight:800;font-size:2rem;color:var(--azul);line-height:1;}
+.stat-lbl{font-family:'Poppins',sans-serif;font-weight:600;font-size:.78rem;color:rgba(16,35,63,.6);margin-top:.4rem;}
+
+/* ══════════ FINAL CTA ══════════ */
+#final-cta{background:linear-gradient(135deg,#0D1D33 0%,#10233F 100%);text-align:center;}
+#final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(0,166,81,.13) 0%,transparent 70%);}
+#final-cta .label{color:var(--verde);}
+#final-cta p{max-width:520px;margin:0 auto 2rem;}
+
+/* ══════════ VOLVER / FOOTER ══════════ */
+#volver-bloque{background:var(--amarillo);padding:46px 5vw;text-align:center;display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;}
+.volver-link{font-family:'Poppins',sans-serif;font-weight:700;font-size:.95rem;color:var(--azul);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.8rem;border-radius:999px;background:rgba(16,35,63,.1);border:2px solid rgba(16,35,63,.2);transition:background var(--tr),border-color var(--tr),transform var(--tr);}
+.volver-link:hover{background:rgba(16,35,63,.18);border-color:rgba(16,35,63,.4);transform:translateY(-2px);}
+
+footer{background:var(--azul);border-top:2px solid rgba(255,210,31,.12);padding:1.7rem 5vw;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;}
+.f-logo{font-family:'Poppins',sans-serif;font-weight:800;color:var(--amarillo);font-size:1.05rem;}
+footer small{color:rgba(255,255,255,.4);font-size:.74rem;}
+.f-links{display:flex;gap:1.3rem;flex-wrap:wrap;}
+.f-links a{color:rgba(255,255,255,.5);text-decoration:none;font-family:'Poppins',sans-serif;font-size:.8rem;font-weight:600;transition:color var(--tr);}
+.f-links a:hover{color:var(--amarillo);}
+
+@media(max-width:600px){
+  .podio-wrap{gap:.4rem;}
+  .podio-avatar{width:44px;height:44px;font-size:1.2rem;}
+  .podio-spot.place-1 .podio-avatar{width:58px;height:58px;font-size:1.5rem;}
+  .podio-name{font-size:.74rem;}
+  .podio-spot.place-1 .podio-name{font-size:.86rem;}
+  .podio-medal{font-size:1.7rem;}
+  .podio-spot.place-1 .podio-medal{font-size:2.2rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+  <a class="nav-logo" href="index.html">Daaaz<span>landia</span> 💛</a>
+  <a class="nav-back nav-back-desktop" href="index.html">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Volver al inicio
+  </a>
+  <button class="ham" id="ham-btn" aria-label="Menú"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">🏡 Volver al inicio</a>
+  <a href="Dinamica de hoy.html">🎁 Dinámica de hoy</a>
+  <a href="#museo">🏛️ Museo de dinámicas</a>
+</div>
+
+<!-- ══ SECCIÓN 1: PORTADA ══ -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div id="confetti-wrap"></div>
+
+  <div class="deco" style="top:-90px;right:-90px;opacity:.1;">
+    <svg width="420" height="420" viewBox="0 0 460 460" fill="none">
+      <circle cx="230" cy="230" r="110" fill="#FFD21F"/>
+      <g stroke="#FFD21F" stroke-width="9" stroke-linecap="round">
+        <line x1="230" y1="20" x2="230" y2="80"/><line x1="230" y1="380" x2="230" y2="440"/>
+        <line x1="20" y1="230" x2="80" y2="230"/><line x1="380" y1="230" x2="440" y2="230"/>
+        <line x1="67" y1="67" x2="107" y2="107"/><line x1="353" y1="353" x2="393" y2="393"/>
+        <line x1="393" y1="67" x2="353" y2="107"/><line x1="107" y1="353" x2="67" y2="393"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="wrap center rv">
+    <div class="pill"><span class="dot"></span>El museo de Daaazlandia</div>
+    <span class="trophy-hero">🏆</span>
+    <h1>Ganadores <span class="amarillo">anteriores</span></h1>
+    <p class="hero-sub">
+      Los habitantes que dejaron su huella en las dinámicas de Daaazlandia 💛
+    </p>
+    <div class="hero-btns">
+      <a class="btn btn-am" href="Dinamica de hoy.html">🎁 Volver a la dinámica</a>
+      <a class="btn btn-out" href="index.html">🏡 Volver al inicio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TICKER ══ -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker-track">
+    <span class="ti">🏆 Ganadores anteriores</span>
+    <span class="ti"><span class="dot2">●</span> Daaazlandia</span>
+    <span class="ti">💛 Recuerdos de la comunidad</span>
+    <span class="ti"><span class="dot2">●</span> Historia compartida</span>
+    <span class="ti">🎶 Momentos que dejaron huella</span>
+    <span class="ti"><span class="dot2">●</span> Habitantes destacados</span>
+    <span class="ti">🏆 Ganadores anteriores</span>
+    <span class="ti"><span class="dot2">●</span> Daaazlandia</span>
+    <span class="ti">💛 Recuerdos de la comunidad</span>
+    <span class="ti"><span class="dot2">●</span> Historia compartida</span>
+    <span class="ti">🎶 Momentos que dejaron huella</span>
+    <span class="ti"><span class="dot2">●</span> Habitantes destacados</span>
+  </div>
+</div>
+
+<!-- ══ SECCIÓN 2: EXPLICACIÓN ══ -->
+<section id="explicacion">
+  <div class="wrap">
+    <div class="sec-head rv center">
+      <div class="label">El archivo de la comunidad</div>
+      <h2>Aquí guardamos los <span class="amarillo">recuerdos</span> 💛</h2>
+      <p style="margin:0 auto;max-width:560px;">
+        Aquí guardamos los recuerdos de cada dinámica. Algunas veces competimos, otras veces simplemente construimos momentos juntos.
+      </p>
+    </div>
+    <div class="aclaracion rv">
+      <span class="ic">🫶</span>
+      <p>No todas las dinámicas tienen ganadores. Algunas existen únicamente para crear recuerdos entre habitantes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECCIÓN 3: MUSEO DE DINÁMICAS ══ -->
+<section id="museo">
+  <div class="wrap">
+    <div class="sec-head rv center">
+      <div class="label">Línea de tiempo</div>
+      <h2>El museo de <span class="amarillo">dinámicas</span> 🏛️</h2>
+      <p style="margin:0 auto;">Cada tarjeta es una dinámica distinta. El podio se adapta según cuántos lugares tuvo cada una.</p>
+    </div>
+
+    <!-- ═ DINÁMICA 1: La carta que nunca enviaste (3 lugares) ═ -->
+    <div class="dinamica-block rv-s">
+      <div class="dinamica-head">
+        <div class="label" style="color:var(--azul-b);margin-bottom:.5rem;">Dinámica registrada</div>
+        <h3>Dinámica de la carta 💌</h3>
+        <p>Una dinámica donde los habitantes compartieron mensajes y crearon un recuerdo especial.</p>
+      </div>
+
+      <div class="podio-wrap">
+        <!-- 2do lugar -->
+        <div class="podio-spot place-2">
+          <div class="podio-medal">🥈</div>
+          <div class="podio-avatar">🙂</div>
+          <div class="podio-name">Hector</div>
+          <div class="podio-place-label">2do lugar</div>
+          <div class="podio-step"><span class="step-num">2</span></div>
+        </div>
+        <!-- 1er lugar -->
+        <div class="podio-spot place-1">
+          <div class="podio-medal gold">🥇</div>
+          <div class="podio-avatar">🌟</div>
+          <div class="podio-name">Alondra</div>
+          <div class="podio-place-label">1er lugar</div>
+          <div class="podio-step"><div class="glow"></div><span class="step-num">1</span></div>
+        </div>
+        <!-- 3er lugar -->
+        <div class="podio-spot place-3">
+          <div class="podio-medal">🥉</div>
+          <div class="podio-avatar">🙂</div>
+          <div class="podio-name">Dana</div>
+          <div class="podio-place-label">3er lugar</div>
+          <div class="podio-step"><span class="step-num">3</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═ DINÁMICA 2: Ejemplo sin ganadores (plantilla) ═ -->
+    <div class="dinamica-block rv-s">
+      <div class="dinamica-head">
+        <div class="label" style="color:var(--verde);margin-bottom:.5rem;">Dinámica registrada</div>
+        <h3>Dinámica del recuerdo compartido 🎶</h3>
+        <p>Un espacio donde los habitantes compartieron canciones y momentos sin que hubiera competencia de por medio.</p>
+      </div>
+
+      <div class="sin-ganadores">
+        <span class="sg-emoji">🫶</span>
+        <h4>Esta dinámica no tuvo ganadores 🫶</h4>
+        <p>Algunas dinámicas no buscan elegir un ganador. Buscan crear recuerdos, conectar habitantes y construir comunidad.</p>
+      </div>
+    </div>
+
+    <!-- ═ DINÁMICA 3: Ejemplo de podio con 5 lugares ═ -->
+    <div class="dinamica-block rv-s">
+      <div class="dinamica-head">
+        <div class="label" style="color:var(--rojo);margin-bottom:.5rem;">Dinámica registrada</div>
+        <h3>Reto musical de Daaazlandia 🎧</h3>
+        <p>Una dinámica con más participación, así que esta vez el podio creció a 5 lugares.</p>
+      </div>
+
+      <div class="podio-wrap">
+        <div class="podio-spot place-4">
+          <div class="podio-medal">🏅</div>
+          <div class="podio-avatar">🙂</div>
+          <div class="podio-name">Renata</div>
+          <div class="podio-place-label">4to lugar</div>
+          <div class="podio-step"><span class="step-num">4</span></div>
+        </div>
+        <div class="podio-spot place-2">
+          <div class="podio-medal">🥈</div>
+          <div class="podio-avatar">🙂</div>
+          <div class="podio-name">Iván</div>
+          <div class="podio-place-label">2do lugar</div>
+          <div class="podio-step"><span class="step-num">2</span></div>
+        </div>
+        <div class="podio-spot place-1">
+          <div class="podio-medal gold">🥇</div>
+          <div class="podio-avatar">🌟</div>
+          <div class="podio-name">Camila</div>
+          <div class="podio-place-label">1er lugar</div>
+          <div class="podio-step"><div class="glow"></div><span class="step-num">1</span></div>
+        </div>
+        <div class="podio-spot place-3">
+          <div class="podio-medal">🥉</div>
+          <div class="podio-avatar">🙂</div>
+          <div class="podio-name">Mateo</div>
+          <div class="podio-place-label">3er lugar</div>
+          <div class="podio-step"><span class="step-num">3</span></div>
+        </div>
+        <div class="podio-spot place-5">
+          <div class="podio-medal">🏅</div>
+          <div class="podio-avatar">🙂</div>
+          <div class="podio-name">Sofía</div>
+          <div class="podio-place-label">5to lugar</div>
+          <div class="podio-step"><span class="step-num">5</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<section id="stats">
+  <div class="wrap">
+    <div class="label">La historia en números</div>
+    <h2>Lo que hemos <span style="text-decoration:underline;text-decoration-color:rgba(16,35,63,.3)">construido</span> juntos</h2>
+    <div class="stats-grid">
+      <div class="stat-card rv-s"><div class="stat-num">2</div><div class="stat-lbl">Dinámicas realizadas</div></div>
+      <div class="stat-card rv-s"><div class="stat-num">3</div><div class="stat-lbl">Habitantes premiados</div></div>
+      <div class="stat-card rv-s"><div class="stat-num">100%</div><div class="stat-lbl">Gratuito siempre</div></div>
+      <div class="stat-card rv-s"><div class="stat-num">∞</div><div class="stat-lbl">Recuerdos creados</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SECCIÓN FINAL ══ -->
+<section id="final-cta">
+  <div class="wrap rv">
+    <div class="label">No te quedes fuera</div>
+    <h2>¿Quieres ver la <span class="amarillo">dinámica actual</span>? 👀</h2>
+    <p>Cada dinámica nueva es una oportunidad más de aparecer aquí, en el museo de Daaazlandia.</p>
+    <a class="btn btn-am" href="Dinamica de hoy.html">🎁 Ver Dinámica de hoy</a>
+  </div>
+</section>
+
+<!-- ══ VOLVER ══ -->
+<div id="volver-bloque" class="rv">
+  <a class="volver-link" href="Dinamica de hoy.html">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Volver a la Dinámica de hoy
+  </a>
+  <a class="volver-link" href="index.html">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Volver al inicio
+  </a>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <span class="f-logo">Daaazlandia 💛</span>
+  <small>Comunidad independiente de fans de Daaz · Organizado con ❤️ por Shaminket</small>
+  <div class="f-links">
+    <a href="Dinamica de hoy.html">Dinámica de hoy</a>
+    <a href="index.html">Inicio</a>
+  </div>
+</footer>
+
+<!-- ══ JS ══ -->
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+
+  /* Navbar scroll */
+  const nav=document.getElementById('navbar');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);},{passive:true});
+
+  /* Hamburger */
+  const hamBtn=document.getElementById('ham-btn');
+  const mobileMenu=document.getElementById('mobile-menu');
+  hamBtn.addEventListener('click',()=>mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+
+  /* Scroll reveal */
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('vis'); io.unobserve(e.target); } });
+  },{threshold:.08});
+  document.querySelectorAll('.rv,.rv-s,.rv-l,.rv-r').forEach((el,i)=>{
+    el.style.transitionDelay=`${(i%5)*70}ms`; io.observe(el);
+  });
+
+  /* Ticker infinito */
+  const track=document.getElementById('ticker-track');
+  if(track){ const clone=track.cloneNode(true); track.parentNode.appendChild(clone); }
+
+  /* Confeti en hero */
+  const confettiWrap=document.getElementById('confetti-wrap');
+  const confColors=['#FFD21F','#009FE3','#00A651','#ED1C24','#FFFFFF'];
+  for(let i=0;i<24;i++){
+    const piece=document.createElement('div');
+    piece.className='confetti-piece';
+    const size=Math.random()*7+4;
+    piece.style.width=size+'px'; piece.style.height=size+'px';
+    piece.style.left=Math.random()*100+'%';
+    piece.style.background=confColors[Math.floor(Math.random()*confColors.length)];
+    piece.style.animationDuration=(Math.random()*4+5)+'s';
+    piece.style.animationDelay=(Math.random()*5)+'s';
+    piece.style.opacity=String(Math.random()*.5+.4);
+    confettiWrap.appendChild(piece);
+  }
+
+  /* Sparkles alrededor del podio 1er lugar */
+  document.querySelectorAll('.podio-spot.place-1').forEach(spot=>{
+    const positions=[{top:'-6px',left:'-10px'},{top:'10px',right:'-14px'},{top:'40%',left:'-18px'}];
+    positions.forEach((pos,i)=>{
+      const sp=document.createElement('span');
+      sp.className='sparkle'; sp.textContent='✨';
+      Object.assign(sp.style,pos,{animationDelay:(i*0.4)+'s'});
+      spot.style.position='relative';
+      spot.appendChild(sp);
+    });
+  });
+
+  /* Stagger delay para spots de podio */
+  document.querySelectorAll('.podio-spot').forEach((el,i)=>{
+    el.style.animationDelay=(i*0.12)+'s';
+  });
+
+  /* Hero canvas: partículas + ondas musicales */
+  const canvas=document.getElementById('hero-canvas');
+  const ctx=canvas.getContext('2d');
+  let W,H;
+  function resize(){ W=canvas.width=canvas.offsetWidth; H=canvas.height=canvas.offsetHeight; }
+  resize();
+  window.addEventListener('resize',resize,{passive:true});
+
+  const COLS=['rgba(255,210,31,','rgba(0,159,227,','rgba(0,166,81,'];
+  class Dot{
+    constructor(){this.reset(true);}
+    reset(init){
+      this.x=Math.random()*W; this.y=init?Math.random()*H:H+10;
+      this.r=Math.random()*2.2+.5; this.vy=-(Math.random()*.45+.1); this.vx=(Math.random()-.5)*.25;
+      this.a=Math.random()*.55+.1; this.l=0; this.max=Math.random()*320+160;
+      this.c=COLS[Math.floor(Math.random()*COLS.length)];
+    }
+    tick(){ this.x+=this.vx; this.y+=this.vy; this.l++; if(this.l>this.max||this.y<-8) this.reset(false); }
+    draw(){
+      const a=this.a*Math.sin((this.l/this.max)*Math.PI);
+      ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+      ctx.fillStyle=this.c+a+')'; ctx.fill();
+    }
+  }
+  const dots=Array.from({length:80},()=>new Dot());
+
+  function drawWaves(t){
+    [[.25,'rgba(255,210,31,',16,3,.045],[.45,'rgba(0,159,227,',20,2.5,.04],[.65,'rgba(0,166,81,',10,4,.03]]
+    .forEach(([yf,c,amp,freq,a])=>{
+      ctx.beginPath(); ctx.moveTo(0,H*yf);
+      for(let x=0;x<=W;x+=3){
+        const y=H*yf+Math.sin((x/W)*Math.PI*freq+t*.7)*amp+Math.cos((x/W)*Math.PI*2+t*.45)*(amp*.5);
+        ctx.lineTo(x,y);
+      }
+      ctx.strokeStyle=c+a+')'; ctx.lineWidth=1.6; ctx.stroke();
+    });
+  }
+
+  let t=0;
+  (function loop(){
+    ctx.clearRect(0,0,W,H);
+    drawWaves(t);
+    dots.forEach(d=>{d.tick();d.draw();});
+    t+=.013;
+    requestAnimationFrame(loop);
+  })();
+
+});
+</script>
+</body>
+</html>
