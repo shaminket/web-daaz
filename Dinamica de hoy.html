@@ -930,7 +930,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   const formSuccess=document.getElementById('form-success');
 
   form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
+
     const nombre=document.getElementById('f-nombre').value.trim();
     const tipo=document.getElementById('f-tipo').value;
     const email=document.getElementById('f-email').value.trim();
@@ -948,8 +948,10 @@ document.addEventListener('DOMContentLoaded',()=>{
       console.error('No se pudo guardar la aportación:', err);
     }
 
+    setTimeout(()=>{
     form.style.display='none';
     formSuccess.classList.add('show');
+},500);
   });
 
 });
